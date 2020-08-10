@@ -1,0 +1,15 @@
+<html xmlns:change="http://www.w3.org/1999/xhtml">
+    <form action="/initialization/initrequest" method="post">
+        <button type="submit">Init Request Scoped Bean</button>
+        i should always change: {requestScopedValue}
+    </form>
+    <form action="/initialization/initsession" method="post">
+        <button type="submit">Init Session Scoped Bean</button>
+        i should only change in new private tab: {sessionScopedValue}
+    </form>
+    <form action="/initialization/initapplication" method="post">
+        <button type="submit">Init Application Scoped Bean</button>
+        i should never change : {applicationScopedValue}
+    </form>
+    <a href="/">back</a>
+</html>
