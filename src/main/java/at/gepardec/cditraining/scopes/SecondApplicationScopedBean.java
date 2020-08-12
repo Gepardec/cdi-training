@@ -1,16 +1,14 @@
 package at.gepardec.cditraining.scopes;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.io.Serializable;
 
-@RequestScoped
-public class SessionScopedBean implements Serializable {
+@ApplicationScoped
+public class SecondApplicationScopedBean {
   private int value = 0;
 
   public int getValue(){
-    value++;
-    return value;
+    return ++value;
   }
 
   // For a later example

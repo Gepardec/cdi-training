@@ -10,7 +10,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/scopes") @Produces(MediaType.TEXT_HTML) public class Scopes {
+@Path("/scopes")
+@Produces(MediaType.TEXT_HTML)
+public class Scopes {
 
   @Inject
   @ResourcePath("scopes/scopesbasic.html")
@@ -36,7 +38,7 @@ import javax.ws.rs.core.MediaType;
   ScopeMixApplication scopeMixApplication;
   @Inject
   @ResourcePath("scopes/scopesadvanced.html")
-  private Template scopeadvanced;
+  Template scopeadvanced;
 
   @GET
   @Path("/advanced")
@@ -45,6 +47,28 @@ import javax.ws.rs.core.MediaType;
         data("requestScopedValue", scopeMixApplication.getScopeMixSession().getScopeMixRequest().getValue()).
         data("sessionScopedValue", scopeMixApplication.getScopeMixSession().getValue()).
         data("applicationScopedValue", scopeMixApplication.getValue());
+  }
+
+
+  @Inject
+  @ResourcePath("scopes/scopesdependent.html")
+  Template scopedependent;
+
+  @Inject
+  SecondApplicationScopedBean secondApplicationScopedBean;
+
+  @GET
+  @Path("/dependent")
+  public TemplateInstance dependent() {
+    return scopedependent.
+        data("dependentBeanRequestScoped", requestScopedBean.getDependentBean()).
+        data("dependentBeanRequestScopedValue", requestScopedBean.getDependentBean().getValue()).
+        data("dependentBeanSessionScoped", sessionScopedBean.getDependentBean()).
+        data("dependentBeanSessionScopedValue", sessionScopedBean.getDependentBean().getValue()).
+        data("dependentBeanApplicationScoped", applicationScopedBean.getDependentBean()).
+        data("dependentBeanApplicationScopedValue", applicationScopedBean.getDependentBean().getValue()).
+        data("dependentBeanSecondApplicationScoped", secondApplicationScopedBean.getDependentBean()).
+        data("dependentBeanSecondApplicationScopedValue", secondApplicationScopedBean.getDependentBean().getValue());
   }
 
 }
