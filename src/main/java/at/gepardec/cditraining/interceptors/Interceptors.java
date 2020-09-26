@@ -15,21 +15,34 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.TEXT_HTML)
 @FirstIntercept
 @SecondIntercept
+@BindingInterceptor(type = "ONE")
 public class Interceptors {
 
-  @Inject
-  @ResourcePath("interceptors/interceptors.html")
-  Template interceptors;
+    @Inject
+    @ResourcePath("interceptors/interceptors.html")
+    Template interceptors;
 
-  @GET
-  public TemplateInstance basic() {
-    return interceptors.instance();
-  }
+    @GET
+    public TemplateInstance basic() {
+        return interceptors.instance();
+    }
 
-  @POST
-  @Path("/error")
-  public TemplateInstance error() {
-    throw new RuntimeException("error");
-  }
+    @POST
+    @Path("/logging")
+    public TemplateInstance logging() {
+        return interceptors.instance();
+    }
+
+    @POST
+    @Path("/loggedAndHandled")
+    public TemplateInstance loggedAndHandled() {
+        throw new RuntimeException("error");
+    }
+
+    @POST
+    @Path("/error")
+    public TemplateInstance error() {
+        throw new RuntimeException("error");
+    }
 
 }
