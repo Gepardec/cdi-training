@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/initialization")
 @Produces(MediaType.TEXT_HTML)
-public class Initialization {
+public class InitializationResource {
 
   @Inject
   @ResourcePath("initialization/initializationbasic.html")

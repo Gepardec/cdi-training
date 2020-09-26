@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/qualifiers")
 @Produces(MediaType.TEXT_HTML)
-public class Qualifiers {
+public class QualifierResource {
 
   @Inject
   @ResourcePath("qualifiers/qualifiers.html")

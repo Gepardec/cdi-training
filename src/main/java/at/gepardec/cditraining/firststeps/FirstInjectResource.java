@@ -8,7 +8,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("/firstinject")
-public class FirstInject {
+public class FirstInjectResource {
 
     InjectMe injectMe = new InjectMe();
 

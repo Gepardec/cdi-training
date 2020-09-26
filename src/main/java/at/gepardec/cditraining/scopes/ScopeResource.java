@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/scopes")
 @Produces(MediaType.TEXT_HTML)
-public class Scopes {
+public class ScopeResource {
 
   @Inject
   @ResourcePath("scopes/scopesbasic.html")
