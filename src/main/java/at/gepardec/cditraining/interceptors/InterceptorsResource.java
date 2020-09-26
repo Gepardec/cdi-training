@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 @FirstIntercept
 @SecondIntercept
 @BindingInterceptor(type = "ONE")
-public class Interceptors {
+public class InterceptorsResource {
 
     @Inject
     @ResourcePath("interceptors/interceptors.html")

@@ -1,0 +1,69 @@
+<html>
+<section>
+    <h1>Events</h1>
+    <article>
+        <h2>This classes and annotations are your reference reference</h2>
+        <p><code>at.gepardec.cditraining.events.EventData</code></p>
+        <p><code>at.gepardec.cditraining.events.EventObserver</code></p>
+    </article>
+    <section>
+        <h2>Basic</h2>
+        <article>
+            <h3>Synchronous event on GET request</h3>
+            <p>Fire an event in the <code>get</code> method in <code>at.gepardec.cditraining.events.EventResource</code>
+            </p>
+            <p>The event is observed in <code>at.gepardec.cditraining.events.EventObserver</code></p>
+            <p>When finished refresh the page and the logs should contain the message
+                <code>Synchronous Message received. Message: '&lt;YOUR_MESSAGE&gt;'</code>
+            </p>
+        </article>
+        <article>
+            <h3>Asynchronous event on GET request</h3>
+            <p>As you have experienced there is a 3 second delay in the GET request we need to get rid of</p>
+            <p>Modify the implementation to fire and observe asynchronous events</p>
+            <p>When finished refresh the page and the logs should contain the message <code>Message received. Message: '&lt;YOUR_MESSAGE&gt;'
+            </code> additionally you shouldn't have experienced any delay
+            </p>
+        </article>
+        <form action="/events" method="get">
+            <button type="submit">Refresh</button>
+        </form>
+    </section>
+    <section>
+        <h2>Extended</h2>
+        <article>
+            <h3>Your custom event</h3>
+            <p>Implement a class called <code>EventDataOne</code> which implements the interface <code>at.gepardec.cditraining.events.EventData</code>
+            </p>
+            <p>Implement a observer method in <code>at.gepardec.cditraining.events.EventObserver</code> and log a
+                message</p>
+            <p>Fire an event of type <code>EventDataOne</code> in the <code>eventSingle</code> method in
+                <code>at.gepardec.cditraining.events.EventResource</code>
+            <p>When finished implementing hit the button below there should be your logging message the logs</p>
+
+            <form action="/events/eventSingle" method="get">
+                <button type="submit">Trigger Single Eevent</button>
+            </form>
+        </article>
+        <article>
+            <h3>Observer for multiple events</h3>
+            <p>Implement a class called <code>EventDataSecond</code> which implements the interface
+                <code>at.gepardec.cditraining.events.EventData</code>
+            </p>
+            <p>Implement a observer method in <code>at.gepardec.cditraining.events.EventObserver</code> which is called
+                for all of your implemented event types</p>
+            <p>Implement a observer method in <code>at.gepardec.cditraining.events.EventObserver</code> which is called
+                for events of type <code>EVentDataTwo</code></p>
+            <p>Fire an event of type <code>EventDataSecond</code> in the <code>eventMultiple</code> method in <code>at.gepardec.cditraining.events.EventResource</code>
+            <p>When finished implementing hit the button below there should be two logging messages the logs</p>
+
+            <form action="/events/eventMultiple" method="get">
+                <button type="submit">Trigger Multiple Events</button>
+            </form>
+        </article>
+    </section>
+</section>
+
+<a href="/">back</a>
+
+</html>

@@ -3,7 +3,7 @@
         <h1>Interceptors</h1>
         <article>
             <h2>This classes and annotations are your reference reference</h2>
-            <p><code>at.gepardec.cditraining.interceptors.Interceptors</code></p>
+            <p><code>at.gepardec.cditraining.interceptors.InterceptorsResource</code></p>
             <p><code>at.gepardec.cditraining.interceptors.FirstInterceptor</code></p>
             <p><code>at.gepardec.cditraining.interceptors.FirstIntercept</code></p>
             <p><code>at.gepardec.cditraining.interceptors.SecondInterceptor</code></p>
@@ -23,8 +23,8 @@
             <article>
                 <h3>Implement an interceptor for exception handling</h3>
                 <p>Now create your own interceptor <code>ExceptionInterceptor</code> and InterceptorBinding <code>ExceptionHandler</code></p>
-                <p>This interceptor should intercept the method <code>error</code> in <code>at.gepardec.cditraining.interceptors.Interceptors</code></p>
-                <p>In the interceptor a <code>TemplateInstance</code> like in <code>at.gepardec.cditraining.interceptors.Interceptors</code> is returned with <code>return interceptors.data("error",...)</code></p>
+                <p>This interceptor should intercept the method <code>error</code> in <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code></p>
+                <p>In the interceptor a <code>TemplateInstance</code> like in <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code> is returned with <code>return interceptors.data("error",...)</code></p>
                 <p>When finished implementing hit the button below and there should be a message displayed on this page just below and not a stacktrace</p>
             </article>
 
@@ -39,7 +39,7 @@
             <article>
                 <h3>Implement a logging interceptor with an attribute named <code>prefix</code></h3>
                 <p>Now create your own interceptor <code>LoggingInterceptor</code> and InterceptorBinding <code>Logging</code></p>
-                <p>This interceptor should intercept the method <code>logging</code> in <code>at.gepardec.cditraining.interceptors.Interceptors</code></p>
+                <p>This interceptor should intercept the method <code>logging</code> in <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code></p>
                 <p>When finished implementing hit the button below there should be your logging message with your prefix in the logs</p>
                 <p><strong>Remember the interceptor resolution!!</strong></p>
 
@@ -50,7 +50,7 @@
 
             <article>
                 <h3>Logging and exception handling</h3>
-                <p>Apply your <code>@Logging</code> <code>@ExceptionHandler</code> annotation <strong>(in that order)</strong> on the method <code>loggedAndHandled</code> in <code>at.gepardec.cditraining.interceptors.Interceptors</code></p>
+                <p>Apply your <code>@Logging</code> <code>@ExceptionHandler</code> annotation <strong>(in that order)</strong> on the method <code>loggedAndHandled</code> in <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code></p>
                 <p>Enhance your <code>LoggingInterceptor</code> implementation so that it logs the exception</p>
                 <p>Add a log message in the catch block of your <code>ExceptionHandlerInterceptor</code> so that you see that an exception gets handled</p>
                 <p>When finished implementing hit the button below there should be your logging message with your prefix in the logs as well as the exception handler logs</p>
