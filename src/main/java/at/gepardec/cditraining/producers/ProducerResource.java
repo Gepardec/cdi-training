@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/producers")
 @Produces(MediaType.TEXT_HTML)
-public class Producers {
+public class ProducerResource {
 
   @Inject
   @ResourcePath("producers/producers.html")

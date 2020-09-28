@@ -1,6 +1,7 @@
 package at.gepardec.cditraining.interceptors;
 
 import org.slf4j.Logger;
+import org.slf4j.MDC;
 
 import javax.annotation.Priority;
 import javax.inject.Inject;
@@ -9,18 +10,19 @@ import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
 @Interceptor
-@SecondIntercept
+@BindingInterceptor(type = "TWO")
 @Priority(Interceptor.Priority.APPLICATION)
-public class SecondInterceptor {
+public class BindingInterceptorTwo {
 
     @Inject
     Logger logger;
 
     @AroundInvoke
     public Object intercept(InvocationContext ic) throws Exception {
-        logger.info("SecondInterceptor start");
-        final Object result = ic.proceed();
-        logger.info("SecondInterceptor end");
-        return result;
+        logger.info("BindingInterceptorTwo start");
+        Object proceed = ic.proceed();
+        logger.info("BindingInterceptorTwo end");
+
+        return proceed;
     }
 }
