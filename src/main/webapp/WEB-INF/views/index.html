@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<head th:insert="/WEB-INF/fragments/general.html :: head (title='CDI Training')"/>
+
+<body>
+<section>
+    <div class="container">
+        <div class="row m-5">
+            <div class="col">
+                <header class="text-center">
+                    <h1>Welcome to the CDI Training</h1>
+                </header>
+            </div>
+        </div>
+        <div class="row m-1">
+            <div class="col">
+                <article>
+                    <h3>Injection</h3>
+
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/inject-field}, text='Your first inject')"/>
+
+                    <p>You will get an error -> fix it :-D
+                        <code>src/main/java/at/gepardec/cditraining/inject/InjectModel.java</code></p>
+
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/inject-constructor}, text='Constructor injection')"/>
+
+                    <p>You will get an error -> fix it :-D
+                        <code>src/main/java/at/gepardec/cditraining/inject/ConstructorInject.java</code></p>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <h1>TODO: Migrate to thymeleaf and bootstrap</h1>
+
+    <div class="container">
+        <div>
+            <h5><a href="WEB-INF/views/scopes/basic">Scopes</a></h5>
+
+            <p>Values should change as described -> fix it :-D</p>
+            <p><code>src/main/java/at/gepardec/cditraining/scopes/RequestScopedBean.java</code></p>
+            <p><code>src/main/java/at/gepardec/cditraining/scopes/SessionScopedBean.java</code></p>
+            <p><code>src/main/java/at/gepardec/cditraining/scopes/ApplicationScopedBean.java</code></p>
+
+            <h5><a href="WEB-INF/views/scopes/advanced">Scopes Advanced</a></h5>
+
+            <p>Mixing Scopes</p>
+            <p><code>src/main/java/at/gepardec/cditraining/scopes/ScopeMixApplication</code></p>
+            <p><code>src/main/java/at/gepardec/cditraining/scopes/ScopeMixSession</code></p>
+            <p><code>src/main/java/at/gepardec/cditraining/scopes/ScopeMixRequest</code></p>
+            <p>have a look at <a href="https://riptutorial.com/cdi/topic/9641/scopes"> Scopes</a></p>
+            <p>try to debug the code and find the proxy</p>
+
+            <h5><a href="WEB-INF/views/scopes/dependent">Dependent Scope</a></h5>
+
+            <p><code>Like Scopes</code></p>
+            <p><code>src/main/java/at/gepardec/cditraining/scopes/SecondApplicationScopedBean.java</code></p>
+            <p><code>src/main/java/at/gepardec/cditraining/scopes/DependentBean.java</code></p>
+            <p>have a look at <a href="https://www.adam-bien.com/roller/abien/entry/what_is_dependent_scope">Dependent
+                Scope</a></p>
+
+            <h5><a href="WEB-INF/views/initialization/basic">Initialization Basic</a></h5>
+
+            <p><code>src/main/java/at/gepardec/cditraining/initialization/InitRequestScopedBean.java</code></p>
+            <p><code>src/main/java/at/gepardec/cditraining/initialization/InitSessionScopedBean.java</code></p>
+            <p><code>src/main/java/at/gepardec/cditraining/initialization/InitApplicationScopedBean.java</code>
+            </p>
+            <p>have a look at <a href="https://javaee.github.io/tutorial/cdi-basic014.html">Using PostConstruct
+                and
+                PreDestroy</a></p>
+            <p>also have a look at the logs.</p>
+
+            <h5><a href="WEB-INF/views/qualifiers/basic">Qualifiers</a></h5>
+            <p><code>src/main/java/at/gepardec/cditraining/qualifiers/*</code></p>
+            <p>have a look at <a
+                    href="https://www.baeldung.com/java-ee-cdi#5-the-default-and-alternative-annotations">The
+                @Default and @Alternative Annotations</a></p>
+            <p>or at <a href="https://www.baeldung.com/java-ee-cdi#custom-qualifiers">Custom Qualifiers</a></p>
+
+            <h5><a href="producers">Producers</a></h5>
+            <p><code>src/main/java/at/gepardec/cditraining/producers/Producers.java</code></p>
+            <p><code>src/main/java/at/gepardec/cditraining/producers/Factory.java</code></p>
+            <p><code>src/main/java/at/gepardec/cditraining/producers/ProducedBean.java</code></p>
+            <p>have a look at <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_field">Producer
+                fields</a>
+            </p>
+            <p>and <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_method">Producer
+                methods</a></p>
+
+            <h5><a href="interceptors">Interceptors</a></h5>
+            <p><code>src/main/java/at/gepardec/cditraining/interceptors/*</code></p>
+            <p>have a look at <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#_interceptor_example">Interceptor
+                example</a></p>
+            <p>have a look at <a
+                    href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#interceptor_resolution">Interceptor
+                resolution</a></p>
+
+            <h5><a href="events">Events</a></h5>
+            <p><code>src/main/java/at/gepardec/cditraining/events/*</code></p>
+            <p>have a look at <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#events">Events</a></p>
+        </div>
+
+        <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
+    </div>
+</section>
+</body>
+</html>

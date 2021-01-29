@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<head th:insert="/WEB-INF/fragments/general.html :: head (title='CDI Training - Field Inj.')"/>
+<!--/*@thymesVar id="name" type="java.lang.String"*/-->
+
+<body>
+
+<section>
+    <div class="container">
+        <div class="row m-5">
+            <div class="col">
+                <header class="text-center">
+                    <h1>Injection a field</h1>
+                </header>
+            </div>
+        </div>
+
+        <div class="row m-2 text-center">
+            <div class="col">
+                <article>
+                    <h3 th:text="${name}"/>
+
+                    <p>See <a href="https://www.javablog.be/inject-nullpointerexception/inject-field.html">When using CDI in some places,
+                        you
+                        have to use it
+                        everywhere</a> for more information<br/>
+                </article>
+            </div>
+        </div>
+        <div class="row m-2 text-center">
+            <div class="col">
+                <div th:replace="/WEB-INF/fragments/general.html :: footer(href=@{/index})"/>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
+</body>
+</html>
