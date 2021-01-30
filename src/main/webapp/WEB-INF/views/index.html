@@ -67,7 +67,8 @@
                             </code>
                         </p>
                         <p>
-                            have a look at <a href="https://riptutorial.com/cdi/topic/9641/scopes" target="_blank"> Scopes</a> try to
+                            have a look at <a href="https://riptutorial.com/cdi/topic/9641/scopes" target="_blank">
+                            Scopes</a> try to
                             debug
                             the code and find the proxy
                         </p>
@@ -76,6 +77,22 @@
 
                     <hr class="mt-3 mb-3"/>
 
+                    <div class="mt-2 mb-3">
+                        <p>
+                            Pseudo-Scope Dependent
+                            <code>
+                                src/main/java/at/gepardec/cditraining/scopes/SecondApplicationScopedBean.java
+                                src/main/java/at/gepardec/cditraining/scopes/DependentBean.java
+                            </code>
+                        </p>
+                        <p>
+                            have a look at <a
+                                href="https://www.adam-bien.com/roller/abien/entry/what_is_dependent_scope"
+                                target="_blank">
+                            Dependent Scope</a>
+                        </p>
+                        <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/dependent}, text='Pseudo-Scope Dependent')"/>
+                    </div>
                 </article>
             </div>
         </div>
@@ -85,14 +102,6 @@
 
     <div class="container">
         <div>
-            <h5><a href="WEB-INF/views/scopes/dependent">Dependent Scope</a></h5>
-
-            <p><code>Like Scopes</code></p>
-            <p><code>src/main/java/at/gepardec/cditraining/scopes/SecondApplicationScopedBean.java</code></p>
-            <p><code>src/main/java/at/gepardec/cditraining/scopes/DependentBean.java</code></p>
-            <p>have a look at <a href="https://www.adam-bien.com/roller/abien/entry/what_is_dependent_scope">Dependent
-                Scope</a></p>
-
             <h5><a href="WEB-INF/views/initialization/basic">Initialization Basic</a></h5>
 
             <p><code>src/main/java/at/gepardec/cditraining/initialization/InitRequestScopedBean.java</code></p>

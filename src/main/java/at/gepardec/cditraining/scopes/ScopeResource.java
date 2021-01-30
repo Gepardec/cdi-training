@@ -16,6 +16,7 @@ public class ScopeResource {
     @Inject
     private Models model;
 
+    // Scope Basic Example
     @Inject
     private RequestScopedBean requestScopedBean;
 
@@ -25,8 +26,13 @@ public class ScopeResource {
     @Inject
     private ApplicationScopedBean applicationScopedBean;
 
+    // Scope Advanced Example
     @Inject
     private ScopeMixApplication scopeMixApplication;
+
+    // Scope Dependent Example
+    @Inject
+    private SecondApplicationScopedBean secondApplicationScopedBean;
 
     @GET
     @Path("/basic")
@@ -50,27 +56,18 @@ public class ScopeResource {
         return "scopes/scopes.html";
     }
 
-//
-//
-//  @Inject
-//  @ResourcePath("scopes/scopesdependent.html")
-//  Template scopedependent;
-//
-//  @Inject
-//  SecondApplicationScopedBean secondApplicationScopedBean;
-//
-//  @GET
-//  @Path("/dependent")
-//  public TemplateInstance dependent() {
-//    return scopedependent.
-//        data("dependentBeanRequestScoped", requestScopedBean.getDependentBean()).
-//        data("dependentBeanRequestScopedValue", requestScopedBean.getDependentBean().getValue()).
-//        data("dependentBeanSessionScoped", sessionScopedBean.getDependentBean()).
-//        data("dependentBeanSessionScopedValue", sessionScopedBean.getDependentBean().getValue()).
-//        data("dependentBeanApplicationScoped", applicationScopedBean.getDependentBean()).
-//        data("dependentBeanApplicationScopedValue", applicationScopedBean.getDependentBean().getValue()).
-//        data("dependentBeanSecondApplicationScoped", secondApplicationScopedBean.getDependentBean()).
-//        data("dependentBeanSecondApplicationScopedValue", secondApplicationScopedBean.getDependentBean().getValue());
-//  }
+    @GET
+    @Path("/dependent")
+    public String dependent() {
+        model.put("dependentBeanRequestScoped", requestScopedBean.dependentBean());
+        model.put("dependentBeanRequestScopedValue", requestScopedBean.dependentBean().incrementAndGet());
+        model.put("dependentBeanSessionScoped", sessionScopedBean.dependentBean());
+        model.put("dependentBeanSessionScopedValue", sessionScopedBean.dependentBean().incrementAndGet());
+        model.put("dependentBeanApplicationScoped", applicationScopedBean.dependentBean());
+        model.put("dependentBeanApplicationScopedValue", applicationScopedBean.dependentBean().incrementAndGet());
+        model.put("dependentBeanSecondApplicationScoped", secondApplicationScopedBean.dependentBean());
+        model.put("dependentBeanSecondApplicationScopedValue", secondApplicationScopedBean.dependentBean().incrementAndGet());
 
+        return "scopes/scopes-dependent.html";
+    }
 }
