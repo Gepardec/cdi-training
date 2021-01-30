@@ -5,17 +5,17 @@ import javax.inject.Inject;
 
 @ApplicationScoped
 public class SecondApplicationScopedBean {
-  private int value = 0;
+    // For a later example
+    @Inject
+    private DependentBean dependentBean;
 
-  public int getValue(){
-    return ++value;
-  }
+    private int value = 0;
 
-  // For a later example
-  @Inject
-  DependentBean dependentBean;
-
-  public DependentBean getDependentBean() {
-    return dependentBean;
-  }
+    public int incrementAndGet() {
+        return ++value;
+    }
+    
+    public DependentBean dependentBean() {
+        return dependentBean;
+    }
 }

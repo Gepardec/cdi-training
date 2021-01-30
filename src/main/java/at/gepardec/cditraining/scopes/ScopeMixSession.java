@@ -8,15 +8,15 @@ import java.io.Serializable;
 public class ScopeMixSession implements Serializable {
 
   @Inject
-  ScopeMixRequest scopeMixRequest;
+  private ScopeMixRequest scopeMixRequest;
 
   private int value = 0;
 
-  public ScopeMixRequest getScopeMixRequest() {
+  public ScopeMixRequest scopeMixRequest() {
     return scopeMixRequest;
   }
 
-  public int getValue() {
+  public int incrementAndGet() {
     return ++value;
   }
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<head th:insert="/WEB-INF/fragments/general.html :: head (title='CDI Training - Field Inj.')"/>
+<!--/*@thymesVar id="dependentBeanRequestScoped" type="at.gepardec.cditraining.scopes.DependentBean"*/-->
+<!--/*@thymesVar id="dependentBeanSessionScoped" type="at.gepardec.cditraining.scopes.DependentBean"*/-->
+<!--/*@thymesVar id="dependentBeanApplicationScoped" type="at.gepardec.cditraining.scopes.DependentBean"*/-->
+<!--/*@thymesVar id="dependentBeanSecondApplicationScoped" type="at.gepardec.cditraining.scopes.DependentBean"*/-->
+
+<body>
+<section>
+    <div class="container text-center">
+        <div class="row m-5">
+            <div class="col">
+                <header>
+                    <h1>Pseudo-Scope Dependent</h1>
+                </header>
+            </div>
+        </div>
+
+        <div class="row m-2">
+            <div class="col">
+                <article>
+                    <h4>
+                        Same class DependentBean injected into different scoped beans
+                    </h4>
+
+                    <hr class="mt-3 mb-3"/>
+
+                    <div class="row m-1">
+                        <div class="col text-right mr-1">
+                            <p>dependentBeanRequestScoped BEAN: </p>
+                        </div>
+                        <div class="col text-left ml-1">
+                            <span th:text="${dependentBeanRequestScoped}" class="font-weight-bold"/>
+                        </div>
+                    </div>
+                    <div class="row m-1">
+                        <div class="col text-right mr-1">
+                            <p>dependentBeanSessionScoped BEAN: </p>
+                        </div>
+                        <div class="col text-left ml-1">
+                            <span th:text="${dependentBeanSessionScoped}" class="font-weight-bold"/>
+                        </div>
+                    </div>
+                    <div class="row m-1">
+                        <div class="col text-right mr-1">
+                            <p>dependentBeanApplicationScoped BEAN: </p>
+                        </div>
+                        <div class="col text-left ml-1">
+                            <span th:text="${dependentBeanApplicationScoped}" class="font-weight-bold"/>
+                        </div>
+                    </div>
+                    <div class="row m-1">
+                        <div class="col text-right mr-1">
+                            <p>dependentBeanSecondApplicationScopedValue BEAN: </p>
+                        </div>
+                        <div class="col text-left ml-1">
+                            <span th:text="${dependentBeanSecondApplicationScoped}" class="font-weight-bold"/>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="row m-2 text-center">
+            <div class="col">
+                <div th:replace="/WEB-INF/fragments/general.html :: footer(href=@{/index})"/>
+            </div>
+        </div>
+    </div>
+</section>
+</body>

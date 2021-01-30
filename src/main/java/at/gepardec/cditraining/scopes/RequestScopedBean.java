@@ -5,18 +5,18 @@ import javax.inject.Inject;
 
 @RequestScoped
 public class RequestScopedBean {
-  private int value = 0;
 
-  public int getValue(){
-    value++;
-    return value;
-  }
+    // For a later example
+    @Inject
+    private DependentBean dependentBean;
 
-  // For a later example
-  @Inject
-  DependentBean dependentBean;
+    private int value = 0;
 
-  public DependentBean getDependentBean() {
-    return dependentBean;
-  }
+    public int incrementAndGet() {
+        return ++value;
+    }
+
+    public DependentBean dependentBean() {
+        return dependentBean;
+    }
 }

@@ -1,53 +1,55 @@
 package at.gepardec.cditraining.scopes;
 
-//import io.quarkus.qute.Template;
-//import io.quarkus.qute.TemplateInstance;
-//import io.quarkus.qute.api.ResourcePath;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.mvc.Controller;
+import javax.mvc.Models;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
 @Path("/scopes")
-@Produces(MediaType.TEXT_HTML)
+@RequestScoped
+@Controller
 public class ScopeResource {
-//
-//  @Inject
-//  @ResourcePath("scopes/scopesbasic.html")
-//  Template scopesbasic;
-//  @Inject
-//  RequestScopedBean requestScopedBean;
-//  @Inject
-//  SessionScopedBean sessionScopedBean;
-//  @Inject
-//  ApplicationScopedBean applicationScopedBean;
-//
-//  @GET
-//  @Path("/basic")
-//  public TemplateInstance basic() {
-//    return scopesbasic.
-//        data("requestScopedValue", requestScopedBean.getValue()).
-//        data("sessionScopedValue", sessionScopedBean.getValue()).
-//        data("applicationScopedValue", applicationScopedBean.getValue());
-//  }
-//
-//
-//  @Inject
-//  ScopeMixApplication scopeMixApplication;
-//  @Inject
-//  @ResourcePath("scopes/scopesadvanced.html")
-//  Template scopeadvanced;
-//
-//  @GET
-//  @Path("/advanced")
-//  public TemplateInstance advanced() {
-//    return scopeadvanced.
-//        data("requestScopedValue", scopeMixApplication.getScopeMixSession().getScopeMixRequest().getValue()).
-//        data("sessionScopedValue", scopeMixApplication.getScopeMixSession().getValue()).
-//        data("applicationScopedValue", scopeMixApplication.getValue());
-//  }
+
+    @Inject
+    private Models model;
+
+    @Inject
+    private RequestScopedBean requestScopedBean;
+
+    @Inject
+    private SessionScopedBean sessionScopedBean;
+
+    @Inject
+    private ApplicationScopedBean applicationScopedBean;
+
+    @Inject
+    private ScopeMixApplication scopeMixApplication;
+
+    @GET
+    @Path("/basic")
+    public String getBasic() {
+        model.put("scopesType", "Basic");
+        model.put("requestScopedValue", requestScopedBean.incrementAndGet());
+        model.put("sessionScopedValue", sessionScopedBean.incrementAndGet());
+        model.put("applicationScopedValue", applicationScopedBean.incrementAndGet());
+
+        return "scopes/scopes.html";
+    }
+
+    @GET
+    @Path("/advanced")
+    public String advanced() {
+        model.put("scopesType", "Advanced");
+        model.put("requestScopedValue", scopeMixApplication.scopeMixSession().scopeMixRequest().incrementAndGet());
+        model.put("sessionScopedValue", scopeMixApplication.scopeMixSession().incrementAndGet());
+        model.put("applicationScopedValue", scopeMixApplication.incrementAndGet());
+
+        return "scopes/scopes.html";
+    }
+
 //
 //
 //  @Inject

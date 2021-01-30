@@ -7,15 +7,15 @@ import javax.inject.Inject;
 public class ScopeMixApplication {
 
   @Inject
-  ScopeMixSession scopeMixSession;
+  private ScopeMixSession scopeMixSession;
 
   private int value = 0;
 
-  public int getValue() {
+  public int incrementAndGet() {
     return ++value;
   }
 
-  public ScopeMixSession getScopeMixSession() {
+  public ScopeMixSession scopeMixSession() {
     return scopeMixSession;
   }
 }

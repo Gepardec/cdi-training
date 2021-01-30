@@ -7,7 +7,7 @@ public class ScopeMixRequest {
 
   private int value = 0;
 
-  public int getValue() {
+  public int incrementAndGet() {
     return ++value;
   }
 }

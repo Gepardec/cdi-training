@@ -6,9 +6,9 @@ import java.io.Serializable;
 @Dependent
 public class DependentBean implements Serializable {
 
-  int value = 0;
+    int value = 0;
 
-  public int getValue() {
-    return ++value;
-  }
+    public int incrementAndGet() {
+        return ++value;
+    }
 }

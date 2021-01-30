@@ -15,6 +15,10 @@ public class InjectConstructorResource {
 
     private final InjectModel model;
 
+    public InjectConstructorResource() {
+        this(null);
+    }
+
     public InjectConstructorResource(InjectModel model) {
         this.model = model;
     }
