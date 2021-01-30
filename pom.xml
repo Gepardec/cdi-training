@@ -135,9 +135,9 @@
                 <configuration>
                     <version>${wildfly.version}</version>
                     <javaOpts>
-                        <javaOpt>-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=y</javaOpt>
+                        <javaOpt>-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n</javaOpt>
                     </javaOpts>
-                    <targetDir></targetDir>
+                    <timeout>120</timeout>
                 </configuration>
             </plugin>
 
