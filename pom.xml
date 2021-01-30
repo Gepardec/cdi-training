@@ -19,6 +19,7 @@
         <wildfly.version>22.0.0.Final</wildfly.version>
         <krazo.version>1.1.0</krazo.version>
         <krazo-ext-thymeleaf.version>1.1.0</krazo-ext-thymeleaf.version>
+        <commons-lang3.version>3.11</commons-lang3.version>
 
         <!-- Plugin Properties -->
         <maven.compiler.parameters>true</maven.compiler.parameters>
@@ -101,6 +102,12 @@
             <artifactId>krazo-thymeleaf</artifactId>
             <version>${krazo-ext-thymeleaf.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
         </dependency>
 
     </dependencies>

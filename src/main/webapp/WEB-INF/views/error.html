@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<head th:insert="/WEB-INF/fragments/general.html :: head (title='CDI Training - Field Inj.')"/>
+<!--/*@thymesVar id="path" type="java.lang.String"*/-->
+<!--/*@thymesVar id="uriInfo" type="javax.ws.rs.core.UriInfo"*/-->
+<!--/*@thymesVar id="exceptionName" type="java.lang.String"*/-->
+<!--/*@thymesVar id="exceptionMessage" type="java.lang.String"*/-->
+<!--/*@thymesVar id="stackTrace" type="java.lang.String"*/-->
+<!--/*@thymesVar id="status" type="java.lang.String"*/-->
+
+<body>
+
+<section class="text-left">
+    <div class="container">
+        <div class="row m-5">
+            <div class="col text-center">
+                <header>
+                    <h1>Ups, an error has occurred :(</h1>
+                </header>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="col text-center">
+                <div th:replace="/WEB-INF/fragments/general.html :: button(href=@{/index}, text='To Start')"/>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="col">
+                <h5>HTTP-Status: </h5>
+                <span th:text="${status}"/>
+            </div>
+        </div>
+        <div class="row m-3">
+            <div class="col">
+                <h5>URI: </h5>
+                <span th:text="${path}"/>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="col">
+                <h5>Exception: </h5>
+                <span th:text="${exceptionName}"/>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="col">
+                <h5>Message: </h5>
+                <span th:text="${exceptionMessage}"/>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="col">
+                <h5>Stacktrace: </h5>
+                <pre th:text="${stackTrace}"/>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
+</body>
+</html>
