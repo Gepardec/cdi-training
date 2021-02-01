@@ -14,11 +14,11 @@ public class InitRequestScopedBean {
 
   @PostConstruct
   public void init(){
-    log.info(this.getClass() + " got initialized");
+    log.info(this.getClass().getSimpleName() + " got initialized");
   }
 
   @PreDestroy
   public void destroy(){
-    log.info(this.getClass() + " got destroyed");
+    log.info(this.getClass().getSimpleName() + " got destroyed");
   }
 }

@@ -1,51 +1,35 @@
 package at.gepardec.cditraining.initialization;
 
-//import io.quarkus.qute.Template;
-//import io.quarkus.qute.TemplateInstance;
-//import io.quarkus.qute.api.ResourcePath;
 
 import javax.inject.Inject;
+import javax.mvc.Controller;
+import javax.mvc.Models;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
 @Path("/initialization")
-@Produces(MediaType.TEXT_HTML)
+@Controller
 public class InitializationResource {
 
-//  @Inject
-//  @ResourcePath("initialization/initializationbasic.html")
-//  Template              initializationbasic;
-//  @Inject
-//  InitRequestScopedBean initRequestScopedBean;
-//  @Inject
-//  InitSessionScopedBean initSessionScopedBean;
-//  @Inject
-//  InitApplicationScopedBean initApplicationScopedBean;
-//
-//  @GET
-//  @Path("/basic")
-//  public TemplateInstance basic() {
-//    return initializationbasic.instance();
-//  }
-//
-//  @POST
-//  @Path("/initrequest")
-//  public TemplateInstance initRequest(){
-//    return initializationbasic.data("requestScopedValue", initRequestScopedBean);
-//  }
-//
-//  @POST
-//  @Path("/initsession")
-//  public TemplateInstance initSession(){
-//    return initializationbasic.data("sessionScopedValue", initSessionScopedBean);
-//  }
-//
-//  @POST
-//  @Path("/initapplication")
-//  public TemplateInstance initApplication(){
-//    return initializationbasic.data("applicationScopedValue", initApplicationScopedBean);
-//  }
+    @Inject
+    private Models model;
+
+    @Inject
+    private InitRequestScopedBean initRequestScopedBean;
+
+    @Inject
+    private InitSessionScopedBean initSessionScopedBean;
+
+    @Inject
+    private InitApplicationScopedBean initApplicationScopedBean;
+
+    @GET
+    @Path("/")
+    public String get() {
+        model.put("requestScopedValue", initRequestScopedBean);
+        model.put("sessionScopedValue", initSessionScopedBean);
+        model.put("applicationScopedValue", initApplicationScopedBean);
+
+        return "initialization/initialization.html";
+    }
 }

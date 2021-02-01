@@ -10,15 +10,15 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class InitApplicationScopedBean {
 
-  private final Logger log = LoggerFactory.getLogger(this.getClass());
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-  @PostConstruct
-  public void init(){
-    log.info(this.getClass() + " got initialized");
-  }
+    @PostConstruct
+    public void init() {
+        log.info(this.getClass().getSimpleName() + " got initialized");
+    }
 
-  @PreDestroy
-  public void destroy(){
-    log.info(this.getClass() + " got destroyed");
-  }
+    @PreDestroy
+    public void destroy() {
+        log.info(this.getClass().getSimpleName() + " got destroyed");
+    }
 }
