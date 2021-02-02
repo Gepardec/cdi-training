@@ -144,6 +144,9 @@
                     <javaOpts>
                         <javaOpt>-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n</javaOpt>
                     </javaOpts>
+                    <commands>
+                        <command>/subsystem=logging/root-logger=ROOT:write-attribute(name="level", value="TRACE")</command>
+                    </commands>
                     <timeout>120</timeout>
                 </configuration>
             </plugin>

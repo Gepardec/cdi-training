@@ -1,0 +1,9 @@
+= CDI Training
+
+This project uses Jakarta MVC with Thymeleaf template engine and runs on a wildfly application server.
+
+If you want to learn more about Jakarta MVC, please visit its link:https://www.mvc-spec.org/[website].
+
+== Running the application with maven
+
+Run the application with `./mvnw wildfly:run`.
