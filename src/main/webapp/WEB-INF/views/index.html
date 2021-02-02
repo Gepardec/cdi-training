@@ -115,6 +115,60 @@
                             PreDestroy</a>, and also have a look at the logs.</p>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/initialization}, text='Basic Initialization')"/>
+
+                    <hr class="mt-4 mb-4"/>
+                </article>
+            </div>
+        </div>
+
+        <div class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Qualifiers</h2>
+
+                    <div class="mt-4 mb-4">
+                        <h5>
+                            Values should change as described -> fix it :-D
+                        </h5>
+                        <code>src/main/java/at/gepardec/cditraining/qualifiers/*</code>
+                        <p>
+                            Have a look at
+                            <a href="https://www.baeldung.com/java-ee-cdi#5-the-default-and-alternative-annotations">The
+                                @Default and @Alternative Annotations</a>
+                            or at <a href="https://www.baeldung.com/java-ee-cdi#custom-qualifiers">Custom Qualifiers</a>
+                        </p>
+                    </div>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/qualifiers}, text='Qualifiers')"/>
+                </article>
+            </div>
+        </div>
+
+        <div class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Producers</h2>
+
+                    <div class="mt-4 mb-4">
+                        <h5>
+                            Values should change as described -> fix it :-D
+                        </h5>
+                        <code>
+                            src/main/java/at/gepardec/cditraining/producers/Producers.java
+                            src/main/java/at/gepardec/cditraining/producers/Factory.java<
+                            src/main/java/at/gepardec/cditraining/producers/ProducedBean.java
+                        </code>
+                        <p>
+                            have a look at
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_field">
+                                Producer fields
+                            </a>
+                            and
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_method">
+                                Producer methods
+                            </a>
+                        </p>
+                    </div>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/producers}, text='Producers')"/>
                 </article>
             </div>
         </div>
@@ -124,23 +178,6 @@
 
     <div class="container">
         <div>
-            <h5><a href="WEB-INF/views/qualifiers/basic">Qualifiers</a></h5>
-            <p><code>src/main/java/at/gepardec/cditraining/qualifiers/*</code></p>
-            <p>have a look at <a
-                    href="https://www.baeldung.com/java-ee-cdi#5-the-default-and-alternative-annotations">The
-                @Default and @Alternative Annotations</a></p>
-            <p>or at <a href="https://www.baeldung.com/java-ee-cdi#custom-qualifiers">Custom Qualifiers</a></p>
-
-            <h5><a href="producers">Producers</a></h5>
-            <p><code>src/main/java/at/gepardec/cditraining/producers/Producers.java</code></p>
-            <p><code>src/main/java/at/gepardec/cditraining/producers/Factory.java</code></p>
-            <p><code>src/main/java/at/gepardec/cditraining/producers/ProducedBean.java</code></p>
-            <p>have a look at <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_field">Producer
-                fields</a>
-            </p>
-            <p>and <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_method">Producer
-                methods</a></p>
-
             <h5><a href="interceptors">Interceptors</a></h5>
             <p><code>src/main/java/at/gepardec/cditraining/interceptors/*</code></p>
             <p>have a look at <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#_interceptor_example">Interceptor

@@ -1,34 +1,32 @@
 package at.gepardec.cditraining.qualifiers;
 
-//import io.quarkus.qute.Template;
-//import io.quarkus.qute.TemplateInstance;
-//import io.quarkus.qute.api.ResourcePath;
-
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.mvc.Controller;
+import javax.mvc.Models;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
 @Path("/qualifiers")
-@Produces(MediaType.TEXT_HTML)
+@RequestScoped
+@Controller
 public class QualifierResource {
 
-//  @Inject
-//  @ResourcePath("qualifiers/qualifiers.html")
-//  Template qualifiersbasic;
-//
-//  @Inject
-//  Shape circle;
-//
-//  @Inject
-//  Shape rectangle;
-//
-//  @GET
-//  @Path("/basic")
-//  public TemplateInstance basic() {
-//    return qualifiersbasic.
-//        data("circle", circle).
-//        data("rectangle", rectangle);
-//  }
+    @Inject
+    private Models model;
+
+    @Inject
+    private Shape circle;
+
+    @Inject
+    private Shape rectangle;
+
+    @GET
+    @Path("/")
+    public String get() {
+        model.put("circle", circle);
+        model.put("rectangle", rectangle);
+
+        return "qualifiers/qualifiers.html";
+    }
 }

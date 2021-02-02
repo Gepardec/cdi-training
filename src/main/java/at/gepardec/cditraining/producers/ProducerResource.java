@@ -1,41 +1,41 @@
 package at.gepardec.cditraining.producers;
 
-//import io.quarkus.qute.Template;
-//import io.quarkus.qute.TemplateInstance;
-//import io.quarkus.qute.api.ResourcePath;
 import org.slf4j.Logger;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.mvc.Controller;
+import javax.mvc.Models;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
 @Path("/producers")
-@Produces(MediaType.TEXT_HTML)
+@RequestScoped
+@Controller
 public class ProducerResource {
 
-//  @Inject
-//  @ResourcePath("producers/producers.html")
-//  Template producers;
-//
-//  @Inject
-//  String myProducedString;
-//
-//  @Inject
-//  Logger logger;
-//
-//  @Inject
-//  ProducedBean producedBean;
-//
-//  @GET
-//  public TemplateInstance basic() {
-//    logger.info("The logger got produced");
-//    logger.info("ProducedBean value: " + producedBean.getValue() + " ProducedBean: " + producedBean);
-//
-//    return producers.
-//        data("myProducedString", myProducedString).
-//        data("producedBeanValue", producedBean.getValue()).
-//        data("producedBeanClass", producedBean);
-//  }
+    @Inject
+    private Models model;
+
+    @Inject
+    private String myProducedString;
+
+    @Inject
+    private Logger logger;
+
+    @Inject
+    private ProducedBean producedBean;
+
+    @GET
+    @Path("/")
+    public String get() {
+        logger.info("The logger got produced");
+        logger.info("ProducedBean value: " + producedBean.getValue() + " ProducedBean: " + producedBean);
+
+        model.put("myProducedString", myProducedString);
+        model.put("producedBeanValue", producedBean.getValue());
+        model.put("producedBeanClass", producedBean);
+
+        return "producers/producers.html";
+    }
 }
