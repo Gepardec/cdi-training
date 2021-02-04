@@ -21,17 +21,17 @@
 
                     <div class="mt-4 mb-4">
                         <h5>You will get an error -> fix it :-D </h5>
-                        <code>
+                        <pre>
                             src/main/java/at/gepardec/cditraining/inject/InjectModel.java
-                        </code>
+                        </pre>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/inject-field}, text='Injection')"/>
 
                     <div class="mt-4 mb-4">
                         <h5>You will get an error -> fix it :-D </h5>
-                        <code>
+                        <pre>
                             src/main/java/at/gepardec/cditraining/inject/ConstructorInject.java
-                        </code>
+                        </pre>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/inject-constructor}, text='Constructor Injection')"/>
                 </article>
@@ -48,21 +48,21 @@
                     <div class="mt-4 mb-4">
                         <h5>
                             Values should change as described -> fix it :-D </h5>
-                        <code>
+                        <pre>
                             src/main/java/at/gepardec/cditraining/scopes/RequestScopedBean.java
                             src/main/java/at/gepardec/cditraining/scopes/SessionScopedBean.java
                             src/main/java/at/gepardec/cditraining/scopes/ApplicationScopedBean.java
-                        </code>
+                        </pre>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/basic}, text='Basic Scopes')"/>
 
                     <div class="mt-4 mb-4">
                         <h5> Mixing Scopes </h5>
-                        <code>
+                        <pre>
                             src/main/java/at/gepardec/cditraining/scopes/ScopeMixApplication
                             src/main/java/at/gepardec/cditraining/scopes/ScopeMixSession
                             src/main/java/at/gepardec/cditraining/scopes/ScopeMixRequest
-                        </code>
+                        </pre>
                         <p>
                             have a look at <a href="https://riptutorial.com/cdi/topic/9641/scopes" target="_blank">
                             Scopes</a> try to
@@ -76,10 +76,10 @@
                         <h5>
                             Pseudo-Scope Dependent
                         </h5>
-                        <code>
+                        <pre>
                             src/main/java/at/gepardec/cditraining/scopes/SecondApplicationScopedBean.java
                             src/main/java/at/gepardec/cditraining/scopes/DependentBean.java
-                        </code>
+                        </pre>
                         <p>
                             have a look at <a
                                 href="https://www.adam-bien.com/roller/abien/entry/what_is_dependent_scope"
@@ -104,11 +104,11 @@
                         <h5>
                             Values should change as described
                         </h5>
-                        <code>
+                        <pre>
                             src/main/java/at/gepardec/cditraining/initialization/InitRequestScopedBean.java
                             src/main/java/at/gepardec/cditraining/initialization/InitSessionScopedBean.java
                             src/main/java/at/gepardec/cditraining/initialization/InitApplicationScopedBean.java
-                        </code>
+                        </pre>
                         <p>have a look at <a href="https://javaee.github.io/tutorial/cdi-basic014.html">Using
                             PostConstruct
                             and
@@ -130,7 +130,7 @@
                         <h5>
                             Values should change as described -> fix it :-D
                         </h5>
-                        <code>src/main/java/at/gepardec/cditraining/qualifiers/*</code>
+                        <pre>src/main/java/at/gepardec/cditraining/qualifiers/*</pre>
                         <p>
                             Have a look at
                             <a href="https://www.baeldung.com/java-ee-cdi#5-the-default-and-alternative-annotations">The
@@ -152,11 +152,11 @@
                         <h5>
                             Values should change as described -> fix it :-D
                         </h5>
-                        <code>
+                        <pre>
                             src/main/java/at/gepardec/cditraining/producers/Producers.java
                             src/main/java/at/gepardec/cditraining/producers/Factory.java<
                             src/main/java/at/gepardec/cditraining/producers/ProducedBean.java
-                        </code>
+                        </pre>
                         <p>
                             have a look at
                             <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_field">
@@ -169,6 +169,32 @@
                         </p>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/producers}, text='Producers')"/>
+
+                    <hr class="solid mt-4 mb-4"/>
+                </article>
+            </div>
+        </div>
+
+        <div class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Interceptors</h2>
+
+                    <div class="mt-4 mb-4">
+                        <h5>
+                            Work through the examples and have fun :-)
+                        </h5>
+
+                        <p>
+                            <pre>src/main/java/at/gepardec/cditraining/interceptors/*</pre>
+                            have a look at <a
+                                href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#_interceptor_example">Interceptor
+                            example</a> have a look at <a
+                                href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#interceptor_resolution">Interceptor
+                            resolution</a>
+                        </p>
+                    </div>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/interceptors}, text='Interceptors')"/>
                 </article>
             </div>
         </div>
@@ -178,13 +204,6 @@
 
     <div class="container">
         <div>
-            <h5><a href="interceptors">Interceptors</a></h5>
-            <p><code>src/main/java/at/gepardec/cditraining/interceptors/*</code></p>
-            <p>have a look at <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#_interceptor_example">Interceptor
-                example</a></p>
-            <p>have a look at <a
-                    href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#interceptor_resolution">Interceptor
-                resolution</a></p>
 
             <h5><a href="events">Events</a></h5>
             <p><code>src/main/java/at/gepardec/cditraining/events/*</code></p>
