@@ -11,15 +11,17 @@ import javax.ws.rs.Path;
 @Path("/inject-constructor")
 @RequestScoped
 @Controller
-public class InjectConstructorResource {
+public class InjectConstructorController {
 
-    private final InjectModel model;
+    private InjectModel model;
 
-    public InjectConstructorResource() {
-        this(null);
+    /**
+     * Try to remove me and restart your server and see what happens
+     */
+    public InjectConstructorController() {
     }
 
-    public InjectConstructorResource(InjectModel model) {
+    public InjectConstructorController(InjectModel model) {
         this.model = model;
     }
 

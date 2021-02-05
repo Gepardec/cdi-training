@@ -6,6 +6,7 @@ import org.eclipse.krazo.engine.Viewable;
 
 import javax.inject.Inject;
 import javax.mvc.Models;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
@@ -20,11 +21,15 @@ public class ExceptionMapper implements javax.ws.rs.ext.ExceptionMapper<Throwabl
     @Inject
     private Models model;
 
+    @Inject
+    private HttpServletRequest request;
+
     @Override
     public Response toResponse(Throwable exception) {
         final Viewable view = new Viewable("error.html");
         final Response.Status status = Response.Status.INTERNAL_SERVER_ERROR;
 
+        model.put("request", request);
         model.put("status", status.getStatusCode() + " (" + status.toString() + ")");
         model.put("path", uriInfo.getAbsolutePath());
         model.put("exceptionName", exception.getClass().getName());

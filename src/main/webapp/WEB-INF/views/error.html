@@ -7,31 +7,20 @@
 <!--/*@thymesVar id="exceptionMessage" type="java.lang.String"*/-->
 <!--/*@thymesVar id="stackTrace" type="java.lang.String"*/-->
 <!--/*@thymesVar id="status" type="java.lang.String"*/-->
+<!--/*@thymesVar id="request" type="javax.servlet.http.HttpServletRequest"*/-->
 
 <body>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Ups, an error has occurred', href=@{/index})"/>
 
 <section class="text-left">
     <div class="container">
-        <div class="row m-5">
-            <div class="col text-center">
-                <header>
-                    <h1>Ups, an error has occurred :(</h1>
-                </header>
-            </div>
-        </div>
-
-        <div class="row m-3">
-            <div class="col text-center">
-                <div th:replace="/WEB-INF/fragments/general.html :: button(href=@{/index}, text='To Start')"/>
-            </div>
-        </div>
-
         <div class="row m-3">
             <div class="col">
                 <h5>HTTP-Status: </h5>
                 <span th:text="${status}"/>
             </div>
         </div>
+
         <div class="row m-3">
             <div class="col">
                 <h5>URI: </h5>
