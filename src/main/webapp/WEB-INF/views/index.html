@@ -42,8 +42,7 @@
                     <h2>Scopes</h2>
 
                     <div class="mt-4 mb-4">
-                        <h5>
-                            Values should change as described -> fix it :-D </h5>
+                        <h5>Basic</h5>
                         <pre>
                             src/main/java/at/gepardec/cditraining/scopes/RequestScopedBean.java
                             src/main/java/at/gepardec/cditraining/scopes/SessionScopedBean.java
@@ -53,7 +52,7 @@
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/basic}, text='Basic Scopes')"/>
 
                     <div class="mt-4 mb-4">
-                        <h5>Mixed Scopes </h5>
+                        <h5>Mixed</h5>
                         <pre>
                             src/main/java/at/gepardec/cditraining/scopes/ScopeMixApplication
                             src/main/java/at/gepardec/cditraining/scopes/ScopeMixSession
@@ -69,9 +68,7 @@
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/mixed}, text='Mixed Scopes')"/>
 
                     <div class="mt-4 mb-4">
-                        <h5>
-                            Pseudo-Scope Dependent
-                        </h5>
+                        <h5>Dependent</h5>
                         <pre>
                             src/main/java/at/gepardec/cditraining/scopes/SecondApplicationScopedBean.java
                             src/main/java/at/gepardec/cditraining/scopes/DependentBean.java

@@ -38,9 +38,9 @@ public class ScopesController {
     @Path("/basic")
     public String getBasic() {
         model.put("tabTitle", "Scopes Basic");
-        model.put("requestScopedValue", requestBean.incrementAndGet());
-        model.put("sessionScopedValue", sessionBean.incrementAndGet());
-        model.put("applicationScopedValue", applicationBean.incrementAndGet());
+        model.put("requestValue", requestBean.incrementAndGet());
+        model.put("sessionValue", sessionBean.incrementAndGet());
+        model.put("applicationValue", applicationBean.incrementAndGet());
 
         return "scopes/scopes-basic-mixed.html";
     }
@@ -49,9 +49,9 @@ public class ScopesController {
     @Path("/mixed")
     public String advanced() {
         model.put("tabTitle", "Scopes Advanced");
-        model.put("requestScopedValue", mixedApplicationBean.scopeMixSession().scopeMixRequest().incrementAndGet());
-        model.put("sessionScopedValue", mixedApplicationBean.scopeMixSession().incrementAndGet());
-        model.put("applicationScopedValue", mixedApplicationBean.incrementAndGet());
+        model.put("requestValue", mixedApplicationBean.scopeMixSession().scopeMixRequest().incrementAndGet());
+        model.put("sessionValue", mixedApplicationBean.scopeMixSession().incrementAndGet());
+        model.put("applicationValue", mixedApplicationBean.incrementAndGet());
 
         return "scopes/scopes-basic-mixed.html";
     }

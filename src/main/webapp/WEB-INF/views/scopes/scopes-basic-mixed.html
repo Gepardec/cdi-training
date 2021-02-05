@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="de">
 <head th:insert="/WEB-INF/fragments/general.html :: head (title='CDI Training - Field Inj.')"/>
-<!--/*@thymesVar id="requestScopedValue" type="java.lang.String"*/-->
-<!--/*@thymesVar id="sessionScopedValue" type="java.lang.String"*/-->
-<!--/*@thymesVar id="applicationScopedValue" type="java.lang.String"*/-->
+<!--/*@thymesVar id="requestValue" type="java.lang.String"*/-->
+<!--/*@thymesVar id="sessionValue" type="java.lang.String"*/-->
+<!--/*@thymesVar id="applicationValue" type="java.lang.String"*/-->
 <!--/*@thymesVar id="tabTitle" type="java.lang.String"*/-->
 <!--/*@thymesVar id="request" type="javax.servlet.http.HttpServletRequest"*/-->
 
@@ -53,7 +53,7 @@
                             <p>I should never change: </p>
                         </div>
                         <div class="col text-left ml-1">
-                            <span th:text="${requestScopedValue}" class="font-weight-bold"/>
+                            <span th:text="${requestValue}" class="font-weight-bold"/>
                         </div>
                     </div>
                     <div class="row m-1">
@@ -61,7 +61,7 @@
                             <p>I should only change in this tab: </p>
                         </div>
                         <div class="col text-left ml-1">
-                            <span th:text="${sessionScopedValue}" class="font-weight-bold"/>
+                            <span th:text="${sessionValue}" class="font-weight-bold"/>
                         </div>
                     </div>
                     <div class="row m-1">
@@ -69,7 +69,7 @@
                             <p>I should always change: </p>
                         </div>
                         <div class="col text-left ml-1">
-                            <span th:text="${applicationScopedValue}" class="font-weight-bold"/>
+                            <span th:text="${applicationValue}" class="font-weight-bold"/>
                         </div>
                     </div>
                 </article>

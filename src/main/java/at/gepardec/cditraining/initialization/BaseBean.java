@@ -3,22 +3,17 @@ package at.gepardec.cditraining.initialization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.enterprise.context.ApplicationScoped;
+import java.io.Serializable;
 
-@ApplicationScoped
-public class InitApplicationScopedBean {
+public abstract class BaseBean implements Serializable {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @PostConstruct
-    public void init() {
+    public void logInit() {
         log.info(this.getClass().getSimpleName() + " got initialized");
     }
 
-    @PreDestroy
-    public void destroy() {
+    public void logDestroy() {
         log.info(this.getClass().getSimpleName() + " got destroyed");
     }
 }
