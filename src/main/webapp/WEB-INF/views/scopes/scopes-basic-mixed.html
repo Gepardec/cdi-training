@@ -4,10 +4,11 @@
 <!--/*@thymesVar id="requestScopedValue" type="java.lang.String"*/-->
 <!--/*@thymesVar id="sessionScopedValue" type="java.lang.String"*/-->
 <!--/*@thymesVar id="applicationScopedValue" type="java.lang.String"*/-->
+<!--/*@thymesVar id="tabTitle" type="java.lang.String"*/-->
 <!--/*@thymesVar id="request" type="javax.servlet.http.HttpServletRequest"*/-->
 
 <body>
-<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Scopes Basic', href=@{/index})"/>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title=${tabTitle}, href=@{/index})"/>
 
 <section>
     <div class="container text-center">
@@ -16,11 +17,36 @@
             <div class="col">
                 <article>
                     <h4>
-                        Open another private <a th:href="${request.requestURI}" target="_blank">new Tab</a>
-                        or refresh with <kbd>F5</kbd>
+                        Click <kbd>F5</kbd> to refresh
                     </h4>
 
                     <hr class="mt-3 mb-3"/>
+
+                    <div class="row m-2">
+                        <div class="col">
+                            <p>
+                                When the values change properly, then you see when beans with different scopes get
+                                created and destroyed
+                            </p>
+
+                            <h5>
+                                Your Task:
+                            </h5>
+
+                            <p>
+                                Fix the scopes of the involved beans and check the table below if it works
+                            </p>
+
+                            <div class="alert alert-info mt-2 mb-2" role="alert">
+                                <h5 class="alert-heading">Important!!</h5>
+                                Ensure that you open an private/incognito Tab or a different browser to ensure different
+                                http sessions
+                            </div>
+
+                            <hr class="mt-3 mb-3"/>
+                        </div>
+
+                    </div>
 
                     <div class="row m-1">
                         <div class="col text-right mr-1">

@@ -1,11 +1,10 @@
 package at.gepardec.cditraining.scopes;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-@RequestScoped
-public class ApplicationScopedBean {
-
+@ApplicationScoped
+public class DependentApplicationBean {
     // For a later example
     @Inject
     private DependentBean dependentBean;
@@ -15,8 +14,7 @@ public class ApplicationScopedBean {
     public int incrementAndGet() {
         return ++value;
     }
-
-
+    
     public DependentBean dependentBean() {
         return dependentBean;
     }

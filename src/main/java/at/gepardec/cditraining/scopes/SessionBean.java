@@ -1,10 +1,10 @@
 package at.gepardec.cditraining.scopes;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import java.io.Serializable;
 
-@ApplicationScoped
-public class SecondApplicationScopedBean {
+public class SessionBean implements Serializable {
+
     // For a later example
     @Inject
     private DependentBean dependentBean;
@@ -12,9 +12,10 @@ public class SecondApplicationScopedBean {
     private int value = 0;
 
     public int incrementAndGet() {
-        return ++value;
+        value++;
+        return value;
     }
-    
+
     public DependentBean dependentBean() {
         return dependentBean;
     }
