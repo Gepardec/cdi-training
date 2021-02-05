@@ -3,19 +3,15 @@
 <head th:insert="/WEB-INF/fragments/general.html :: head (title='CDI Training')"/>
 
 <body>
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+    <div class="mx-auto">
+        <h1>Welcome to the CDI Training</h1>
+    </div>
+</nav>
 <section>
     <div class="container text-center">
-        <div class="row m-3">
-            <div class="col">
-                <header>
-                    <h1>Welcome to the CDI Training</h1>
-                </header>
-            </div>
-        </div>
         <div class="row m-1">
             <div class="col">
-                <hr class="solid mt-4 mb-4"/>
-
                 <article>
                     <h2>Injection</h2>
 
@@ -139,6 +135,8 @@
                         </p>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/qualifiers}, text='Qualifiers')"/>
+
+                    <hr class="mt-3 mb-3"/>
                 </article>
             </div>
         </div>
@@ -185,16 +183,16 @@
                             Work through the examples and have fun :-)
                         </h5>
 
+                        <pre>src/main/java/at/gepardec/cditraining/interceptors/*</pre>
                         <p>
-                            <pre>src/main/java/at/gepardec/cditraining/interceptors/*</pre>
-                            have a look at <a
+                            Have a look at <a
                                 href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#_interceptor_example">Interceptor
-                            example</a> have a look at <a
-                                href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#interceptor_resolution">Interceptor
-                            resolution</a>
+                            example</a>
                         </p>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/interceptors}, text='Interceptors')"/>
+
+                    <hr class="mt-3 mb-3"/>
                 </article>
             </div>
         </div>

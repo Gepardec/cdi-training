@@ -6,17 +6,10 @@
 <!--/*@thymesVar id="producedBeanClass" type="at.gepardec.cditraining.producers.ProducedBean"*/-->
 
 <body>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Producers', href=@{/index})"/>
 
 <section class="text-center">
     <div class="container">
-        <div class="row m-5">
-            <div class="col">
-                <header>
-                    <h1>Producer</h1>
-                </header>
-            </div>
-        </div>
-
         <div class="row m-2">
             <div class="col">
                 <article>
@@ -60,12 +53,6 @@
 
                     <hr class="mt-3 mb-3"/>
                 </article>
-            </div>
-        </div>
-
-        <div class="row m-2 text-center">
-            <div class="col">
-                <div th:replace="/WEB-INF/fragments/general.html :: footer(href=@{/index})"/>
             </div>
         </div>
     </div>

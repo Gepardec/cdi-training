@@ -7,16 +7,10 @@
 <!--/*@thymesVar id="request" type="javax.servlet.http.HttpServletRequest"*/-->
 
 <body>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Initialization Basics', href=@{/index})"/>
+
 <section>
     <div class="container text-center">
-        <div class="row m-5">
-            <div class="col">
-                <header>
-                    <h1>Initialization Basic</h1>
-                </header>
-            </div>
-        </div>
-
         <div class="row m-2">
             <div class="col">
                 <article>
@@ -54,11 +48,6 @@
                         </div>
                     </div>
                 </article>
-            </div>
-        </div>
-        <div class="row m-2 text-center">
-            <div class="col">
-                <div th:replace="/WEB-INF/fragments/general.html :: footer(href=@{/index})"/>
             </div>
         </div>
     </div>

@@ -6,145 +6,152 @@
 <!--/*@thymesVar id="producedBeanClass" type="at.gepardec.cditraining.producers.ProducedBean"*/-->
 
 <body>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Interceptors', href=@{/index})"/>
 
-<section class="text-center">
-    <article>
-        <div class="container">
-            <div class="row m-5">
-                <div class="col">
-                    <header>
-                        <h1>Interceptors</h1>
-                    </header>
-                </div>
-            </div>
+<main role="main">
+    <section class="text-center">
+        <article>
+            <div class="container">
+                <div class="row m-2">
+                    <div class="col">
+                        <h4>
+                            For this example you need to check the logs
+                        </h4>
 
-            <div class="row m-2">
-                <div class="col">
-                    <h4>
-                        For this example you need to check the logs
-                    </h4>
-
-                    <p>
-                        See the following classes for the provided interceptor implementations.
-                    </p>
-                    <pre>
-                            at.gepardec.cditraining.interceptors.InterceptorsResource
+                        <p>
+                            See the following classes for the provided interceptor implementations.
+                        </p>
+                        <pre>
                             at.gepardec.cditraining.interceptors.FirstInterceptor
                             at.gepardec.cditraining.interceptors.FirstIntercept
                             at.gepardec.cditraining.interceptors.SecondInterceptor
                             at.gepardec.cditraining.interceptors.SecondIntercept
                             at.gepardec.cditraining.interceptors.BindingInterceptor
                     </pre>
-                    <p>
-                        An interceptor is either registered via the a <code>beans.xml</code> or
-                        via the <code>@Priority(Interceptor.Priority.APPLICATION)</code> annotation.
-                    </p>
-                    <p>
-                        Interceptors enabled with <code>@Priority(Interceptor.Priority.APPLICATION)</code> are enabled
-                        globally in all CDI modules.
-                        <br/>
-                        If all interceptors define the
-                        same priority then the order they are executed is not deterministic.
-                    </p>
-                    <p>
-                        Interceptors enabled with a <code>beans.xml</code> are enabled
-                        only in the declaring CDI module.
-                    </p>
+                        <p>
+                            An interceptor is either registered via the a <code>beans.xml</code> or
+                            via the <code>@Priority</code> annotation.
+                        </p>
+                        <p>
+                            Here you find the spec for
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#interceptors" target="_blank">
+                                Interceptor Bindings
+                            </a>
+                        </p>
 
-                    <hr class="mt-3 mb-3"/>
+                        <hr class="mt-3 mb-3"/>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row m-2 text-center">
-                <div class="col">
-                    <h4>
-                        1. Interceptor enabled via <code>@Priority</code>
-                    </h4>
+                <div class="row m-2 text-center">
+                    <div class="col">
+                        <h4>
+                            1. Interceptor enabled via <code>@Priority</code>
+                        </h4>
 
-                    <p>
-                        Ensure that the interceptors declared on the rest resource
-                        <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code>, are invoked in the
-                        following order:
-                        <b>
+                        <p>
+                            Interceptors enabled with <code>@Priority</code> are enabled
+                            globally in all CDI modules.
                             <br/>
-                            FirstInterceptor
+                            If all interceptors define the
+                            same priority then the order they are executed is not deterministic.
+                        </p>
+
+                        <h5>
+                            Your Task:
+                        </h5>
+
+                        <p>
+                            Ensure that the interceptors declared on the rest resource
+                            <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code>, are invoked in the
+                            following order:
+                            <b>
+                                <br/>
+                                FirstInterceptor
+                                <br/>
+                                SecondInterceptor
+                            </b>
+                        </p>
+
+                        <div class="alert alert-info mt-2 mb-2" role="alert">
+                            <h5 class="alert-heading">Important!!</h5>
+                            Ensure that no interceptor is enabled in the <code>beans.xml</code>
+                        </div>
+
+                        <hr class="mt-3 mb-3"/>
+                    </div>
+                </div>
+
+                <div class="row m-2 text-center">
+                    <div class="col">
+                        <h4>
+                            2. Interceptor enabled via <code>beans.xml</code>
+                        </h4>
+
+                        <p>
+                            Interceptors enabled with a <code>beans.xml</code> are enabled
+                            only in the declaring CDI module. With this approach you have not problems with ordering.
+                        </p>
+
+                        <h5>
+                            Your Task:
+                        </h5>
+
+                        <p>
+                            Ensure that the interceptors declared on the rest resource
+                            <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code>, are invoked in the
+                            following order:
+                            <b>
+                                <br/>
+                                SecondInterceptor
+                                <br/>
+                                FirstInterceptor
+                            </b>
+                        </p>
+
+                        <div class="alert alert-info mt-2 mb-2" role="alert">
+                            <h5 class="alert-heading">Important!!</h5>
+                            Ensure that no interceptor is enabled via <code>@Priority</code> annotations forehand
+                        </div>
+
+                        <hr class="mt-3 mb-3"/>
+                    </div>
+                </div>
+
+                <div class="row m-2 text-center">
+                    <div class="col">
+                        <h4 id="interceptors-binding">
+                            4. Interceptor with bindings
+                        </h4>
+
+                        <p>
+                            Interceptors can hold literal values as any other annotation.
                             <br/>
-                            SecondInterceptor
-                        </b>
-                    </p>
+                            These values can be used to select an interceptor implementation instead of introducing a
+                            new
+                            interceptor annotation.
+                        </p>
 
-                    <hr class="mt-3 mb-3"/>
+                        <h5>
+                            Your Task:
+                        </h5>
+
+                        <p>
+                            Implement two interceptors, which log simple message to the console, for the interceptor
+                            binding
+                            <code>at.gepardec.cditraining.interceptors.BindingInterceptor</code> and enhance the
+                            interceptor
+                            binding so that you can select one of your implementations on the annotated method
+                            <code>at.gepardec.cditraining.interceptors.InterceptorsResource.binding()</code>.
+                        </p>
+
+                        <hr class="mt-3 mb-3"/>
+                    </div>
                 </div>
             </div>
-
-            <div class="row m-2 text-center">
-                <div class="col">
-                    <h4>
-                        2. Interceptor enabled via beans.xml
-                    </h4>
-
-                    <p>
-                        Ensure that the interceptors declared on the rest resource
-                        <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code>, are invoked in the
-                        following order:
-                        <b>
-                            <br/>
-                            SecondInterceptor
-                            <br/>
-                            FirstInterceptor
-                        </b>
-                    </p>
-
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
-
-            <div class="row m-2 text-center">
-                <div class="col">
-                    <h4>
-                        3. Interceptor enabled via @Priority and the beans.xml
-                    </h4>
-
-                    <p>
-                        What happens if an interceptor is enabled via <code>@Priority</code> and via the
-                        <code>beans.xml</code>?
-                    </p>
-
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
-
-            <div class="row m-2 text-center">
-                <div class="col">
-                    <h4 id="interceptors-binding">
-                        3. Interceptor with bindings
-                    </h4>
-
-                    <p>
-                        Interceptors can hold literal values as any other annotation.
-                        <br/>
-                        These values can be used to select an interceptor implementation instead of introducing a new
-                        interceptor annotation.
-                    </p>
-                    <p>
-                        Implement two interceptors, which log simple message to the console, for the interceptor binding
-                        <code>at.gepardec.cditraining.interceptors.BindingInterceptor</code> and enhance the interceptor
-                        binding so that you can select one of your implementations on the annotated method
-                        <code>at.gepardec.cditraining.interceptors.InterceptorsResource.binding()</code>.
-                    </p>
-
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
-
-            <div class="row m-2 text-center">
-                <div class="col">
-                    <div th:replace="/WEB-INF/fragments/general.html :: footer(href=@{/index})"/>
-                </div>
-            </div>
-        </div>
-    </article>
-</section>
+        </article>
+    </section>
+</main>
 <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>
 </html>

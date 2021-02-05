@@ -4,16 +4,10 @@
 <!--/*@thymesVar id="name" type="java.lang.String"*/-->
 
 <body>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Injection via Constructor', href=@{/index})"/>
 
 <section>
     <div class="container">
-        <div class="row m-5">
-            <div class="col">
-                <header class="text-center">
-                    <h1>Injection via constructor</h1>
-                </header>
-            </div>
-        </div>
 
         <div class="row m-2 text-center">
             <div class="col">
@@ -25,11 +19,6 @@
                             target="_blank">
                         information</a> why constructor injection can be useful</p>
                 </article>
-            </div>
-        </div>
-        <div class="row m-2 text-center">
-            <div class="col">
-                <div th:replace="/WEB-INF/fragments/general.html :: footer(href=@{/index})"/>
             </div>
         </div>
     </div>
