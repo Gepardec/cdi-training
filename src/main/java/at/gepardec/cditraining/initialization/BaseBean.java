@@ -1,13 +1,14 @@
 package at.gepardec.cditraining.initialization;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import java.io.Serializable;
 
 public abstract class BaseBean implements Serializable {
 
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
+    @Inject
+    private Logger log;
 
     public void logInit() {
         log.info(this.getClass().getSimpleName() + " got initialized");
