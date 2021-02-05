@@ -63,7 +63,7 @@
 
                         <p>
                             Ensure that the interceptors declared on the rest resource
-                            <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code>, are invoked in the
+                            <code>at.gepardec.cditraining.interceptors.InterceptorsController</code>, are invoked in the
                             following order:
                             <b>
                                 <br/>
@@ -99,7 +99,7 @@
 
                         <p>
                             Ensure that the interceptors declared on the rest resource
-                            <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code>, are invoked in the
+                            <code>at.gepardec.cditraining.interceptors.InterceptorsController</code>, are invoked in the
                             following order:
                             <b>
                                 <br/>
@@ -142,7 +142,7 @@
                             <code>at.gepardec.cditraining.interceptors.BindingInterceptor</code> and enhance the
                             interceptor
                             binding so that you can select one of your implementations on the annotated method
-                            <code>at.gepardec.cditraining.interceptors.InterceptorsResource.binding()</code>.
+                            <code>at.gepardec.cditraining.interceptors.InterceptorsController.binding()</code>.
                         </p>
 
                         <hr class="mt-3 mb-3"/>
@@ -155,66 +155,3 @@
 <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>
 </html>
-
-
-<!--<html>-->
-<!--<section>-->
-<!--    <h1>Interceptors</h1>-->
-<!--    <section>-->
-<!--        <article>-->
-<!--            <h3>Implement an interceptor for exception handling</h3>-->
-<!--            <p>Now create your own interceptor <code>ExceptionInterceptor</code> and InterceptorBinding <code>ExceptionHandler</code>-->
-<!--            </p>-->
-<!--            <p>This interceptor should intercept the method <code>error</code> in <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code>-->
-<!--            </p>-->
-<!--            <p>In the interceptor a <code>TemplateInstance</code> like in <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code>-->
-<!--                is returned with <code>return interceptors.data("error",...)</code></p>-->
-<!--            <p>When finished implementing hit the button below and there should be a message displayed on this page just-->
-<!--                below and not a stacktrace</p>-->
-<!--        </article>-->
-
-<!--        <form action="/interceptors/error" method="post">-->
-<!--            <button type="submit">Trigger Error</button>-->
-<!--            {#if error}<p>ERROR: {error}</p>{/if}-->
-<!--        </form>-->
-<!--    </section>-->
-
-<!--    <section>-->
-<!--        <h2>Extended</h2>-->
-<!--        <article>-->
-<!--            <h3>Implement a logging interceptor with an attribute named <code>prefix</code></h3>-->
-<!--            <p>Now create your own interceptor <code>LoggingInterceptor</code> and InterceptorBinding-->
-<!--                <code>Logging</code></p>-->
-<!--            <p>This interceptor should intercept the method <code>logging</code> in <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code>-->
-<!--            </p>-->
-<!--            <p>When finished implementing hit the button below there should be your logging message with your prefix in-->
-<!--                the logs</p>-->
-<!--            <p><strong>Remember the interceptor resolution!!</strong></p>-->
-
-<!--            <form action="/interceptors/logging" method="post">-->
-<!--                <button type="submit">Trigger Logging</button>-->
-<!--            </form>-->
-<!--        </article>-->
-
-<!--        <article>-->
-<!--            <h3>Logging and exception handling</h3>-->
-<!--            <p>Apply your <code>@Logging</code> <code>@ExceptionHandler</code> annotation <strong>(in that-->
-<!--                order)</strong> on the method <code>loggedAndHandled</code> in <code>at.gepardec.cditraining.interceptors.InterceptorsResource</code>-->
-<!--            </p>-->
-<!--            <p>Enhance your <code>LoggingInterceptor</code> implementation so that it logs the exception</p>-->
-<!--            <p>Add a log message in the catch block of your <code>ExceptionHandlerInterceptor</code> so that you see-->
-<!--                that an exception gets handled</p>-->
-<!--            <p>When finished implementing hit the button below there should be your logging message with your prefix in-->
-<!--                the logs as well as the exception handler logs</p>-->
-
-<!--            <form action="/interceptors/loggedAndHandled" method="post">-->
-<!--                <button type="submit">Trigger Logging And Error</button>-->
-<!--                {#if error}<p>ERROR: {error}</p>{/if}-->
-<!--            </form>-->
-<!--        </article>-->
-<!--    </section>-->
-<!--</section>-->
-
-<!--<a href="/src/main/webapp">back</a>-->
-
-<!--</html>-->

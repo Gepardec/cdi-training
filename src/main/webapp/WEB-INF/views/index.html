@@ -18,7 +18,7 @@
                     <div class="mt-4 mb-4">
                         <h5>You will get an error -> fix it :-D </h5>
                         <pre>
-                            src/main/java/at/gepardec/cditraining/inject/InjectModel.java
+                            src/main/java/at/gepardec/cditraining/inject/*
                         </pre>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/inject-field}, text='Injection')"/>
@@ -26,7 +26,7 @@
                     <div class="mt-4 mb-4">
                         <h5>You will get an error -> fix it :-D </h5>
                         <pre>
-                            src/main/java/at/gepardec/cditraining/inject/ConstructorInject.java
+                            src/main/java/at/gepardec/cditraining/inject/*
                         </pre>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/inject-constructor}, text='Constructor Injection')"/>
@@ -44,9 +44,7 @@
                     <div class="mt-4 mb-4">
                         <h5>Basic</h5>
                         <pre>
-                            src/main/java/at/gepardec/cditraining/scopes/RequestScopedBean.java
-                            src/main/java/at/gepardec/cditraining/scopes/SessionScopedBean.java
-                            src/main/java/at/gepardec/cditraining/scopes/ApplicationScopedBean.java
+                            src/main/java/at/gepardec/cditraining/scopes/*
                         </pre>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/basic}, text='Basic Scopes')"/>
@@ -54,9 +52,7 @@
                     <div class="mt-4 mb-4">
                         <h5>Mixed</h5>
                         <pre>
-                            src/main/java/at/gepardec/cditraining/scopes/ScopeMixApplication
-                            src/main/java/at/gepardec/cditraining/scopes/ScopeMixSession
-                            src/main/java/at/gepardec/cditraining/scopes/ScopeMixRequest
+                            src/main/java/at/gepardec/cditraining/scopes/*
                         </pre>
                         <p>
                             have a look at <a href="https://riptutorial.com/cdi/topic/9641/scopes" target="_blank">
@@ -70,8 +66,7 @@
                     <div class="mt-4 mb-4">
                         <h5>Dependent</h5>
                         <pre>
-                            src/main/java/at/gepardec/cditraining/scopes/SecondApplicationScopedBean.java
-                            src/main/java/at/gepardec/cditraining/scopes/DependentBean.java
+                            src/main/java/at/gepardec/cditraining/scopes/*
                         </pre>
                         <p>
                             have a look at <a
@@ -95,9 +90,7 @@
 
                     <div class="mt-4 mb-4">
                         <pre>
-                            src/main/java/at/gepardec/cditraining/initialization/InitRequestScopedBean.java
-                            src/main/java/at/gepardec/cditraining/initialization/InitSessionScopedBean.java
-                            src/main/java/at/gepardec/cditraining/initialization/InitApplicationScopedBean.java
+                            src/main/java/at/gepardec/cditraining/initialization/*
                         </pre>
                         <p>have a look at <a href="https://javaee.github.io/tutorial/cdi-basic014.html" target="_blank">
                             Using PostConstruct and PreDestroy</a>, and also have a look at the logs.</p>
@@ -142,9 +135,7 @@
 
                     <div class="mt-4 mb-4">
                         <pre>
-                            src/main/java/at/gepardec/cditraining/producers/Producers.java
-                            src/main/java/at/gepardec/cditraining/producers/Factory.java<
-                            src/main/java/at/gepardec/cditraining/producers/ProducedBean.java
+                            src/main/java/at/gepardec/cditraining/producers/*
                         </pre>
                         <p>
                             have a look at
@@ -170,10 +161,6 @@
                     <h2>Interceptors</h2>
 
                     <div class="mt-4 mb-4">
-                        <h5>
-                            Work through the examples and have fun :-)
-                        </h5>
-
                         <pre>src/main/java/at/gepardec/cditraining/interceptors/*</pre>
                         <p>
                             Have a look at
@@ -189,20 +176,26 @@
                 </article>
             </div>
         </div>
-    </div>
 
-    <h1>TODO: Migrate to thymeleaf and bootstrap</h1>
+        <div class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Events</h2>
 
-    <div class="container">
-        <div>
+                    <div class="mt-4 mb-4">
+                        <pre>src/main/java/at/gepardec/cditraining/events/*</pre>
+                        <p>
+                            have a look at <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#events">Events</a>
+                        </p>
+                    </div>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/events}, text='Events')"/>
 
-            <h5><a href="events">Events</a></h5>
-            <p><code>src/main/java/at/gepardec/cditraining/events/*</code></p>
-            <p>have a look at <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#events">Events</a></p>
+                    <hr class="mt-3 mb-3"/>
+                </article>
+            </div>
         </div>
-
-        <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
     </div>
 </section>
+<div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>
 </html>

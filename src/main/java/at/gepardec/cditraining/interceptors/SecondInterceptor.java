@@ -1,13 +1,11 @@
 package at.gepardec.cditraining.interceptors;
 
-import javax.annotation.Priority;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
 @Interceptor
 @SecondIntercept
-@Priority(Interceptor.Priority.APPLICATION)
 public class SecondInterceptor extends BaseInterceptor {
 
     @AroundInvoke

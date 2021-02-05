@@ -8,9 +8,9 @@ import javax.ws.rs.Path;
 @Path("/interceptors")
 @RequestScoped
 @Controller
-@FirstIntercept
 @SecondIntercept
-public class InterceptorsResource {
+@FirstIntercept
+public class InterceptorsController {
 
     private static final String VIEW_NAME = "interceptors/interceptors.html";
 
@@ -25,23 +25,5 @@ public class InterceptorsResource {
     @BindingInterceptor
     public String binding() {
         return VIEW_NAME;
-    }
-
-    @GET
-    @Path("/logging")
-    public String logging() {
-        return VIEW_NAME;
-    }
-
-    @GET
-    @Path("/loggedAndHandled")
-    public String loggedAndHandled() {
-        throw new RuntimeException("error");
-    }
-
-    @GET
-    @Path("/error")
-    public String error() {
-        throw new RuntimeException("error");
     }
 }
