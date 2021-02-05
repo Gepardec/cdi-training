@@ -1,9 +1,23 @@
 = CDI Training
 
-This project uses Jakarta MVC with Thymeleaf template engine and runs on a wildfly application server.
+This repository holds the sample application which illustrates aspects of the CDI 2.0 specification.
+After working through the tasks someone should be able to understand the main concepts of the CDI 2.0 specification and use the CDI 2.0 concepts in real time applications.
 
-If you want to learn more about Jakarta MVC, please visit its link:https://www.mvc-spec.org/[website].
+The application is based on the link:https://jakarta.ee/release/8/[Jakarta-EE 8.0] link:https://jakarta.ee/specifications/cdi/2.0/[(CDI 2.0)] specification and the link:https://www.wildfly.org/[Wildfly] application server.
 
-== Running the application with maven
+== Accessing the application
+
+The application can be accessed via `http://localhost:8080/cditraining/index`.
+
+IMPORTANT: When running in an IDE the actual port will depend on your configuration.
+
+== Running in standalone
 
 Run the application with `./mvnw wildfly:run`.
+
+IMPORTANT: In this mode you won't be able to hot-code deploy.
+
+== Running in an IDE
+
+Refer to the documentation of the IDE of your choice, which must provide integration for Wildfly/JBoss servers, for how to set up the project.
+
