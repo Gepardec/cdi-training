@@ -11,5 +11,5 @@ import java.lang.annotation.*;
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.TYPE})
-public @interface RectangleQualifier {
+public @interface RectangleShape {
 }

@@ -10,7 +10,7 @@ import javax.ws.rs.Path;
 @Path("/qualifiers")
 @RequestScoped
 @Controller
-public class QualifierResource {
+public class QualifiersController {
 
     @Inject
     private Models model;

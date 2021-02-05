@@ -5,4 +5,5 @@ import javax.enterprise.inject.Alternative;
 
 @RequestScoped
 @Alternative
-public class Rectangle extends Shape {}
+public class Rectangle extends Shape {
+}

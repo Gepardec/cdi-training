@@ -94,18 +94,13 @@
                     <h2>Initialization</h2>
 
                     <div class="mt-4 mb-4">
-                        <h5>
-                            Values should change as described
-                        </h5>
                         <pre>
                             src/main/java/at/gepardec/cditraining/initialization/InitRequestScopedBean.java
                             src/main/java/at/gepardec/cditraining/initialization/InitSessionScopedBean.java
                             src/main/java/at/gepardec/cditraining/initialization/InitApplicationScopedBean.java
                         </pre>
-                        <p>have a look at <a href="https://javaee.github.io/tutorial/cdi-basic014.html">Using
-                            PostConstruct
-                            and
-                            PreDestroy</a>, and also have a look at the logs.</p>
+                        <p>have a look at <a href="https://javaee.github.io/tutorial/cdi-basic014.html" target="_blank">
+                            Using PostConstruct and PreDestroy</a>, and also have a look at the logs.</p>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/initialization}, text='Basic Initialization')"/>
 
@@ -120,15 +115,17 @@
                     <h2>Qualifiers</h2>
 
                     <div class="mt-4 mb-4">
-                        <h5>
-                            Values should change as described -> fix it :-D
-                        </h5>
                         <pre>src/main/java/at/gepardec/cditraining/qualifiers/*</pre>
                         <p>
                             Have a look at
-                            <a href="https://www.baeldung.com/java-ee-cdi#5-the-default-and-alternative-annotations">The
-                                @Default and @Alternative Annotations</a>
-                            or at <a href="https://www.baeldung.com/java-ee-cdi#custom-qualifiers">Custom Qualifiers</a>
+                            <a href="https://www.baeldung.com/java-ee-cdi#5-the-default-and-alternative-annotations"
+                               target="_blank">
+                                The @Default and @Alternative Annotations
+                            </a>
+                            or at
+                            <a href="https://www.baeldung.com/java-ee-cdi#custom-qualifiers" target="_blank">
+                                Custom Qualifiers
+                            </a>
                         </p>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/qualifiers}, text='Qualifiers')"/>
@@ -154,11 +151,11 @@
                         </pre>
                         <p>
                             have a look at
-                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_field">
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_field" target="_blank">
                                 Producer fields
                             </a>
                             and
-                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_method">
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_method" target="_blank">
                                 Producer methods
                             </a>
                         </p>
@@ -182,9 +179,11 @@
 
                         <pre>src/main/java/at/gepardec/cditraining/interceptors/*</pre>
                         <p>
-                            Have a look at <a
-                                href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#_interceptor_example">Interceptor
-                            example</a>
+                            Have a look at
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#_interceptor_example"
+                               target="_blank">
+                                Interceptor example
+                            </a>
                         </p>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/interceptors}, text='Interceptors')"/>
