@@ -10,7 +10,7 @@
 </nav>
 <section>
     <div class="container text-center">
-        <div class="row m-1">
+        <div id="index-example-injection" class="row m-1">
             <div class="col">
                 <article>
                     <h2>Injection</h2>
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <div class="row m-1">
+        <div id="index-example-scopes" class="row m-1">
             <div class="col">
                 <article>
                     <h2>Scopes</h2>
@@ -83,7 +83,7 @@
             </div>
         </div>
 
-        <div class="row m-1">
+        <div id="index-example-initialization" class="row m-1">
             <div class="col">
                 <article>
                     <h2>Initialization</h2>
@@ -102,7 +102,7 @@
             </div>
         </div>
 
-        <div class="row m-1">
+        <div id="index-example-qualifiers" class="row m-1">
             <div class="col">
                 <article>
                     <h2>Qualifiers</h2>
@@ -128,7 +128,7 @@
             </div>
         </div>
 
-        <div class="row m-1">
+        <div id="index-example-producers" class="row m-1">
             <div class="col">
                 <article>
                     <h2>Producers</h2>
@@ -155,7 +155,7 @@
             </div>
         </div>
 
-        <div class="row m-1">
+        <div id="index-example-interceptors" class="row m-1">
             <div class="col">
                 <article>
                     <h2>Interceptors</h2>
@@ -177,7 +177,7 @@
             </div>
         </div>
 
-        <div class="row m-1">
+        <div id="index-example-events" class="row m-1">
             <div class="col">
                 <article>
                     <h2>Events</h2>
@@ -195,7 +195,7 @@
             </div>
         </div>
 
-        <div class="row m-1">
+        <div id="index-example-decorators" class="row m-1">
             <div class="col">
                 <article>
                     <h2>Decorators</h2>
@@ -207,6 +207,24 @@
                         </p>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/decorators}, text='Decorators')"/>
+
+                    <hr class="mt-3 mb-3"/>
+                </article>
+            </div>
+        </div>
+
+
+        <div id="index-uc-concurrency" class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Use Cases</h2>
+
+                    <p>
+                        This section holds the technical use-cases where CDI is used in a more complex way. It's worth
+                        to take a look at the comments in the classes.
+                    </p>
+
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/concurrency}, text='Conccurency and Scopes')"/>
 
                     <hr class="mt-3 mb-3"/>
                 </article>
