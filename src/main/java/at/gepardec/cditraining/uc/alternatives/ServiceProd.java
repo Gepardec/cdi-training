@@ -1,4 +1,4 @@
-package at.gepardec.cditraining.uc.alternative;
+package at.gepardec.cditraining.uc.alternatives;
 
 import javax.enterprise.context.RequestScoped;
 
