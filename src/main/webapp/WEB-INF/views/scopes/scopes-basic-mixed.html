@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="de">
-<head th:insert="/WEB-INF/fragments/general.html :: head (title='CDI Training - Field Inj.')"/>
+<head th:insert="/WEB-INF/fragments/general.html :: head (title=${tabTitle})"/>
 <!--/*@thymesVar id="requestValue" type="java.lang.String"*/-->
 <!--/*@thymesVar id="sessionValue" type="java.lang.String"*/-->
 <!--/*@thymesVar id="applicationValue" type="java.lang.String"*/-->
@@ -11,70 +11,69 @@
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title=${tabTitle}, href=@{/index})"/>
 
 <section>
-    <div class="container text-center">
-
-        <div class="row m-2">
-            <div class="col">
-                <article>
+    <article>
+        <div class="container ">
+            <div class="row m-2">
+                <div class="col text-center">
                     <h4>
                         Click <kbd>F5</kbd> to refresh
                     </h4>
 
                     <hr class="mt-3 mb-3"/>
+                </div>
+            </div>
 
-                    <div class="row m-2">
-                        <div class="col">
-                            <p>
-                                When the values change properly, then you see when beans with different scopes get
-                                created and destroyed
-                            </p>
+            <div class="row m-2">
+                <div class="col">
+                    <p>
+                        When the values change properly, then you see when beans with different scopes get
+                        created and destroyed
+                    </p>
 
-                            <h5>
-                                Your Task:
-                            </h5>
+                    <h5>
+                        Your Task:
+                    </h5>
 
-                            <p>
-                                Fix the scopes of the involved beans and check the table below if it works
-                            </p>
+                    <p>
+                        Fix the scopes of the involved beans and check the table below if it works
+                    </p>
 
-                            <div class="alert alert-info mt-2 mb-2" role="alert">
-                                <h5 class="alert-heading">Important!!</h5>
-                                Ensure that you open an private/incognito Tab or a different browser to ensure different
-                                http sessions
-                            </div>
-
-                            <hr class="mt-3 mb-3"/>
-                        </div>
-
+                    <div class="alert alert-info mt-2 mb-2" role="alert">
+                        <h5 class="alert-heading">Important!!</h5>
+                        Ensure that you open an private/incognito Tab or a different browser to ensure different
+                        http sessions
                     </div>
 
-                    <div class="row m-1">
-                        <div class="col text-right mr-1">
-                            <p>I should never change: </p>
-                        </div>
-                        <div class="col text-left ml-1">
-                            <span th:text="${requestValue}" class="font-weight-bold"/>
-                        </div>
-                    </div>
-                    <div class="row m-1">
-                        <div class="col text-right mr-1">
-                            <p>I should only change in this tab: </p>
-                        </div>
-                        <div class="col text-left ml-1">
-                            <span th:text="${sessionValue}" class="font-weight-bold"/>
-                        </div>
-                    </div>
-                    <div class="row m-1">
-                        <div class="col text-right mr-1">
-                            <p>I should always change: </p>
-                        </div>
-                        <div class="col text-left ml-1">
-                            <span th:text="${applicationValue}" class="font-weight-bold"/>
-                        </div>
-                    </div>
-                </article>
+                    <hr class="mt-3 mb-3"/>
+                </div>
+
+            </div>
+
+            <div class="row m-1">
+                <div class="col text-right mr-1">
+                    <p>I should never change: </p>
+                </div>
+                <div class="col text-left ml-1">
+                    <span th:text="${requestValue}" class="font-weight-bold"/>
+                </div>
+            </div>
+            <div class="row m-1">
+                <div class="col text-right mr-1">
+                    <p>I should only change in this tab: </p>
+                </div>
+                <div class="col text-left ml-1">
+                    <span th:text="${sessionValue}" class="font-weight-bold"/>
+                </div>
+            </div>
+            <div class="row m-1">
+                <div class="col text-right mr-1">
+                    <p>I should always change: </p>
+                </div>
+                <div class="col text-left ml-1">
+                    <span th:text="${applicationValue}" class="font-weight-bold"/>
+                </div>
             </div>
         </div>
-    </div>
+    </article>
 </section>
 </body>

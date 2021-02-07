@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="de">
-<head th:insert="/WEB-INF/fragments/general.html :: head (title='CDI Training - Field Inj.')"/>
+<head th:insert="/WEB-INF/fragments/general.html :: head (title='Interceptors')"/>
 <!--/*@thymesVar id="producedString" type="java.lang.String"*/-->
 <!--/*@thymesVar id="producedBeanValue" type="java.lang.Integer"*/-->
 <!--/*@thymesVar id="producedBeanClass" type="at.gepardec.cditraining.producers.ProducedBean"*/-->
@@ -9,24 +9,26 @@
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Interceptors', href=@{/index})"/>
 
 <main role="main">
-    <section class="text-center">
+    <section>
         <article>
             <div class="container">
                 <div class="row m-2">
-                    <div class="col">
+                    <div class="col text-center">
                         <h4>
                             For this example you need to check the logs
                         </h4>
 
+                        <hr class="mt-3 mb-3"/>
+                    </div>
+                </div>
+
+                <div class="row m-2">
+                    <div class="col">
                         <p>
                             See the following classes for the provided interceptor implementations.
                         </p>
                         <pre>
-                            at.gepardec.cditraining.interceptors.FirstInterceptor
-                            at.gepardec.cditraining.interceptors.FirstIntercept
-                            at.gepardec.cditraining.interceptors.SecondInterceptor
-                            at.gepardec.cditraining.interceptors.SecondIntercept
-                            at.gepardec.cditraining.interceptors.BindingInterceptor
+                            at.gepardec.cditraining.interceptors.*
                     </pre>
                         <p>
                             An interceptor is either registered via the a <code>beans.xml</code> or
@@ -43,7 +45,7 @@
                     </div>
                 </div>
 
-                <div class="row m-2 text-center">
+                <div class="row m-2 ">
                     <div class="col">
                         <h4>
                             1. Interceptor enabled via <code>@Priority</code>
@@ -65,13 +67,13 @@
                             Ensure that the interceptors declared on the rest resource
                             <code>at.gepardec.cditraining.interceptors.InterceptorsController</code>, are invoked in the
                             following order:
-                            <b>
-                                <br/>
-                                FirstInterceptor
-                                <br/>
-                                SecondInterceptor
-                            </b>
                         </p>
+                        <ol class="font-weight-bold">
+                            <li>FirstInterceptor</li>
+                            <li>
+                                SecondInterceptor
+                            </li>
+                        </ol>
 
                         <div class="alert alert-info mt-2 mb-2" role="alert">
                             <h5 class="alert-heading">Important!!</h5>
@@ -82,7 +84,7 @@
                     </div>
                 </div>
 
-                <div class="row m-2 text-center">
+                <div class="row m-2 ">
                     <div class="col">
                         <h4>
                             2. Interceptor enabled via <code>beans.xml</code>
@@ -101,13 +103,13 @@
                             Ensure that the interceptors declared on the rest resource
                             <code>at.gepardec.cditraining.interceptors.InterceptorsController</code>, are invoked in the
                             following order:
-                            <b>
-                                <br/>
-                                SecondInterceptor
-                                <br/>
-                                FirstInterceptor
-                            </b>
                         </p>
+                        <ol class="font-weight-bold">
+                            <li>SecondInterceptor</li>
+                            <li>
+                                FirstInterceptor
+                            </li>
+                        </ol>
 
                         <div class="alert alert-info mt-2 mb-2" role="alert">
                             <h5 class="alert-heading">Important!!</h5>
@@ -118,7 +120,7 @@
                     </div>
                 </div>
 
-                <div class="row m-2 text-center">
+                <div class="row m-2 ">
                     <div class="col">
                         <h4 id="interceptors-binding">
                             4. Interceptor with bindings

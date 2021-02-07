@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="de">
-<head th:insert="/WEB-INF/fragments/general.html :: head (title='CDI Training - Field Inj.')"/>
+<head th:insert="/WEB-INF/fragments/general.html :: head (title='Producers')"/>
 <!--/*@thymesVar id="producedString" type="java.lang.String"*/-->
 <!--/*@thymesVar id="producedBeanValue" type="java.lang.Integer"*/-->
 <!--/*@thymesVar id="producedBeanClass" type="at.gepardec.cditraining.producers.ProducedBean"*/-->
@@ -12,110 +12,111 @@
 <body>
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Producers', href=@{/index})"/>
 
-<section class="text-center">
-    <div class="container">
-        <div class="row m-2">
-            <div class="col">
-                <article>
+<section>
+    <article>
+        <div class="container">
+            <div class="row m-2">
+                <div class="col text-center">
                     <h4>
                         Click <kbd>F5</kbd> to refresh
                     </h4>
 
                     <hr class="mt-3 mb-3"/>
+                </div>
+            </div>
 
-                    <div class="row m-1">
-                        <div class="col-sm-4 mr-1 text-right">
-                            <p>I'm your produced String:</p>
-                        </div>
-                        <div class="col-sm-7 text-left ml-1">
-                            <span th:text="${producedString}" class="font-weight-bold"/>
-                        </div>
+            <div class="row m-1">
+                <div class="col mr-1 text-right">
+                    <p>I'm your produced String:</p>
+                </div>
+                <div class="col text-left ml-1">
+                    <span th:text="${producedString}" class="font-weight-bold"/>
+                </div>
+            </div>
+
+            <div class="row m-1">
+                <div class="col mr-1 text-right">
+                    <p>I'm the produced value:</p>
+                </div>
+                <div class="col text-left ml-1">
+                    <span th:text="${producedBeanValue}" class="font-weight-bold"/>
+                </div>
+            </div>
+
+            <div class="row m-1">
+                <div class="col mr-1 text-right">
+                    <p>I'm the producer class:</p>
+                </div>
+                <div class="col text-left ml-1">
+                    <span th:text="${producedBeanClass}" class="font-weight-bold"/>
+                </div>
+            </div>
+
+            <hr class="mt-3 mb-3"/>
+
+            <div class="row m-2">
+                <div class="col">
+                    <h5>
+                        Your Task:
+                    </h5>
+
+                    <p>
+                        Implement producer methods whereby one returns a <code>@RequestScoped</code> list
+                        <code>Circle</code>
+                        instances
+                        and the other returns a <code>@SessionScoped</code> list of <code>Rectangle</code>
+                        instances
+                    </p>
+                    <p>
+                        The values should change as described
+                    </p>
+
+                    <div class="alert alert-info mt-2 mb-2" role="alert">
+                        <h5 class="alert-heading">Important!!</h5>
+                        Think about the following: <span class="font-italic">Why could it be problematic to produce generic types?</span>
                     </div>
 
-                    <div class="row m-1">
-                        <div class="col-sm-4 mr-1 text-right">
-                            <p>I'm the produced value:</p>
-                        </div>
-                        <div class="col-sm-7 text-left ml-1">
-                            <span th:text="${producedBeanValue}" class="font-weight-bold"/>
-                        </div>
-                    </div>
+                    <hr class="mt-3 mb-3"/>
+                </div>
+            </div>
 
+            <div class="row m-2">
+                <div class="col">
                     <div class="row m-1">
-                        <div class="col-sm-4 mr-1 text-right">
-                            <p>I'm the producer class:</p>
+                        <div class="col mr-1 text-right">
+                            <p><code>Circle</code>(s) instances changing each time:</p>
                         </div>
-                        <div class="col-sm-7 text-left ml-1">
-                            <span th:text="${producedBeanClass}" class="font-weight-bold"/>
+                        <div class="col text-left ml-1">
+                            <div th:each="circle : ${circleList}">
+                                <span th:text="${circle}" class="font-weight-bold"/>
+                                <br/>
+                            </div>
                         </div>
                     </div>
 
                     <hr class="mt-3 mb-3"/>
+                </div>
+            </div>
 
-                    <div class="row m-2">
-                        <div class="col">
-                            <h5>
-                                Your Task:
-                            </h5>
-
-                            <p>
-                                Implement producer methods whereby one returns a <code>@RequestScoped</code> list <code>Circle</code>
-                                instances
-                                and the other returns a <code>@SessionScoped</code> list of <code>Rectangle</code>
-                                instances
-                            </p>
-                            <p>
-                                The values should change as described
-                            </p>
-
-                            <div class="alert alert-info mt-2 mb-2" role="alert">
-                                <h5 class="alert-heading">Important!!</h5>
-                                Think about the following: <span class="font-italic">Why could it be problematic to produce generic types?</span>
+            <div class="row m-2">
+                <div class="col">
+                    <div class="row m-1">
+                        <div class="col mr-1 text-right">
+                            <p><code>Rectangle</code>(s) instances never changing:</p>
+                        </div>
+                        <div class="col text-left ml-1">
+                            <div th:each="rectangle : ${rectangleList}">
+                                <span th:text="${rectangle}" class="font-weight-bold"/>
+                                <br/>
                             </div>
-
-                            <hr class="mt-3 mb-3"/>
                         </div>
                     </div>
 
-                    <div class="row m-2">
-                        <div class="col">
-                            <div class="row m-1">
-                                <div class="col-sm-4 mr-1 text-right">
-                                    <p><code>Circle</code>(s) instances changing each time:</p>
-                                </div>
-                                <div class="col-sm-7 text-left ml-1">
-                                    <div th:each="circle : ${circleList}">
-                                        <span th:text="${circle}" class="font-weight-bold"/>
-                                        <br/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <hr class="mt-3 mb-3"/>
-                        </div>
-                    </div>
-
-                    <div class="row m-2">
-                        <div class="col">
-                            <div class="row m-1">
-                                <div class="col-sm-4 mr-1 text-right">
-                                    <p><code>Rectangle</code>(s) instances never changing:</p>
-                                </div>
-                                <div class="col-sm-7 text-left ml-1">
-                                    <div th:each="rectangle : ${rectangleList}">
-                                        <span th:text="${rectangle}" class="font-weight-bold"/>
-                                        <br/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <hr class="mt-3 mb-3"/>
-                        </div>
-                    </div>
-                </article>
+                    <hr class="mt-3 mb-3"/>
+                </div>
             </div>
         </div>
-    </div>
+    </article>
 </section>
 <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>

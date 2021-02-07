@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="de">
-<head th:insert="/WEB-INF/fragments/general.html :: head (title='CDI Training - Field Inj.')"/>
+<head th:insert="/WEB-INF/fragments/general.html :: head (title='Events')"/>
 <!--/*@thymesVar id="producedString" type="java.lang.String"*/-->
 <!--/*@thymesVar id="producedBeanValue" type="java.lang.Integer"*/-->
 <!--/*@thymesVar id="producedBeanClass" type="at.gepardec.cditraining.producers.ProducedBean"*/-->
@@ -9,11 +9,11 @@
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Events', href=@{/index})"/>
 
 <main role="main">
-    <section class="text-center">
+    <section class="">
         <article>
             <div class="container">
                 <div class="row m-2">
-                    <div class="col">
+                    <div class="col text-center">
                         <h4>
                             Click <kbd>F5</kbd> to refresh
                         </h4>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
 
-                <div class="row m-2 text-center">
+                <div class="row m-2 ">
                     <div class="col">
                         <h4>2. Asynchronous Events</h4>
 
@@ -80,7 +80,7 @@
                     </div>
                 </div>
 
-                <div class="row m-2 text-center">
+                <div class="row m-2 ">
                     <div class="col">
                         <h4>3. Event Types</h4>
 

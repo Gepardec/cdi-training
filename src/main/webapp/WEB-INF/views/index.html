@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="de">
-<head th:insert="/WEB-INF/fragments/general.html :: head (title='CDI Training')"/>
+<head th:insert="/WEB-INF/fragments/general.html :: head (title='Welcome')"/>
 
 <body>
 <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
@@ -95,7 +95,7 @@
                         <p>have a look at <a href="https://javaee.github.io/tutorial/cdi-basic014.html" target="_blank">
                             Using PostConstruct and PreDestroy</a>, and also have a look at the logs.</p>
                     </div>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/initialization}, text='Basic Initialization')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/initialization}, text='Initialization')"/>
 
                     <hr class="mt-4 mb-4"/>
                 </article>
@@ -189,6 +189,24 @@
                         </p>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/events}, text='Events')"/>
+
+                    <hr class="mt-3 mb-3"/>
+                </article>
+            </div>
+        </div>
+
+        <div class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Decorators</h2>
+
+                    <div class="mt-4 mb-4">
+                        <pre>src/main/java/at/gepardec/cditraining/decorators/*</pre>
+                        <p>
+                            have a look at <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#decorators">Decorators</a>
+                        </p>
+                    </div>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/decorators}, text='Decorators')"/>
 
                     <hr class="mt-3 mb-3"/>
                 </article>
