@@ -214,7 +214,7 @@
         </div>
 
 
-        <div id="index-uc-dynamicdefault" class="row m-1">
+        <div id="index-uc" class="row m-1">
             <div class="col">
                 <article>
                     <h2>Use Cases</h2>
@@ -224,11 +224,14 @@
                         to take a look at the comments in the classes.
                     </p>
 
-                    <p>
+                    <p id="index-uc-concurrency">
                         <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/concurrency}, text='Conccurency and Scopes')"/>
                     </p>
-                    <p>
+                    <p id="index-uc-dynamicdefault">
                         <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/dynamicdefault}, text='Dynamic Default')"/>
+                    </p>
+                    <p id="index-uc-alternatives">
+                        <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/alternatives}, text='Alternatives')"/>
                     </p>
 
                     <hr class="mt-3 mb-3"/>
