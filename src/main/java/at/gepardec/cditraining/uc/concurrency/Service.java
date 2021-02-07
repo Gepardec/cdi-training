@@ -24,8 +24,8 @@ public class Service {
     @Inject
     private Logger log; // dependent scoped already
 
-    public void execute() {
+    public String execute() {
         // 'config.getCounter()' causes an Exception if executed on a request scope proxy
-        log.info("Executed with counter: " + config.getCounter() + " on Thread: " + Thread.currentThread().getId());
+        return "Executed with counter: " + config.getCounter() + " on Thread: " + Thread.currentThread().getId();
     }
 }
