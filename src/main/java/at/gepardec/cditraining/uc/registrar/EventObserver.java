@@ -1,4 +1,4 @@
-package at.gepardec.cditraining.uc.eventhandling;
+package at.gepardec.cditraining.uc.registrar;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.ObservesAsync;
@@ -20,7 +20,7 @@ public class EventObserver {
             eventResultRegistrar.registerFailedEvent(event.id);
         } else {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(3000);
                 eventResultRegistrar.registerSuccessEvent(event.id);
             } catch (InterruptedException e) {
                 eventResultRegistrar.registerFailedEvent(event.id);

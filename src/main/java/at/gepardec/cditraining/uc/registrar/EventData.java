@@ -1,4 +1,4 @@
-package at.gepardec.cditraining.uc.eventhandling;
+package at.gepardec.cditraining.uc.registrar;
 
 public class EventData {
 

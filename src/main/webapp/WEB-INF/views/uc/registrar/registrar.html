@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="de">
-<head th:insert="/WEB-INF/fragments/general.html :: head (title='UC Event-Handling')"/>
+<head th:insert="/WEB-INF/fragments/general.html :: head (title='UC Registrar')"/>
 <!--/*@thymesVar id="failedEvents" type="java.lang.String"*/-->
 <!--/*@thymesVar id="successEvents" type="java.lang.String"*/-->
 
 <body>
-<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='UC Event-Handling', href=@{/index#index-uc-eventhandling})"/>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='UC Registrar', href=@{/index#index-uc-registrar})"/>
 
 <section>
     <article>
@@ -15,10 +15,10 @@
                 <div class="col mr-1">
                     <hr class="mt-3 mb-3"/>
 
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/eventhandling}, text='Refresh')"/>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/eventhandling/fire/successEvent}, text='Success Event')"/>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/eventhandling/fire/failedEvent}, text='Fail Event')"/>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/eventhandling/clear}, text='Clear Registrar')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/registrar}, text='Refresh')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/registrar/fire/successEvent}, text='Success Event')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/registrar/fire/failedEvent}, text='Fail Event')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/registrar/clear}, text='Clear Registrar')"/>
 
                     <hr class="mt-3 mb-3"/>
                 </div>
@@ -54,7 +54,7 @@
                     <hr class="mt-3 mb-3"/>
 
                     <p>
-                        See the package <code>at.gepardec.cditraining.uc.eventhanlding.*</code> for the relevant
+                        See the package <code>at.gepardec.cditraining.uc.registrar.*</code> for the relevant
                         classes.
                         Especially take a look at the comments.
                     </p>
@@ -66,8 +66,9 @@
             <div class="row m-2">
                 <div class="col">
                     <p>
-                        Just firing an asynchronous event and forgetting it mostly not possible. What if we need to
-                        report the success/failed events periodically to a metric backend?
+                        Just firing an asynchronous event or an asynchronous REST/SOAP call and forgetting it mostly not
+                        possible. What if we need to report the success/failed events/requests periodically to a metric
+                        backend?
                     </p>
 
                     <p>

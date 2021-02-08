@@ -1,4 +1,4 @@
-package at.gepardec.cditraining.uc.eventhandling;
+package at.gepardec.cditraining.uc.registrar;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Event;
@@ -10,12 +10,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import java.util.UUID;
 
-@Path("/uc/eventhandling")
+@Path("/uc/registrar")
 @RequestScoped
 @Controller
-public class EventhandlingController {
+public class RegistrarController {
 
-    private static final String VIEW_NAME = "uc/eventhandling/eventhandling.html";
+    private static final String VIEW_NAME = "uc/registrar/registrar.html";
 
     @Inject
     private EventResultRegistrar eventResultRegistrar;

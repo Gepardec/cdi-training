@@ -1,4 +1,4 @@
-package at.gepardec.cditraining.uc.eventhandling;
+package at.gepardec.cditraining.uc.registrar;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.Collections;
