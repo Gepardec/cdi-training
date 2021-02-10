@@ -3,6 +3,7 @@ package at.gepardec.cditraining;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.eclipse.krazo.engine.Viewable;
+import org.slf4j.Logger;
 
 import javax.inject.Inject;
 import javax.mvc.Models;
@@ -24,6 +25,9 @@ public class ExceptionMapper implements javax.ws.rs.ext.ExceptionMapper<Throwabl
     @Inject
     private HttpServletRequest request;
 
+    @Inject
+    private Logger log;
+
     @Override
     public Response toResponse(Throwable exception) {
         final Viewable view = new Viewable("error.html");
@@ -35,6 +39,8 @@ public class ExceptionMapper implements javax.ws.rs.ext.ExceptionMapper<Throwabl
         model.put("exceptionName", exception.getClass().getName());
         model.put("exceptionMessage", StringUtils.defaultString(exception.getMessage(), " - "));
         model.put("stackTrace", ExceptionUtils.getStackTrace(exception));
+
+        log.error("Error occurred on '" + uriInfo.getAbsolutePath() + "'", exception);
 
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(view).build();
     }

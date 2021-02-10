@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<head th:insert="/WEB-INF/fragments/general.html :: head (title='UC Lookup-Factory')"/>
+<!--/*@thymesVar id="result" type="java.lang.String"*/-->
+
+<body>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='UC Lookup-Factory', href=@{/index#index-uc-lookupfactory})"/>
+
+<section>
+    <article>
+        <div class="container">
+            <div class="row m-2 text-center">
+                <div class="col mr-1">
+                    <hr class="mt-3 mb-3"/>
+
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/lookupfactory/A}, text='Select ServiceA')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/lookupfactory/B}, text='Select ServiceB')"/>
+
+                    <hr class="mt-3 mb-3"/>
+                </div>
+            </div>
+
+            <div class="row m-1">
+                <div class="col text-right mr-1">
+                    <p>I should be the selected service implementation: </p>
+                </div>
+                <div class="col text-left ml-1">
+                    <span th:text="${result}" class="font-weight-bold"/>
+                </div>
+            </div>
+
+            <div class="row m-2">
+                <div class="col">
+                    <hr class="mt-3 mb-3"/>
+
+                    <p>
+                        See the package <code>at.gepardec.cditraining.uc.lookupfactory.*</code> for the relevant
+                        classes.
+                        Especially take a look at the comments.
+                    </p>
+
+                    <hr class="mt-3 mb-3"/>
+                </div>
+            </div>
+
+            <div class="row m-2">
+                <div class="col">
+                    <p>
+                        Normally we define injections of beans during compile time which get resolved during runtime.
+                    </p>
+
+                    <p>
+                        But what if the information what bean to use is dynamic and can change during runtime?
+                    </p>
+
+                    <p>
+                        Imagine an interface which has multiple implementations, although the current implementation to
+                        use is decided during runtime and therefore cannot be defined during compile time.
+                    </p>
+                    <p>
+                        So, wee need to implement a programmatic lookup to resolve the beans during runtime when
+                        we know what implementation we need to use.
+                    </p>
+
+                    <div class="alert alert-info mt-2 mb-2" role="alert">
+                        <h5 class="alert-heading">Important!!</h5>
+                        Be ware that if the beans are <code>@Dependent</code> then we nee to cleanup them, otherwise
+                        we would cause a memory leak.
+                    </div>
+
+                    <hr class="mt-3 mb-3"/>
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col text-center">
+                    <h5>
+                        The solution is to implement a factory class which encapsulates the programmatic lookup and
+                        bean instance management.
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
+</body>
+</html>
