@@ -21,6 +21,12 @@
         <krazo-ext-thymeleaf.version>1.1.0</krazo-ext-thymeleaf.version>
         <commons-lang3.version>3.11</commons-lang3.version>
 
+        <!-- Test Dependency Versions -->
+        <version.weld-junit5>2.0.2.Final</version.weld-junit5>
+        <version.weld-se>3.1.5.Final</version.weld-se> <!-- Wildfly 22 runs on this version -->
+        <version.mockito-junit-jupiter>3.6.0</version.mockito-junit-jupiter>
+        <version.mockito-core>2.24.0</version.mockito-core>
+
         <!-- Plugin Properties -->
         <maven.compiler.parameters>true</maven.compiler.parameters>
         <maven.compiler.source>11</maven.compiler.source>
@@ -116,6 +122,54 @@
             <version>${commons-lang3.version}</version>
         </dependency>
 
+        <!-- Test Dependencies -->
+        <dependency>
+            <groupId>org.jboss.weld</groupId>
+            <artifactId>weld-junit5</artifactId>
+            <version>${version.weld-junit5}</version>
+            <scope>test</scope>
+            <exclusions>
+                <!-- Newer as Wildfly uses, and we want to be consistent -->
+                <exclusion>
+                    <groupId>org.jboss.weld.se</groupId>
+                    <artifactId>weld-se-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- This is the version of CDI Wildfly 22 uses -->
+        <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se-core</artifactId>
+            <version>${version.weld-se}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${version.mockito-junit-jupiter}</version>
+            <scope>test</scope>
+            <exclusions>
+                <!-- The extension is broken with used mockito-core:2.21.0 -->
+                <exclusion>
+                    <groupId>org.mockito</groupId>
+                    <artifactId>mockito-core</artifactId>
+                </exclusion>
+                <!-- Uses newer junit-jupiter-api:5.4.2 but weld-junit provides 5.4.1 -->
+                <exclusion>
+                    <groupId>org.junit.jupiter</groupId>
+                    <artifactId>junit-jupiter-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${version.mockito-core}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -162,12 +216,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire-plugin.version}</version>
-                <configuration>
-                    <systemPropertyVariables>
-                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                        <maven.home>${maven.home}</maven.home>
-                    </systemPropertyVariables>
-                </configuration>
             </plugin>
         </plugins>
     </build>
