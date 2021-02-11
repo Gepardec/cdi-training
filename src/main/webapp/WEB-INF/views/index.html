@@ -3,11 +3,8 @@
 <head th:insert="/WEB-INF/fragments/general.html :: head (title='Welcome')"/>
 
 <body>
-<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-    <div class="mx-auto">
-        <h1>Welcome to the CDI Training</h1>
-    </div>
-</nav>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='CDI Training Examples', href=@{/welcome})"/>
+
 <section>
     <div class="container text-center">
         <div id="index-example-injection" class="row m-1">

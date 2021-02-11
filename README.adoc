@@ -7,7 +7,9 @@ The application is based on the link:https://jakarta.ee/release/8/[Jakarta-EE 8.
 
 == Accessing the application
 
-The application can be accessed via `http://localhost:8080/cditraining/index`.
+The application can be accessed via `http://localhost:8080/cditraining/welcome`. +
+
+Follow the instructions to work through the exercises.
 
 IMPORTANT: When running in an IDE the actual port will depend on your configuration.
 
