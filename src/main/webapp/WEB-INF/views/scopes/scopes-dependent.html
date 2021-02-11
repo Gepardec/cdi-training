@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="de">
 <head th:insert="/WEB-INF/fragments/general.html :: head (title='Dependent Scope')"/>
-<!--/*@thymesVar id="dependentBeanRequestScoped" type="at.gepardec.cditraining.scopes.DependentBean"*/-->
-<!--/*@thymesVar id="dependentBeanSessionScoped" type="at.gepardec.cditraining.scopes.DependentBean"*/-->
-<!--/*@thymesVar id="dependentBeanApplicationScoped" type="at.gepardec.cditraining.scopes.DependentBean"*/-->
-<!--/*@thymesVar id="dependentBeanSecondApplicationScoped" type="at.gepardec.cditraining.scopes.DependentBean"*/-->
-
+<!--/*@thymesVar id="dependentBeanRequestScopedValue" type="java.lang.Integer"*/-->
+<!--/*@thymesVar id="dependentBeanSessionScopedValue" type="java.lang.Integer"*/-->
+<!--/*@thymesVar id="dependentBeanApplicationScopedValue" type="java.lang.Integer"*/-->
 <body>
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Pseudo-Scope Dependent', href=@{/index#index-example-scopes})"/>
 
@@ -15,7 +13,7 @@
             <div class="row m-2">
                 <div class="col text-center">
                     <h4>
-                        Same class DependentBean injected into different scoped beans
+                        Click <kbd>F5</kbd> to refresh
                     </h4>
 
                     <hr class="mt-3 mb-3"/>
@@ -23,35 +21,38 @@
             </div>
 
             <div class="row m-1">
+                <div class="col">
+                    <p>
+                        When your scopes are properly, then you should see the values changing as described
+                    </p>
+
+                    <hr class="mt-3 mb-3"/>
+                </div>
+            </div>
+
+            <div class="row m-1">
+
                 <div class="col text-right mr-1">
-                    <p>dependentBeanRequestScoped BEAN: </p>
+                    <p><b>request.dependent.value</b> never changes: </p>
                 </div>
                 <div class="col text-left ml-1">
-                    <span th:text="${dependentBeanRequestScoped}" class="font-weight-bold"/>
+                    <span th:text="${dependentBeanRequestScopedValue}" class="font-weight-bold"/>
                 </div>
             </div>
             <div class="row m-1">
                 <div class="col text-right mr-1">
-                    <p>dependentBeanSessionScoped BEAN: </p>
+                    <p><b>session.dependent.value</b> starts new in a private session: </p>
                 </div>
                 <div class="col text-left ml-1">
-                    <span th:text="${dependentBeanSessionScoped}" class="font-weight-bold"/>
+                    <span th:text="${dependentBeanSessionScopedValue}" class="font-weight-bold"/>
                 </div>
             </div>
             <div class="row m-1">
                 <div class="col text-right mr-1">
-                    <p>dependentBeanApplicationScoped BEAN: </p>
+                    <p><b>application.dependent.value</b> always changes: </p>
                 </div>
                 <div class="col text-left ml-1">
-                    <span th:text="${dependentBeanApplicationScoped}" class="font-weight-bold"/>
-                </div>
-            </div>
-            <div class="row m-1">
-                <div class="col text-right mr-1">
-                    <p>dependentBeanSecondApplicationScopedValue BEAN: </p>
-                </div>
-                <div class="col text-left ml-1">
-                    <span th:text="${dependentBeanSecondApplicationScoped}" class="font-weight-bold"/>
+                    <span th:text="${dependentBeanApplicationScopedValue}" class="font-weight-bold"/>
                 </div>
             </div>
         </div>

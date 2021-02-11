@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="de">
 <head th:insert="/WEB-INF/fragments/general.html :: head (title='Welcome')"/>
 
 <body>
@@ -12,21 +12,18 @@
                 <article>
                     <h2>Injection</h2>
 
-                    <div class="mt-4 mb-4">
-                        <h5>You will get an error -> fix it :-D </h5>
-                        <pre>
-                            src/main/java/at/gepardec/cditraining/inject/*
-                        </pre>
+                    <div class="mt-4 mb-4 text-left">
+                        <h6>
+                            In first two examples you learn the basic of the basic when it comes to CDI and injection.
+                            <br/>
+                            When you click one of the button you will experience an error, so analyze the package
+                            <code>src/main/java/at/gepardec/cditraining/inject/*</code> and find out what's going wrong.
+                        </h6>
                     </div>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/inject-field}, text='Injection')"/>
-
-                    <div class="mt-4 mb-4">
-                        <h5>You will get an error -> fix it :-D </h5>
-                        <pre>
-                            src/main/java/at/gepardec/cditraining/inject/*
-                        </pre>
-                    </div>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/inject-constructor}, text='Constructor Injection')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/inject-field}, text='Injection')"
+                       class="m-1"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/inject-constructor}, text='Constructor Injection')"
+                       class="m-1"/>
                 </article>
 
                 <hr class="solid mt-4 mb-4"/>
@@ -38,41 +35,32 @@
                 <article>
                     <h2>Scopes</h2>
 
-                    <div class="mt-4 mb-4">
-                        <h5>Basic</h5>
-                        <pre>
-                            src/main/java/at/gepardec/cditraining/scopes/*
-                        </pre>
+                    <div class="mt-4 mb-4 text-left">
+                        <h6>
+                            In this example you will learn about CDI Scopes, their impacts and proper usage.
+                            <br/>
+                            Click one of the button below and through the instructions:
+                        </h6>
+                        <ul>
+                            <li>
+                                <b>Basic Scopes:</b> Beans with scopes
+                            </li>
+                            <li>
+                                <b>Mixed Scopes:</b> Scoped beans which inject scoped beans
+                            </li>
+                            <li>
+                                <b>Dependent Scope:</b> The CDI default scope
+                            </li>
+                        </ul>
                     </div>
+                    <p>
+                        Take a look at <a
+                            href="https://jakarta.ee/specifications/cdi/2.0/cdi-spec-2.0.html#scopes"
+                            target="_blank">CDI Scopes specification</a>
+                    </p>
+
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/basic}, text='Basic Scopes')"/>
-
-                    <div class="mt-4 mb-4">
-                        <h5>Mixed</h5>
-                        <pre>
-                            src/main/java/at/gepardec/cditraining/scopes/*
-                        </pre>
-                        <p>
-                            have a look at <a href="https://riptutorial.com/cdi/topic/9641/scopes" target="_blank">
-                            Scopes</a> try to
-                            debug
-                            the code and find the proxy
-                        </p>
-                    </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/mixed}, text='Mixed Scopes')"/>
-
-                    <div class="mt-4 mb-4">
-                        <h5>Dependent</h5>
-                        <pre>
-                            src/main/java/at/gepardec/cditraining/scopes/*
-                        </pre>
-                        <p>
-                            have a look at <a
-                                href="https://www.adam-bien.com/roller/abien/entry/what_is_dependent_scope"
-                                target="_blank">
-                            Dependent Scope</a>
-                        </p>
-
-                    </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/dependent}, text='Pseudo-Scope Dependent')"/>
 
                     <hr class="mt-4 mb-4"/>
@@ -84,13 +72,15 @@
             <div class="col">
                 <article>
                     <h2>Initialization</h2>
-
-                    <div class="mt-4 mb-4">
-                        <pre>
-                            src/main/java/at/gepardec/cditraining/initialization/*
-                        </pre>
-                        <p>have a look at <a href="https://javaee.github.io/tutorial/cdi-basic014.html" target="_blank">
-                            Using PostConstruct and PreDestroy</a>, and also have a look at the logs.</p>
+                    <div class="mt-4 mb-4 text-left">
+                        <h6>
+                            CDI beans have a lifecycle we can observe via events.
+                        </h6>
+                        <p>
+                            Have a look at <a href="https://javaee.github.io/tutorial/cdi-basic014.html"
+                                              target="_blank">
+                            Using PostConstruct and PreDestroy</a>.
+                        </p>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/initialization}, text='Initialization')"/>
 

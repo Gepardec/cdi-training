@@ -16,7 +16,7 @@ public class ScopesController {
     @Inject
     private Models model;
 
-    // Scope Basic Example
+    // Scope Basic/Dependent Example
     @Inject
     private RequestBean requestBean;
 
@@ -26,13 +26,9 @@ public class ScopesController {
     @Inject
     private ApplicationBean applicationBean;
 
-    // Scope Advanced Example
+    // Mixed/Scopes Example
     @Inject
     private MixedApplicationBean mixedApplicationBean;
-
-    // Scope Dependent Example
-    @Inject
-    private DependentApplicationBean dependentApplicationBean;
 
     @GET
     @Path("/basic")
@@ -48,7 +44,7 @@ public class ScopesController {
     @GET
     @Path("/mixed")
     public String advanced() {
-        model.put("tabTitle", "Scopes Advanced");
+        model.put("tabTitle", "Mixed Scopes (Mixed*Bean.java)");
         model.put("requestValue", mixedApplicationBean.scopeMixSession().scopeMixRequest().incrementAndGet());
         model.put("sessionValue", mixedApplicationBean.scopeMixSession().incrementAndGet());
         model.put("applicationValue", mixedApplicationBean.incrementAndGet());
@@ -60,14 +56,9 @@ public class ScopesController {
     @Path("/dependent")
     public String dependent() {
         model.put("tabTitle", "Scope Dependent");
-        model.put("dependentBeanRequestScoped", requestBean.dependentBean());
         model.put("dependentBeanRequestScopedValue", requestBean.dependentBean().incrementAndGet());
-        model.put("dependentBeanSessionScoped", sessionBean.dependentBean());
         model.put("dependentBeanSessionScopedValue", sessionBean.dependentBean().incrementAndGet());
-        model.put("dependentBeanApplicationScoped", applicationBean.dependentBean());
         model.put("dependentBeanApplicationScopedValue", applicationBean.dependentBean().incrementAndGet());
-        model.put("dependentBeanSecondApplicationScoped", dependentApplicationBean.dependentBean());
-        model.put("dependentBeanSecondApplicationScopedValue", dependentApplicationBean.dependentBean().incrementAndGet());
 
         return "scopes/scopes-dependent.html";
     }
