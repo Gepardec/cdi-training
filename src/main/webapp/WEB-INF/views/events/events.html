@@ -28,7 +28,7 @@
 
                         <p>
                             Synchronous Events are used to couple logic which is supposed to be executed in sequence,
-                            in a decoupled manner. We know the event type and the CDI Event system not the observers.
+                            in a decoupled manner. We know the event type and the CDI Event system not the observers
                         </p>
 
                         <h5>
@@ -43,7 +43,7 @@
 
                         <p>
                             When finished debug in the <code>get</code> method after the event was fired
-                            and you should see the following log message right away.
+                            and you should see the following log message right away
                         </p>
                         <pre>Synchronous Message received. Message: '&lt;YOUR_MESSAGE&gt;'</pre>
 
@@ -56,7 +56,7 @@
                         <h4>2. Asynchronous Events</h4>
 
                         <p>
-                            Asynchronous Events are used to couple logic which is supposed to be executed in parallel.
+                            Asynchronous Events are used to couple logic which is supposed to be executed in parallel
                         </p>
 
                         <h5>
@@ -72,7 +72,7 @@
                         <p>
                             When finished refresh the page and you should'nt experience any delay in the page load,
                             which means the event is observed asynchronously. The following log message appears now
-                            long after the page has been loaded.
+                            long after the page has been loaded
                         </p>
                         <pre>Asynchronous Message received. Message: '&lt;YOUR_MESSAGE&gt;'</pre>
 
@@ -87,7 +87,7 @@
                         <p>
                             Event observers are invoked for event types which are ordinary Java <code>interfaces</code>
                             and/or <code>classes</code>. By playing with the generics on the observer methods
-                            it is possible to observe multiple event types.
+                            it is possible to observe multiple event types
                         </p>
 
                         <h5>

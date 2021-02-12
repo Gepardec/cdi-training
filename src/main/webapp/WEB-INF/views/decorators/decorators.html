@@ -25,28 +25,28 @@
                 <div class="row m-2">
                     <div class="col">
                         <p>
-                            See the package <code>at.gepardec.cditraining.decorators.*</code> for the relevant classes.
+                            See the package <code>at.gepardec.cditraining.decorators.*</code> for the relevant classes
                         </p>
 
                         <p>
                             An decorator is either registered via the a <code>beans.xml</code> or
-                            via the <code>@Priority</code> annotation.
+                            via the <code>@Priority</code> annotation
                         </p>
                         <p>
                             A decorator implements the beans interface and is usually an abstract class <span
-                                class="font-italic">(You only need to implement methods you want to decorate)</span>.
+                                class="font-italic">(You only need to implement methods you want to decorate)</span>
                         </p>
                         <p>
                             A decorator depends on the bean type, but the decorated bean itself doesn't need to know
-                            anything about a decorator, therefore a decorator can be enabled in an decoupled fashion.
+                            anything about a decorator, therefore a decorator can be enabled in an decoupled fashion
                         </p>
                         <p>
                             Decorators cannot and should not share state with each other, there is no
                             <code>InvocationContext</code>
-                            which can hold a parameter map.
+                            which can hold a parameter map
                         </p>
                         <p>
-                            You need to check the logs to see if the interceptors are working.
+                            You need to check the logs to see if the interceptors are working
                         </p>
                         <p>
                             Here you find the spec for
@@ -67,10 +67,10 @@
 
                         <p>
                             Decorators enabled with <code>@Priority</code> are enabled
-                            globally in all CDI modules.
+                            globally in all CDI modules
                             <br/>
                             If all decorators define the
-                            same priority then the order they are executed is not deterministic.
+                            same priority then the order they are executed is not deterministic
                         </p>
 
                         <h5>
@@ -80,8 +80,7 @@
                         <p>
                             Ensure that the decorator
                             <code>at.gepardec.cditraining.decorators.ServiceDecorator</code>is enabled via
-                            <code>@Priority</code>
-                            annotation.
+                            <code>@Priority</code> annotation
                         </p>
 
                         <div class="alert alert-info mt-2 mb-2" role="alert">
@@ -102,7 +101,7 @@
 
                         <p>
                             Decorators enabled with <code>beans.xml</code> are enabled
-                            only in the declaring CDI module. With this approach you have no problems with ordering.
+                            only in the declaring CDI module. With this approach you have no problems with ordering
                         </p>
 
                         <h5>
@@ -111,7 +110,7 @@
 
                         <p>
                             Ensure that the decorator
-                            <code>at.gepardec.cditraining.decorators.ServiceDecorator</code> is enabled in the <code>beans.xml</code>.
+                            <code>at.gepardec.cditraining.decorators.ServiceDecorator</code> is enabled in the <code>beans.xml</code>
                         </p>
 
                         <div class="alert alert-info mt-2 mb-2" role="alert">
@@ -130,7 +129,7 @@
                         </h4>
 
                         <p>
-                            Now it's time to implement your own decorator.
+                            Now it's time to implement your own decorator
                         </p>
 
                         <h5>
@@ -141,18 +140,18 @@
                             <b>a)</b>
                             Implement a decorator which decorates the method
                             <code>at.gepardec.cditraining.decorators.ServiceApi.doSomething()</code> and logs a message
-                            before and after invoking the delegate.
+                            before and after invoking the delegate
                         </p>
 
                         <p>
                             <b>b)</b>
-                            Enable your decorator and ensure your decorator is invoked first.
+                            Enable your decorator and ensure your decorator is invoked first
                         </p>
 
                         <p>
                             <b>c)</b>
                             To skip the decorator chain a decorator just needs to skip to call the decorated method on
-                            the delegate. Give it a try an debug into it.
+                            the delegate. Give it a try an debug into it
                         </p>
 
                         <div class="alert alert-info mt-2 mb-2" role="alert">
@@ -163,7 +162,7 @@
                         <p>
                             <b>e)</b>
                             Annotate the method <code>at.gepardec.cditraining.decorators.ServiceApi.doSomething()</code>
-                            with an interceptor annotation and take a look at your logs.
+                            with an interceptor annotation and take a look at your logs
                         </p>
 
                         <div class="alert alert-info mt-2 mb-2" role="alert">

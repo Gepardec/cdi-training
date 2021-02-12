@@ -25,17 +25,15 @@
                 <div class="row m-2">
                     <div class="col">
                         <p>
-                            See the following classes for the provided interceptor implementations.
+                            See the package <code> at.gepardec.cditraining.interceptors.*</code>
+                            for the provided interceptor implementations
                         </p>
-                        <pre>
-                            at.gepardec.cditraining.interceptors.*
-                    </pre>
                         <p>
                             An interceptor is either registered via the a <code>beans.xml</code> or
-                            via the <code>@Priority</code> annotation.
+                            via the <code>@Priority</code> annotation
                         </p>
                         <p>
-                            You need to check the logs to see if the interceptors are working.
+                            You need to check the logs to see if the interceptors are working
                         </p>
                         <p>
                             Here you find the spec for
@@ -56,10 +54,10 @@
 
                         <p>
                             Interceptors enabled with <code>@Priority</code> are enabled
-                            globally in all CDI modules.
+                            globally in all CDI modules
                             <br/>
                             If all interceptors define the
-                            same priority then the order they are executed is not deterministic.
+                            same priority then the order they are executed is not deterministic
                         </p>
 
                         <h5>
@@ -95,7 +93,7 @@
 
                         <p>
                             Interceptors enabled with a <code>beans.xml</code> are enabled
-                            only in the declaring CDI module. With this approach you have no problems with ordering.
+                            only in the declaring CDI module. With this approach you have no problems with ordering
                         </p>
 
                         <h5>
@@ -134,7 +132,7 @@
                             <br/>
                             These values can be used to select an interceptor implementation instead of introducing a
                             new
-                            interceptor annotation.
+                            interceptor annotation
                         </p>
 
                         <h5>
@@ -147,7 +145,7 @@
                             <code>at.gepardec.cditraining.interceptors.BindingInterceptor</code> and enhance the
                             interceptor
                             binding so that you can select one of your implementations on the annotated method
-                            <code>at.gepardec.cditraining.interceptors.InterceptorsController.get()</code>.
+                            <code>at.gepardec.cditraining.interceptors.InterceptorsController.get()</code>
                         </p>
 
                         <hr class="mt-3 mb-3"/>
