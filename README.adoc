@@ -5,6 +5,39 @@ After working through the tasks someone should be able to understand the main co
 
 The application is based on the link:https://jakarta.ee/release/8/[Jakarta-EE 8.0] link:https://jakarta.ee/specifications/cdi/2.0/[(CDI 2.0)] specification and the link:https://www.wildfly.org/[Wildfly] application server.
 
+== Covered CDI Basics
+
+The following CDI concepts are covered by this example
+
+. Injection
+. Scopes
+. Initialization (`@PostConstruct, @PreDestroy`)
+. Qualifiers
+. Producer Methods/Fields
+. Interceptors
+. Decorators
+. Events
+
+== CDI Use Cases
+
+Additionally to the CDI basics, this sample application provides implementations with explanations for use cases we faced in our projects.
+
+. Scopes and Concurrency +
+How to provide request scoped state when using concurrency where we only can use `@Dependent, @ApplicationScoped` beans?
+. Dynamic Default +
+How to change the `@Default` of an CDI bean during runtime?
+. Alternatives +
+How and when to use `@Alternative` beans?
+. Specialized +
+How and when to use `@Specialized` beans, and what differs them from `@Alternative` beans?
+. Registrar +
+How to use a registrar to capture asynchronous executions results, which are needed by other parts of the application?
+. Startup-Event +
+How to notify the application about that the application has started?
+. Lookup-Factory +
+How to implement a factory to encapsulate the CDI programmatic bean lookup and how to manage `@Dependent` scoped beans
+properly?
+
 == Accessing the application
 
 The application can be accessed via `http://localhost:8080/cditraining/welcome`. +
