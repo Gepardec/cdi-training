@@ -1,7 +1,7 @@
 = CDI Training
 
 This repository holds the sample application which illustrates aspects of the CDI 2.0 specification.
-After working through the tasks someone should be able to understand the main concepts of the CDI 2.0 specification and use the CDI 2.0 concepts in real time applications.
+After working through the tasks one should be able to understand the main concepts of the CDI 2.0 specification and use the CDI 2.0 concepts in real time applications.
 
 The application is based on the link:https://jakarta.ee/release/8/[Jakarta-EE 8.0] link:https://jakarta.ee/specifications/cdi/2.0/[(CDI 2.0)] specification and the link:https://www.wildfly.org/[Wildfly] application server.
 
@@ -35,8 +35,7 @@ How to use a registrar to capture asynchronous executions results, which are nee
 . Startup-Event +
 How to notify the application about that the application has started?
 . Lookup-Factory +
-How to implement a factory to encapsulate the CDI programmatic bean lookup and how to manage `@Dependent` scoped beans
-properly?
+How to implement a factory to encapsulate the CDI programmatic bean lookup and how to manage `@Dependent` scoped beans properly?
 
 == Accessing the application
 
