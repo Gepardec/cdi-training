@@ -3,7 +3,7 @@
 <head th:insert="/WEB-INF/fragments/general.html :: head (title='Welcome')"/>
 
 <body>
-<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='CDI Training Examples', href=@{/welcome})"/>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='CDI Training Concepts', href=@{/welcome})"/>
 
 <section>
     <div class="container text-center">
@@ -37,9 +37,7 @@
 
                     <div class="mt-4 mb-4 text-left">
                         <h6>
-                            In this example you will learn about CDI Scopes, their impacts and proper usage.
-                            <br/>
-                            Click one of the button below and through the instructions:
+                            In this example you will learn about CDI Scopes, their impacts and proper usage
                         </h6>
                         <ul>
                             <li>
@@ -54,14 +52,14 @@
                         </ul>
                     </div>
                     <p>
-                        Take a look at <a
+                        Have a look at <a
                             href="https://jakarta.ee/specifications/cdi/2.0/cdi-spec-2.0.html#scopes"
                             target="_blank">CDI Scopes specification</a>
                     </p>
 
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/basic}, text='Basic Scopes')"/>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/mixed}, text='Mixed Scopes')"/>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/dependent}, text='Pseudo-Scope Dependent')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/basic}, text='1. Basic Scopes')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/mixed}, text='2. Mixed Scopes')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/dependent}, text='3. Pseudo-Scope Dependent')"/>
 
                     <hr class="mt-4 mb-4"/>
                 </article>
@@ -74,7 +72,7 @@
                     <h2>Initialization</h2>
                     <div class="mt-4 mb-4 text-left">
                         <h6>
-                            CDI beans have a lifecycle we can observe via events.
+                            CDI beans have a lifecycle and we can observe events when beans get created and destroyed.
                         </h6>
                         <p>
                             Have a look at <a href="https://javaee.github.io/tutorial/cdi-basic014.html"
@@ -94,8 +92,12 @@
                 <article>
                     <h2>Qualifiers</h2>
 
-                    <div class="mt-4 mb-4">
-                        <pre>src/main/java/at/gepardec/cditraining/qualifiers/*</pre>
+                    <div class="mt-4 mb-4 text-left">
+                        <h6>
+                            When we have multiple implementations for an CDI bean (interface), then we need to qualify
+                            them, otherwise how is the CDI container supposed to know what implementation to provide?
+                        </h6>
+
                         <p>
                             Have a look at
                             <a href="https://www.baeldung.com/java-ee-cdi#5-the-default-and-alternative-annotations"
@@ -120,12 +122,14 @@
                 <article>
                     <h2>Producers</h2>
 
-                    <div class="mt-4 mb-4">
-                        <pre>
-                            src/main/java/at/gepardec/cditraining/producers/*
-                        </pre>
+                    <div class="mt-4 mb-4 text-left">
+                        <h6>
+                            Usually the CDI container creates the CDI bean instance via the empty constructor, but
+                            what if the instantiation of the instance is not that simple?
+                        </h6>
+
                         <p>
-                            have a look at
+                            Have a look at
                             <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_field" target="_blank">
                                 Producer fields
                             </a>
@@ -147,10 +151,14 @@
                 <article>
                     <h2>Interceptors</h2>
 
-                    <div class="mt-4 mb-4">
-                        <pre>src/main/java/at/gepardec/cditraining/interceptors/*</pre>
+                    <div class="mt-4 mb-4 text-left">
+                        <h6>
+                            Aspects in CDi are implemented via interceptors and applied via interceptor binding
+                            annotations, for instance <code>@Transactional</code>.
+                        </h6>
+
                         <p>
-                            Have a look at
+                            Have a look at the
                             <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#_interceptor_example"
                                target="_blank">
                                 Interceptor example
@@ -164,33 +172,22 @@
             </div>
         </div>
 
-        <div id="index-example-events" class="row m-1">
-            <div class="col">
-                <article>
-                    <h2>Events</h2>
-
-                    <div class="mt-4 mb-4">
-                        <pre>src/main/java/at/gepardec/cditraining/events/*</pre>
-                        <p>
-                            have a look at <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#events">Events</a>
-                        </p>
-                    </div>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/events}, text='Events')"/>
-
-                    <hr class="mt-3 mb-3"/>
-                </article>
-            </div>
-        </div>
-
         <div id="index-example-decorators" class="row m-1">
             <div class="col">
                 <article>
                     <h2>Decorators</h2>
 
-                    <div class="mt-4 mb-4">
-                        <pre>src/main/java/at/gepardec/cditraining/decorators/*</pre>
+                    <div class="mt-4 mb-4 text-left">
+                        <h6>
+                            CDI interceptors are generic and are applied via annotations, but CDI decorators implement
+                            the CDI bean type and are applied in a de-coupled fashion.
+                        </h6>
+
                         <p>
-                            have a look at <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#decorators">Decorators</a>
+                            Have a look at
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#decorators" target="_blank">
+                                Decorators
+                            </a>
                         </p>
                     </div>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/decorators}, text='Decorators')"/>
@@ -200,38 +197,25 @@
             </div>
         </div>
 
-
-        <div id="index-uc" class="row m-1">
+        <div id="index-example-events" class="row m-1">
             <div class="col">
                 <article>
-                    <h2>Use Cases</h2>
+                    <h2>Events</h2>
 
-                    <p>
-                        This section holds the technical use-cases where CDI is used in a more complex way. It's worth
-                        to take a look at the comments in the classes.
-                    </p>
+                    <div class="mt-4 mb-4 text-left">
+                        <h6>
+                            CDI provides an event system which can be used to couple parts of the application
+                            in a de-coupled fashion.
+                        </h6>
 
-                    <p id="index-uc-concurrency">
-                        <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/concurrency}, text='Conccurency and Scopes')"/>
-                    </p>
-                    <p id="index-uc-dynamicdefault">
-                        <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/dynamicdefault}, text='Dynamic Default')"/>
-                    </p>
-                    <p id="index-uc-alternatives">
-                        <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/alternatives}, text='Alternatives')"/>
-                    </p>
-                    <p id="index-uc-specializes">
-                        <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/specializes}, text='Specialized')"/>
-                    </p>
-                    <p id="index-uc-registrar">
-                        <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/registrar}, text='Registrar')"/>
-                    </p>
-                    <p id="index-uc-startupevent">
-                        <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/startupevent}, text='Startup-Event')"/>
-                    </p>
-                    <p id="index-uc-lookupfactory">
-                        <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/lookupfactory/A}, text='Lookup-Factory')"/>
-                    </p>
+                        <p>
+                            Have a look at
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#events" target="_blank">
+                                Events
+                            </a>
+                        </p>
+                    </div>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/events}, text='Events')"/>
 
                     <hr class="mt-3 mb-3"/>
                 </article>

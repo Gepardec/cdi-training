@@ -7,21 +7,7 @@ import javax.ws.rs.Path;
 
 @Path("/")
 @RequestScoped
-public class RootController {
-
-    @Path("/")
-    @GET
-    @Controller
-    public String get() {
-        return welcome();
-    }
-
-    @Path("/welcome")
-    @GET
-    @Controller
-    public String welcome() {
-        return "welcome.html";
-    }
+public class IndexController {
 
     @Path("/index")
     @GET

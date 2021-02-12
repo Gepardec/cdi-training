@@ -7,10 +7,11 @@
 <!--/*@thymesVar id="exceptionMessage" type="java.lang.String"*/-->
 <!--/*@thymesVar id="stackTrace" type="java.lang.String"*/-->
 <!--/*@thymesVar id="status" type="java.lang.String"*/-->
+<!--/*@thymesVar id="backURI" type="java.lang.String"*/-->
 <!--/*@thymesVar id="request" type="javax.servlet.http.HttpServletRequest"*/-->
 
 <body>
-<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Ups, an error has occurred', href=@{/index})"/>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Ups, an error has occurred', href=${backURI})"/>
 
 <section class="text-left">
     <div class="container">

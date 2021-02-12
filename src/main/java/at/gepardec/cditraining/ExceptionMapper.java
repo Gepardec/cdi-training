@@ -32,8 +32,10 @@ public class ExceptionMapper implements javax.ws.rs.ext.ExceptionMapper<Throwabl
     public Response toResponse(Throwable exception) {
         final Viewable view = new Viewable("error.html");
         final Response.Status status = Response.Status.INTERNAL_SERVER_ERROR;
+        final String backURI = request.getContextPath() + ((uriInfo.getPath().contains("/uc")) ? "/uc/index" : "/index");
 
         model.put("request", request);
+        model.put("backURI", backURI);
         model.put("status", status.getStatusCode() + " (" + status.toString() + ")");
         model.put("path", uriInfo.getAbsolutePath());
         model.put("exceptionName", exception.getClass().getName());

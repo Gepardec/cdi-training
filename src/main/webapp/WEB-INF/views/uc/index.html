@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="de">
+<head th:insert="/WEB-INF/fragments/general.html :: head (title='UC')"/>
+
+<body>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='CDI Training Use-Cases', href=@{/welcome})"/>
+
+<section>
+    <div class="container text-center">
+
+        <div id="uc-example-concurrency" class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Scopes and Concurrency</h2>
+
+                    <div class="mt-4 mb-4 text-left">
+                        <h6 class="text-left">
+                            When using Concurrency in CDI you will faces problems with scopes others than
+                            <code>@Dependent</code> and <code>@ApplicationScoped</code>
+                        </h6>
+                    </div>
+
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./concurrency}, text='Conccurency and Scopes')"/>
+
+                    <hr class="mt-3 mb-3"/>
+                </article>
+            </div>
+        </div>
+
+        <div id="uc-example-dynamicdefault" class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Dynamic Default</h2>
+
+                    <div class="mt-4 mb-4 text-left">
+                        <h6 class="text-left">
+                            Sometimes it is necessary to change the default implementation of a CDI bean during runtime
+                        </h6>
+                    </div>
+
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./dynamicdefault}, text='Dynamic Default')"/>
+
+                    <hr class="mt-3 mb-3"/>
+                </article>
+            </div>
+        </div>
+
+        <div id="uc-example-alternatives" class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Alternative</h2>
+
+                    <div class="mt-4 mb-4 text-left">
+                        <h6 class="text-left">
+                            Sometimes we need to provide an alternative implementation for CDI bean
+                        </h6>
+                    </div>
+
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./alternatives}, text='Alternatives')"/>
+
+                    <hr class="mt-3 mb-3"/>
+                </article>
+            </div>
+        </div>
+
+        <div id="uc-example-specialized" class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Specialized</h2>
+
+                    <div class="mt-4 mb-4 text-left">
+                        <h6 class="text-left">
+                            Sometimes we need to provide an alternative implementation for CDI bean
+                        </h6>
+                    </div>
+
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./specializes}, text='Specialized')"/>
+
+                    <hr class="mt-3 mb-3"/>
+                </article>
+            </div>
+        </div>
+
+        <div id="uc-example-registrar" class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Registrar</h2>
+
+                    <div class="mt-4 mb-4 text-left">
+                        <h6 class="text-left">
+                            Registrars are CDI beans used to couple parts of an application
+                        </h6>
+                    </div>
+
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/registrar}, text='Registrar')"/>
+
+                    <hr class="mt-3 mb-3"/>
+                </article>
+            </div>
+        </div>
+
+        <div id="uc-example-startupevent" class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Startup-Event</h2>
+
+                    <div class="mt-4 mb-4 text-left">
+                        <h6 class="text-left">
+                            CDI events can be used to notify parts of an application that the application has been
+                            started
+                        </h6>
+                    </div>
+
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./startupevent}, text='Startup-Event')"/>
+
+                    <hr class="mt-3 mb-3"/>
+                </article>
+            </div>
+        </div>
+
+        <div id="uc-example-lookupfactory" class="row m-1">
+            <div class="col">
+                <article>
+                    <h2>Lookup-Factory</h2>
+
+                    <div class="mt-4 mb-4 text-left">
+                        <h6 class="text-left">
+                            When CDI beans have to be selected dynamically during runtime, we can implement a factory
+                            which encapsulates teh interaction with the CDI container.
+                        </h6>
+                    </div>
+
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/lookupfactory/A}, text='Lookup-Factory')"/>
+
+                    <hr class="mt-3 mb-3"/>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
+</body>
+</html>
