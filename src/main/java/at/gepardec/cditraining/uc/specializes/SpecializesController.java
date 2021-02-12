@@ -18,6 +18,9 @@ public class SpecializesController {
     @Inject
     private Service service;
 
+    /**
+     * Still we get {@link ServiceSpecialized} because we inherit from it, this is who the overwrite works
+     */
     @Inject
     private ServiceOriginal serviceOriginal;
 

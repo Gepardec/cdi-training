@@ -9,7 +9,7 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 
 /**
- * This producer is responsible for deciding what bean is returned for unqualified injection points.
+ * This producer is responsible for deciding what bean is returned for @Default annotated injection points.
  */
 @ApplicationScoped
 public class ServiceProducer {

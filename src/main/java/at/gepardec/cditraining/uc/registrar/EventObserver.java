@@ -6,8 +6,8 @@ import javax.inject.Inject;
 
 /**
  * Just firing an event and forgetting it mostly not possible.
- * The registrar is the component which holds the result states and can be accessed by another
- * CDI bean to evaluate the failed/success states.
+ * The registrar is the component which holds the results and can be accessed by other
+ * CDI beans to evaluate the captured results.
  */
 @ApplicationScoped
 public class EventObserver {

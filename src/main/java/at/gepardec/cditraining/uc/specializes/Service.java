@@ -1,7 +1,7 @@
 package at.gepardec.cditraining.uc.specializes;
 
 /**
- * All additional implementations need to be marked with @Alternative and one of them can be activated in the beans.xml.
+ * With specialization we don't implement this interface directly, but via the specialized bean we will inherit from
  */
 public interface Service {
 

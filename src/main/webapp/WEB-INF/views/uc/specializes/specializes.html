@@ -44,8 +44,7 @@
 
                     <p>
                         See the package <code>at.gepardec.cditraining.uc.specializes.*</code> for the relevant
-                        classes.
-                        Especially take a look at the comments.
+                        classes. Especially take a look at the comments
                     </p>
 
                     <hr class="mt-3 mb-3"/>
@@ -63,23 +62,18 @@
                         </li>
                         <li>
                             Via the <code>@Alternative</code> annotation on the specialized implementation class
-                            along with an <code>beans.xml</code> entry or an <code>@Priority</code> annotation.
+                            along with an <code>beans.xml</code> entry or an <code>@Priority</code> annotation
                         </li>
                     </ol>
 
                     <p>
                         Compared to alternative beans, specialized beans replace the original bean, no matter with what
-                        approach a specialized bean has been defined.
+                        approach a specialized bean has been defined
                     </p>
 
                     <p>
-                        When using a stereotype annotation, then we could just enable the stereotype annotation as an
-                        alternative (same for specialized) and all annotated beans would be activated.
-                    </p>
-
-                    <p>
-                        Via the <code>@Priority</code> annotation we can provide specialized beans of other CDI
-                        bean archives, even from third party archives as you can see in the class <code>at.gepardec.cditraining.TemplateEngineProducer</code>.
+                        When using the <code>@Alternative</code> approach to specialize, then the same rule for
+                        enablement apply as when providing alternative implementations
                     </p>
 
                     <hr class="mt-3 mb-3"/>
@@ -88,8 +82,8 @@
             <div class="row m-2">
                 <div class="col text-center">
                     <h5>
-                        The alternative implementation is annotated with <code>@Alternative</code> and is enabled via
-                        the the <code>beans.xml</code> or the <code>@Priority</code> annotation.
+                        The specialized implementation is annotated with <code>@Specialized</code> and thee specialized
+                        bean inherits from the bean it specializes
                     </h5>
                 </div>
             </div>

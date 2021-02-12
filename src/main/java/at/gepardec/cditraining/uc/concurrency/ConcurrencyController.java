@@ -24,7 +24,7 @@ public class ConcurrencyController {
 
     /**
      * When a GET request arrives here then the service bean and its dependencies are already injected and fully initialized.
-     * Therefore we have no problem executing it on a different Thread.
+     * Therefore we have no problems executing it on a different Thread.
      */
     @Inject
     private Service service;

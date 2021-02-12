@@ -52,7 +52,8 @@
 
                     <div class="mt-4 mb-4 text-left">
                         <h6 class="text-left">
-                            Sometimes we need to provide an alternative implementation for CDI bean
+                            Sometimes we need to provide an alternative implementation for a CDI bean, maybe for
+                            development and/or tests
                         </h6>
                     </div>
 
@@ -70,7 +71,8 @@
 
                     <div class="mt-4 mb-4 text-left">
                         <h6 class="text-left">
-                            Sometimes we need to provide an alternative implementation for CDI bean
+                            Sometimes we need to completely overwrite a CDI bean, maybe a configuration producer bean
+                            of a framework where we need to specialize the configuration
                         </h6>
                     </div>
 
@@ -88,7 +90,9 @@
 
                     <div class="mt-4 mb-4 text-left">
                         <h6 class="text-left">
-                            Registrars are CDI beans used to couple parts of an application
+                            Registrars are CDI beans used to couple parts of an application, e.g for asynchronous
+                            executions where we need to capture the results and provide it to other CDI beans
+                            when available
                         </h6>
                     </div>
 
@@ -106,8 +110,8 @@
 
                     <div class="mt-4 mb-4 text-left">
                         <h6 class="text-left">
-                            CDI events can be used to notify parts of an application that the application has been
-                            started
+                            CDI events are used to couple parts of an application in a de-coupled manner and to notify
+                            observers about events.
                         </h6>
                     </div>
 
@@ -125,8 +129,8 @@
 
                     <div class="mt-4 mb-4 text-left">
                         <h6 class="text-left">
-                            When CDI beans have to be selected dynamically during runtime, we can implement a factory
-                            which encapsulates teh interaction with the CDI container.
+                            When CDI beans have to be selected dynamically during runtime, then we can implement a factory
+                            which encapsulates the interaction with the CDI container.
                         </h6>
                     </div>
 

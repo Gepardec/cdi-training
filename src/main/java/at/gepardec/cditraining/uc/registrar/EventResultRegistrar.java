@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * This registrar holds the state of event executions and is access concurrently.
+ * This registrar holds the state of event executions and is accessed concurrently.
  * Because of the concurrent access we need to ensure proper synchronization.
  */
 @ApplicationScoped

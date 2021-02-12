@@ -6,7 +6,7 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
- * Just a simple java type for the startup event
+ * Just a simple java type representing the startup
  */
 public class StartupEvent {
 

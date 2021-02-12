@@ -16,7 +16,7 @@ import javax.inject.Inject;
 public class Service {
 
     /**
-     * Nevertheless that this is actually request scoped, it's actually not, because there is proxy causing problems
+     * Nevertheless that this is actually request scoped, it's actually not, because there is no proxy causing problems
      */
     @Inject
     private ServiceConfig config;
@@ -25,7 +25,7 @@ public class Service {
     private Logger log; // dependent scoped already
 
     public String execute() {
-        // 'config.getCounter()' causes an Exception if executed on a request scope proxy
+        // 'config.getCounter()' causes an Exception if executed on a request scoped proxy
         return "Executed with counter: " + config.getCounter() + " on Thread: " + Thread.currentThread().getId();
     }
 }

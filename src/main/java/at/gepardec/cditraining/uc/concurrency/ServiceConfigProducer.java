@@ -6,7 +6,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 
 /**
- * This class holds the state within its scope, so the bean doesn't need to be annotated with @RequestScoped
+ * This bean holds the state within the request scope, so that the here managed {@link ServiceConfig}
+ * bean doesn't need to be annotated with @RequestScoped
  */
 @RequestScoped
 public class ServiceConfigProducer {

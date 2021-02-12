@@ -10,6 +10,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import java.util.UUID;
 
+/**
+ * this controller fires the asynchronous events which results we need to capture.
+ */
 @Path("/uc/registrar")
 @RequestScoped
 @Controller
