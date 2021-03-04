@@ -37,6 +37,14 @@ How to notify the application about that the application has started?
 . Lookup-Factory +
 How to implement a factory to encapsulate the CDI programmatic bean lookup and how to manage `@Dependent` scoped beans properly?
 
+== Used Tools
+
+To get the application running you need the following software installed:
+
+. link:https://jdk.java.net/java-se-ri/11[OpenJDK 11]
+. link:https://www.wildfly.org/downloads/[Wildfly 22.0.0.FINAL (Jakarta EE 8 Full & Web Distribution)]
+. link:https://maven.apache.org/download.cgi?Preferred=ftp://ftp.osuosl.org/pub/apache/[Maven 3.6.x]
+
 == Accessing the application
 
 The application can be accessed via `http://localhost:8080/cditraining/welcome`. +
