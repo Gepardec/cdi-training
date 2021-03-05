@@ -1,9 +1,11 @@
 = CDI Training
 
-This repository holds the sample application which illustrates aspects of the CDI 2.0 specification.
-After working through the tasks one should be able to understand the main concepts of the CDI 2.0 specification and use the CDI 2.0 concepts in real time applications.
+This repository holds the sample application which covers the main concepts of the CDI 2.0 specification.
+After working through the tasks one should be able to understand the main concepts of the CDI 2.0 specification and to use the CDI 2.0 concepts in real time applications.
 
-The application is based on the link:https://jakarta.ee/release/8/[Jakarta-EE 8.0] link:https://jakarta.ee/specifications/cdi/2.0/[(CDI 2.0)] specification and the link:https://www.wildfly.org/[Wildfly] application server.
+The application is based on the link:https://jakarta.ee/release/8/[Jakarta-EE 8.0] link:https://jakarta.ee/specifications/cdi/2.0/[(CDI 2.0)] specification and the link:https://www.wildfly.org/[Wildfly 22.0.0.Final] application server.
+
+Take a look at these link:presentation-v1.1.pdf[slides] for an introduction to CDI.
 
 == Covered CDI Basics
 
@@ -20,7 +22,7 @@ The following CDI concepts are covered by this example
 
 == CDI Use Cases
 
-Additionally to the CDI basics, this sample application provides implementations with explanations for use cases we faced in our projects.
+Additionally, to the CDI basics, this sample application provides implementations with explanations for use cases we faced in our projects.
 
 . Scopes and Concurrency +
 How to provide request scoped state when using concurrency where we only can use `@Dependent, @ApplicationScoped` beans?
