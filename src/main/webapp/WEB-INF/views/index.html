@@ -14,12 +14,21 @@
 
                     <div class="mt-4 mb-4 text-left">
                         <h6>
-                            In the first two examples you learn the basic of the basic when it comes to CDI and injection.
+                            In the first two examples you learn the basic of the basic when it comes to CDI and
+                            injection.
                             <br/>
                             When you click one of the buttons you will experience an error, so analyze the package
                             <code>src/main/java/at/gepardec/cditraining/inject/*</code> and find out what's going wrong.
                         </h6>
+
+                        <p>
+                            The specification for
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#injection" target="_blank">
+                                Dependency Injection
+                            </a>
+                        </p>
                     </div>
+
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/inject-field}, text='Injection')"
                        class="m-1"/>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/inject-constructor}, text='Constructor Injection')"
@@ -50,12 +59,14 @@
                                 <b>Dependent Scope:</b> The CDI default scope
                             </li>
                         </ul>
+                        <p>
+                            The specification for CDI Scopes and Contexts
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#contexts"
+                               target="_blank">
+                                Scopes and Contexts
+                            </a>
+                        </p>
                     </div>
-                    <p>
-                        Have a look at <a
-                            href="https://jakarta.ee/specifications/cdi/2.0/cdi-spec-2.0.html#scopes"
-                            target="_blank">CDI Scopes specification</a>
-                    </p>
 
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/basic}, text='1. Basic Scopes')"/>
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/scopes/mixed}, text='2. Mixed Scopes')"/>
@@ -75,11 +86,14 @@
                             CDI beans have a lifecycle and we can observe events when beans get created and destroyed.
                         </h6>
                         <p>
-                            Have a look at <a href="https://javaee.github.io/tutorial/cdi-basic014.html"
-                                              target="_blank">
-                            Using PostConstruct and PreDestroy</a>.
+                            How to use <code>@PostConstruct</code> and <code>@PreDestroy</code> in CDI
+                            <a href="https://javaee.github.io/tutorial/cdi-basic014.html"
+                               target="_blank">
+                                https://javaee.github.io/tutorial/cdi-basic014.html
+                            </a>
                         </p>
                     </div>
+
                     <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/initialization}, text='Initialization')"/>
 
                     <hr class="mt-4 mb-4"/>
@@ -97,16 +111,11 @@
                             When we have multiple implementations for an CDI bean (interface), then we need to qualify
                             them, otherwise how is the CDI container supposed to know what implementation to provide?
                         </h6>
-
                         <p>
-                            Have a look at
-                            <a href="https://www.baeldung.com/java-ee-cdi#5-the-default-and-alternative-annotations"
+                            The specification for CDI Qualifiers
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#qualifiers"
                                target="_blank">
-                                The @Default and @Alternative Annotations
-                            </a>
-                            or at
-                            <a href="https://www.baeldung.com/java-ee-cdi#custom-qualifiers" target="_blank">
-                                Custom Qualifiers
+                                Qualifiers
                             </a>
                         </p>
                     </div>
@@ -129,13 +138,13 @@
                         </h6>
 
                         <p>
-                            Have a look at
-                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_field" target="_blank">
-                                Producer fields
+                            The specification for CDI
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_method" target="_blank">
+                                Producer Methods
                             </a>
                             and
-                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_method" target="_blank">
-                                Producer methods
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_field" target="_blank">
+                                Producer Fields
                             </a>
                         </p>
                     </div>
@@ -158,10 +167,9 @@
                         </h6>
 
                         <p>
-                            Have a look at the
-                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#_interceptor_example"
-                               target="_blank">
-                                Interceptor example
+                            The specification for CDI
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#interceptors" target="_blank">
+                                Interceptors
                             </a>
                         </p>
                     </div>
@@ -184,7 +192,7 @@
                         </h6>
 
                         <p>
-                            Have a look at
+                            The specification for CDI
                             <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#decorators" target="_blank">
                                 Decorators
                             </a>
@@ -209,7 +217,7 @@
                         </h6>
 
                         <p>
-                            Have a look at
+                            The specification for CDI
                             <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#events" target="_blank">
                                 Events
                             </a>

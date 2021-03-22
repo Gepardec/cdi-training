@@ -216,6 +216,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire-plugin.version}</version>
+                <configuration>
+                    <!-- No need to test during the maven build yet  -->
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
     </build>
