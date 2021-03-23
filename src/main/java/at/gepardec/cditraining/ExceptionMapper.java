@@ -26,13 +26,16 @@ public class ExceptionMapper implements javax.ws.rs.ext.ExceptionMapper<Throwabl
     private HttpServletRequest request;
 
     @Inject
+    private ApplicationConfig applicationConfig;
+
+    @Inject
     private Logger log;
 
     @Override
     public Response toResponse(Throwable exception) {
         final Viewable view = new Viewable("error.html");
         final Response.Status status = Response.Status.INTERNAL_SERVER_ERROR;
-        final String backURI = request.getContextPath() + ((uriInfo.getPath().contains("/uc")) ? "/uc/index" : "/index");
+        final String backURI = request.getContextPath() + applicationConfig.getRestApplicationPath() + ((uriInfo.getPath().contains("/uc")) ? "/uc/index" : "/index");
 
         model.put("request", request);
         model.put("backURI", backURI);

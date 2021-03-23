@@ -3,7 +3,7 @@
 <head th:insert="/WEB-INF/fragments/general.html :: head (title='UC')"/>
 
 <body>
-<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='CDI Training Use-Cases', href=@{/welcome})"/>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='CDI Training Use-Cases', href=@{/api/welcome})"/>
 
 <section>
     <div class="container text-center">
@@ -96,7 +96,7 @@
                         </h6>
                     </div>
 
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/registrar}, text='Registrar')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar}, text='Registrar')"/>
 
                     <hr class="mt-3 mb-3"/>
                 </article>
@@ -134,7 +134,7 @@
                         </h6>
                     </div>
 
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/lookupfactory/A}, text='Lookup-Factory')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/lookupfactory/A}, text='Lookup-Factory')"/>
 
                     <hr class="mt-3 mb-3"/>
                 </article>

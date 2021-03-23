@@ -5,7 +5,7 @@
 <!--/*@thymesVar id="successEvents" type="java.lang.String"*/-->
 
 <body>
-<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='UC Registrar', href=@{/uc/index#uc-example-registrar})"/>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='UC Registrar', href=@{/api/uc/index#uc-example-registrar})"/>
 
 <section>
     <article>
@@ -15,10 +15,10 @@
                 <div class="col mr-1">
                     <hr class="mt-3 mb-3"/>
 
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/registrar}, text='Refresh')"/>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/registrar/fire/successEvent}, text='Success Event')"/>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/registrar/fire/failedEvent}, text='Fail Event')"/>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/uc/registrar/clear}, text='Clear Registrar')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar}, text='Refresh')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar/fire/successEvent}, text='Success Event')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar/fire/failedEvent}, text='Fail Event')"/>
+                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar/clear}, text='Clear Registrar')"/>
 
                     <hr class="mt-3 mb-3"/>
                 </div>

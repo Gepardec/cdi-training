@@ -49,7 +49,7 @@ To get the application running you need the following software installed:
 
 == Accessing the application
 
-The application can be accessed via `http://localhost:8080/cditraining/welcome`. +
+The application can be accessed via `http://localhost:8080/cditraining/api/welcome`. +
 
 Follow the instructions to work through the exercises.
 
