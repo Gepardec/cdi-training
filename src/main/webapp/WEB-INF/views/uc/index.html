@@ -5,143 +5,210 @@
 <body>
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='CDI Training Use-Cases', href=@{/api/welcome})"/>
 
-<section>
+<article>
     <div class="container text-center">
 
         <div id="uc-example-concurrency" class="row m-1">
-            <div class="col">
-                <article>
-                    <h2>Scopes and Concurrency</h2>
+            <div class="col mb-2">
+                <section class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Scopes and Concurrency</h2>
 
-                    <div class="mt-4 mb-4 text-left">
-                        <h6 class="text-left">
-                            When using Concurrency in CDI you will faces problems with scopes others than
-                            <code>@Dependent</code> and <code>@ApplicationScoped</code>
-                        </h6>
+                        <div class="card-text text-left">
+                            <p>
+                                When using Concurrency in CDI you will faces problems with scopes others than
+                                <code>@Dependent</code> and <code>@ApplicationScoped</code>
+                            </p>
+
+                            <p>
+                                The specification for
+                                <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#injection" target="_blank">
+                                    Dependency Injection
+                                </a>
+                            </p>
+
+                            <div class="text-center">
+                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./concurrency}, text='Conccurency and Scopes')"/>
+                            </div>
+                        </div>
                     </div>
-
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./concurrency}, text='Conccurency and Scopes')"/>
-
-                    <hr class="mt-3 mb-3"/>
-                </article>
+                </section>
             </div>
         </div>
 
         <div id="uc-example-dynamicdefault" class="row m-1">
-            <div class="col">
-                <article>
-                    <h2>Dynamic Default</h2>
+            <div class="col mb-2">
+                <section class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Dynamic Default</h2>
 
-                    <div class="mt-4 mb-4 text-left">
-                        <h6 class="text-left">
-                            Sometimes it is necessary to change the default implementation of a CDI bean during runtime
-                        </h6>
+                        <div class="card-text text-left">
+                            <p>
+                                Sometimes it is necessary to change the default implementation of a CDI bean during
+                                runtime
+                            </p>
+
+                            <p>
+                                The specification for
+                                <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#injection" target="_blank">
+                                    Dependency Injection
+                                </a>
+                            </p>
+
+                            <div class="text-center">
+                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./dynamicdefault}, text='Dynamic Default')"/>
+                            </div>
+                        </div>
                     </div>
-
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./dynamicdefault}, text='Dynamic Default')"/>
-
-                    <hr class="mt-3 mb-3"/>
-                </article>
+                </section>
             </div>
         </div>
 
         <div id="uc-example-alternatives" class="row m-1">
-            <div class="col">
-                <article>
-                    <h2>Alternative</h2>
+            <div class="col mb-2">
+                <section class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Alternative</h2>
 
-                    <div class="mt-4 mb-4 text-left">
-                        <h6 class="text-left">
-                            Sometimes we need to provide an alternative implementation for a CDI bean, maybe for
-                            development and/or tests
-                        </h6>
+                        <div class="card-text text-left">
+                            <p>
+                                Sometimes we need to provide an alternative implementation for a CDI bean, maybe for
+                                development and/or tests
+                            </p>
+
+                            <p>
+                                The specification for
+                                <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#injection" target="_blank">
+                                    Dependency Injection
+                                </a>
+                            </p>
+
+                            <div class="text-center">
+                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./alternatives}, text='Alternatives')"/>
+                            </div>
+                        </div>
                     </div>
-
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./alternatives}, text='Alternatives')"/>
-
-                    <hr class="mt-3 mb-3"/>
-                </article>
+                </section>
             </div>
         </div>
 
         <div id="uc-example-specialized" class="row m-1">
-            <div class="col">
-                <article>
-                    <h2>Specialized</h2>
+            <div class="col mb-2">
+                <section class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Specialized</h2>
 
-                    <div class="mt-4 mb-4 text-left">
-                        <h6 class="text-left">
-                            Sometimes we need to completely overwrite a CDI bean, maybe a configuration producer bean
-                            of a framework where we need to specialize the configuration
-                        </h6>
+                        <div class="card-text text-left">
+                            <p>
+                                Sometimes we need to completely overwrite a CDI bean, maybe a configuration producer
+                                bean
+                                of a framework where we need to specialize the configuration
+                            </p>
+
+                            <p>
+                                The specification for
+                                <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#injection" target="_blank">
+                                    Dependency Injection
+                                </a>
+                            </p>
+
+                            <div class="text-center">
+                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./specializes}, text='Specialized')"/>
+                            </div>
+                        </div>
                     </div>
-
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./specializes}, text='Specialized')"/>
-
-                    <hr class="mt-3 mb-3"/>
-                </article>
+                </section>
             </div>
         </div>
 
         <div id="uc-example-registrar" class="row m-1">
-            <div class="col">
-                <article>
-                    <h2>Registrar</h2>
+            <div class="col mb-2">
+                <section class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Registrar</h2>
 
-                    <div class="mt-4 mb-4 text-left">
-                        <h6 class="text-left">
-                            Registrars are CDI beans used to couple parts of an application, e.g for asynchronous
-                            executions where we need to capture the results and provide it to other CDI beans
-                            when available
-                        </h6>
+                        <div class="card-text text-left">
+                            <p>
+                                Registrars are CDI beans used to couple parts of an application, e.g for asynchronous
+                                executions where we need to capture the results and provide it to other CDI beans
+                                when available
+                            </p>
+
+                            <p>
+                                The specification for
+                                <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#injection" target="_blank">
+                                    Dependency Injection
+                                </a>
+                            </p>
+
+                            <div class="text-center">
+                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar}, text='Registrar')"/>
+                            </div>
+                        </div>
                     </div>
-
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar}, text='Registrar')"/>
-
-                    <hr class="mt-3 mb-3"/>
-                </article>
+                </section>
             </div>
         </div>
 
         <div id="uc-example-startupevent" class="row m-1">
-            <div class="col">
-                <article>
-                    <h2>Startup-Event</h2>
+            <div class="col mb-2">
+                <section class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Startup-Event</h2>
 
-                    <div class="mt-4 mb-4 text-left">
-                        <h6 class="text-left">
-                            CDI events are used to couple parts of an application in a de-coupled manner and to notify
-                            observers about events.
-                        </h6>
+                        <div class="card-text text-left">
+                            <p>
+                                CDI events are used to couple parts of an application in a de-coupled manner and to
+                                notify
+                                observers about events.
+                            </p>
+
+                            <p>
+                                The specification for
+                                <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#injection" target="_blank">
+                                    Dependency Injection
+                                </a>
+                            </p>
+
+                            <div class="text-center">
+                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./startupevent}, text='Startup-Event')"/>
+                            </div>
+                        </div>
                     </div>
-
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{./startupevent}, text='Startup-Event')"/>
-
-                    <hr class="mt-3 mb-3"/>
-                </article>
+                </section>
             </div>
         </div>
 
         <div id="uc-example-lookupfactory" class="row m-1">
-            <div class="col">
-                <article>
-                    <h2>Lookup-Factory</h2>
+            <div class="col mb-2">
+                <section class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Lookup-Factory</h2>
 
-                    <div class="mt-4 mb-4 text-left">
-                        <h6 class="text-left">
-                            When CDI beans have to be selected dynamically during runtime, then we can implement a factory
-                            which encapsulates the interaction with the CDI container.
-                        </h6>
+                        <div class="card-text text-left">
+                            <p>
+                                When CDI beans have to be selected dynamically during runtime, then we can implement a
+                                factory
+                                which encapsulates the interaction with the CDI container.
+                            </p>
+
+                            <p>
+                                The specification for
+                                <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#injection" target="_blank">
+                                    Dependency Injection
+                                </a>
+                            </p>
+
+                            <div class="text-center">
+                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/lookupfactory/A}, text='Lookup-Factory')"/>
+                            </div>
+                        </div>
                     </div>
-
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/lookupfactory/A}, text='Lookup-Factory')"/>
-
-                    <hr class="mt-3 mb-3"/>
-                </article>
+                </section>
             </div>
         </div>
     </div>
-</section>
+</article>
 <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>
 </html>
