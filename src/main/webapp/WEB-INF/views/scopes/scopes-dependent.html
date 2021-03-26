@@ -5,21 +5,11 @@
 <!--/*@thymesVar id="dependentBeanSessionScopedValue" type="java.lang.Integer"*/-->
 <!--/*@thymesVar id="dependentBeanApplicationScopedValue" type="java.lang.Integer"*/-->
 <body>
-<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Pseudo-Scope Dependent', href=@{/api/index#index-example-scopes})"/>
+<header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Dependent Scope', href=@{/api/index#index-example-scopes})"/>
 
-<section>
-    <article>
-        <div class="container ">
-            <div class="row m-2">
-                <div class="col text-center">
-                    <h4>
-                        Click <kbd>F5</kbd> to refresh
-                    </h4>
-
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
-
+<article>
+    <section>
+        <div class="container-lg">
             <div class="row m-1">
                 <div class="col">
                     <p>
@@ -30,46 +20,59 @@
                         </a>
                     </p>
                     <p>
-                        When your scopes of the <b>Basic Scopes</b> and <b>Mixed Scopes</b> examples are properly,
-                        then you should see the values changing as described
+                        The <code>@Dependent</code> scope is a so called pseudo-scope which is always active, which
+                        means there is no lazy instantiation.
+                        A dependent CDI Bean is always owned by the CDI Bean which injected it, therefore, the dependent
+                        CDI Bean lives as long as the owning CDI Bean. But this is a little
+                        tricky when dependent CDI Beans are created programmatically via
+                        <code>javax.enterprise.inject.Instance&lt;T&gt;</code>, which we will see when we come to the
+                        use-cases.
+                    </p>
+                    <p>
+                        When your scopes of the <b>Basic Scopes</b> and <b>Mixed Scopes</b> examples are set properly,
+                        then you should see the values changing as described.
                     </p>
 
                     <div class="alert alert-info mt-2 mb-2" role="alert">
-                        <h5 class="alert-heading">Important!!</h5>
+                        <h5 class="alert-heading font-weight-bold">Important!!</h5>
                         Ensure that you open an private/incognito Tab or a different browser to ensure different
                         http sessions
+                    </div>
+
+                    <hr class="mt-3 mb-3"/>
+
+                    <div class="row my-1">
+                        <div class="col-sm text-center text-sm-right mr-sm-1">
+                            <span class="font-weight-bold">request.dependent.value</span> never changes
+                        </div>
+                        <div class="col-sm text-center text-sm-left ml-sm-1">
+                            <span th:text="${dependentBeanRequestScopedValue}" class="font-weight-bold"/>
+                        </div>
+                    </div>
+
+                    <div class="row my-1">
+                        <div class="col-sm text-center text-sm-right mr-sm-1">
+                            <span class="font-weight-bold">session.dependent.value</span> starts new in a window
+                        </div>
+                        <div class="col-sm text-center text-sm-left ml-sm-1">
+                            <span th:text="${dependentBeanSessionScopedValue}" class="font-weight-bold"/>
+                        </div>
+                    </div>
+
+                    <div class="row my-1">
+                        <div class="col-sm text-center text-sm-right mr-sm-1">
+                            <span class="font-weight-bold">application.dependent.value</span> always changes
+                        </div>
+                        <div class="col-sm text-center text-sm-left ml-sm-1">
+                            <span th:text="${dependentBeanApplicationScopedValue}" class="font-weight-bold"/>
+                        </div>
                     </div>
 
                     <hr class="mt-3 mb-3"/>
                 </div>
             </div>
 
-            <div class="row m-1">
-
-                <div class="col text-right mr-1">
-                    <p><b>request.dependent.value</b> never changes: </p>
-                </div>
-                <div class="col text-left ml-1">
-                    <span th:text="${dependentBeanRequestScopedValue}" class="font-weight-bold"/>
-                </div>
-            </div>
-            <div class="row m-1">
-                <div class="col text-right mr-1">
-                    <p><b>session.dependent.value</b> starts new in a private session: </p>
-                </div>
-                <div class="col text-left ml-1">
-                    <span th:text="${dependentBeanSessionScopedValue}" class="font-weight-bold"/>
-                </div>
-            </div>
-            <div class="row m-1">
-                <div class="col text-right mr-1">
-                    <p><b>application.dependent.value</b> always changes: </p>
-                </div>
-                <div class="col text-left ml-1">
-                    <span th:text="${dependentBeanApplicationScopedValue}" class="font-weight-bold"/>
-                </div>
-            </div>
         </div>
-    </article>
-</section>
+    </section>
+</article>
 </body>

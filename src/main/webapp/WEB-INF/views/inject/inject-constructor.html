@@ -6,31 +6,23 @@
 <body>
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Constructor Injection', href=@{/api/index#index-example-injection})"/>
 
-<section>
-    <article>
+<article>
+    <section>
         <div class="container">
             <div class="row m-2 ">
-                <div class="col text-center">
+                <div class="col">
                     <h4 th:text="${name}"/>
 
                     <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
 
-            <div class="row m-2 ">
-                <div class="col">
                     <p>
                         If a constructor is used for injection, then you need to mark it.
-                    </p>
-                    <p>
                         Depending on the CDI implementation you use, it could be necessary to provide an empty
-                        constructor,
-                        otherwise your beans would cause exceptions.
+                        constructor, otherwise your beans would cause exceptions.
                     </p>
                     <p>
                         In your case it was a JAX-RS implementation related problem, actually caused by Resteasy, which
-                        requires
-                        an empty constructor on a rest resource implementation. See this
+                        requires an empty constructor on a rest resource implementation. See this
                         <a href="https://issues.redhat.com/browse/RESTEASY-1538?workflowName=classic+default+workflow&stepId=4"
                            target="_blank">RedHat Issue</a> for further information
                     </p>
@@ -40,11 +32,13 @@
                            target="_blank">
                             stackoverflow article</a> why and when constructor injection can be useful
                     </p>
+
+                    <hr class="mt-3 mb-3"/>
                 </div>
             </div>
         </div>
-    </article>
-</section>
+    </section>
+</article>
 <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>
 </html>

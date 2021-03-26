@@ -4,6 +4,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
 
 @RequestScoped
-@Alternative
+@Alternative // Maybe this is not suitable here, you decide :)
 public class Rectangle extends Shape {
 }

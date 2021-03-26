@@ -10,19 +10,9 @@
 <body>
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title=${tabTitle}, href=@{/api/index#index-example-scopes})"/>
 
-<section>
-    <article>
-        <div class="container ">
-            <div class="row m-2">
-                <div class="col text-center">
-                    <h4>
-                        Click <kbd>F5</kbd> to refresh
-                    </h4>
-
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
-
+<article>
+    <section>
+        <div class="container-lg ">
             <div class="row m-2">
                 <div class="col">
                     <p>
@@ -32,8 +22,13 @@
                             Scopes and Contexts
                         </a>
                     </p>
+
                     <p>
-                        When your scopes are properly, then you should see the values changing as described
+                        A main concept in CDI are contexts and scopes which define the lifetime and handle the lifecycle
+                        of CDI Beans. All CDI Beans are lazily instantiated on the first access within a scope and get
+                        automatically destroyed when the context ends. CDI Beans can inject each other no mather what
+                        scope the CDI Beans have. But there are consequences when CDI Beans of different scopes are
+                        mixed together.
                     </p>
 
                     <hr class="mt-3 mb-3"/>
@@ -47,43 +42,48 @@
                         <code>src/main/java/at/gepardec/cditraining/scopes/*</code>
                         and check the table below if it works
                     </p>
+                    <p>
+                        When your scopes are set properly, then you should see the values changing as described.
+                    </p>
 
                     <div class="alert alert-info mt-2 mb-2" role="alert">
-                        <h5 class="alert-heading">Important!!</h5>
-                        Ensure that you open an private/incognito Tab or a different browser to ensure different
-                        http sessions
+                        <h5 class="alert-heading font-weight-bold">Important!!</h5>
+                        Ensure that you open a different browser to ensure different http sessions
+                    </div>
+
+                    <hr class="mt-3 mb-3"/>
+
+                    <div class="row my-1">
+                        <div class="col-sm text-center text-sm-right mr-sm-1">
+                            <span>I should never change</span>
+                        </div>
+                        <div class="col-sm text-center text-sm-left ml-sm-1">
+                            <span th:text="${requestValue}" class="font-weight-bold"/>
+                        </div>
+                    </div>
+
+                    <div class="row my-1">
+                        <div class="col-sm text-center text-sm-right mr-sm-1">
+                            <span>I start new in a window</span>
+                        </div>
+                        <div class="col-sm text-center text-sm-left ml-sm-1">
+                            <span th:text="${sessionValue}" class="font-weight-bold"/>
+                        </div>
+                    </div>
+
+                    <div class="row my-1">
+                        <div class="col-sm text-center text-sm-right mr-sm-1">
+                            <span>I should always change</span>
+                        </div>
+                        <div class="col-sm text-center text-sm-left ml-sm-1">
+                            <span th:text="${applicationValue}" class="font-weight-bold"/>
+                        </div>
                     </div>
 
                     <hr class="mt-3 mb-3"/>
                 </div>
-
-            </div>
-
-            <div class="row m-1">
-                <div class="col text-right mr-1">
-                    <p>I should never change: </p>
-                </div>
-                <div class="col text-left ml-1">
-                    <span th:text="${requestValue}" class="font-weight-bold"/>
-                </div>
-            </div>
-            <div class="row m-1">
-                <div class="col text-right mr-1">
-                    <p>I should only change in this tab: </p>
-                </div>
-                <div class="col text-left ml-1">
-                    <span th:text="${sessionValue}" class="font-weight-bold"/>
-                </div>
-            </div>
-            <div class="row m-1">
-                <div class="col text-right mr-1">
-                    <p>I should always change: </p>
-                </div>
-                <div class="col text-left ml-1">
-                    <span th:text="${applicationValue}" class="font-weight-bold"/>
-                </div>
             </div>
         </div>
-    </article>
-</section>
+    </section>
+</article>
 </body>

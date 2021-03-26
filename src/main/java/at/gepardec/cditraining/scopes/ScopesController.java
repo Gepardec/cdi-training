@@ -16,7 +16,7 @@ public class ScopesController {
     @Inject
     private Models model;
 
-    // Scope Basic/Dependent Example
+    // Scope Basic Example
     @Inject
     private RequestBean requestBean;
 
@@ -26,7 +26,7 @@ public class ScopesController {
     @Inject
     private ApplicationBean applicationBean;
 
-    // Mixed/Scopes Example
+    // Mixed Scopes Example
     @Inject
     private MixedApplicationBean mixedApplicationBean;
 
@@ -44,7 +44,7 @@ public class ScopesController {
     @GET
     @Path("/mixed")
     public String advanced() {
-        model.put("tabTitle", "Mixed Scopes (Mixed*Bean.java)");
+        model.put("tabTitle", "Mixed Scopes");
         model.put("requestValue", mixedApplicationBean.scopeMixSession().scopeMixRequest().incrementAndGet());
         model.put("sessionValue", mixedApplicationBean.scopeMixSession().incrementAndGet());
         model.put("applicationValue", mixedApplicationBean.incrementAndGet());
@@ -55,7 +55,6 @@ public class ScopesController {
     @GET
     @Path("/dependent")
     public String dependent() {
-        model.put("tabTitle", "Scope Dependent");
         model.put("dependentBeanRequestScopedValue", requestBean.dependentBean().incrementAndGet());
         model.put("dependentBeanSessionScopedValue", sessionBean.dependentBean().incrementAndGet());
         model.put("dependentBeanApplicationScopedValue", applicationBean.dependentBean().incrementAndGet());

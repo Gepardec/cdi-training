@@ -9,93 +9,87 @@
 <body>
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Initialization', href=@{/api/index#index-example-initialization})"/>
 
-<section>
-    <div class="container ">
+<article>
+    <div class="container-lg">
         <div class="row m-2">
             <div class="col">
-                <article>
-                    <h4 class="text-center">
-                        Click <kbd>F5</kbd> to refresh
-                    </h4>
+                <section>
+                    <p>
+                        How to use <code>@PostConstruct</code> and <code>@PreDestroy</code> in CDI
+                        <a href="https://javaee.github.io/tutorial/cdi-basic014.html"
+                           target="_blank">
+                            https://javaee.github.io/tutorial/cdi-basic014.html
+                        </a>
+                    </p>
+                    <p>
+                        In CDI you cannot use injected CDI Beans in the constructor because they haven't been injected
+                        yet.
+                        So, you need to use <code>@PostConstruct</code>, which get's called after the CDI Bean has been
+                        instantiated and after all injections have been provided.
+                    </p>
+
+                    <hr class="mt-3 mb-3"/>
+                </section>
+            </div>
+        </div>
+
+        <div class="row m-2">
+            <div class="col">
+                <section>
+                    <h5>
+                        Your Task:
+                    </h5>
+
+                    <p>
+                        Fix the scopes of the involved beans in the package
+                        <code>at.gepardec.cditraining.initialization</code> and check the table below if it works
+                    </p>
+                    <p>
+                        Check your logs to see when the beans get created and destroyed
+                    </p>
+                    <p>
+                        When your scopes are properly, then you should see the values changing as described.
+                    </p>
+
+                    <div class="alert alert-info mt-2 mb-2" role="alert">
+                        <h5 class="alert-heading font-weight-bold">Important!!</h5>
+                        Ensure that you open a different browser to ensure different http sessions
+                    </div>
 
                     <hr class="mt-3 mb-3"/>
 
-                    <div class="row m-2">
-                        <div class="col">
-                            <p>
-                                How to use <code>@PostConstruct</code> and <code>@PreDestroy</code> in CDI
-                                <a href="https://javaee.github.io/tutorial/cdi-basic014.html"
-                                   target="_blank">
-                                    https://javaee.github.io/tutorial/cdi-basic014.html
-                                </a>
-                            </p>
-
-                            <hr class="mt-3 mb-3"/>
+                    <div class="row my-2">
+                        <div class="col-sm text-center text-sm-right mr-sm-1">
+                            <span>I should always change</span>
                         </div>
-                    </div>
-
-                    <div class="row m-2">
-                        <div class="col">
-                            <p>
-                                Check your logs to see when the beans get created and destroyed
-                            </p>
-                            <p>
-                                When your scopes are properly, then you should see the values changing as described
-                            </p>
-
-                            <hr class="mt-3 mb-3"/>
-
-                            <h5>
-                                Your Task:
-                            </h5>
-
-                            <p>
-                                Again, fix the scopes of the involved beans in the package
-                                <code>at.gepardec.cditraining.initialization</code>
-                                and check the table below if it works
-                            </p>
-
-                            <div class="alert alert-info mt-2 mb-2" role="alert">
-                                <h5 class="alert-heading">Important!!</h5>
-                                Ensure that you open an private/incognito Tab or a different browser to ensure different
-                                http sessions
-                            </div>
-
-                            <hr class="mt-3 mb-3"/>
-                        </div>
-
-                    </div>
-
-                    <div class="row m-1">
-                        <div class="col-sm-4 mr-1 text-right">
-                            <p>I should always change</p>
-                        </div>
-                        <div class="col-sm-7 text-left ml-1">
+                        <div class="col-sm text-center text-sm-left ml-sm-1">
                             <span th:text="${requestValue}" class="font-weight-bold"/>
                         </div>
                     </div>
 
-                    <div class="row m-1">
-                        <div class="col-sm-4 mr-1 text-right">
-                            <p>I should only change in new private tab</p>
+                    <div class="row my-2">
+                        <div class="col-sm text-center text-sm-right mr-sm-1">
+                            <span>I start new in a window</span>
                         </div>
-                        <div class="col-sm-7 text-left ml-1">
+                        <div class="col-sm text-center text-sm-left ml-sm-1">
                             <span th:text="${sessionValue}" class="font-weight-bold"/>
                         </div>
                     </div>
 
-                    <div class="row m-1">
-                        <div class="col-sm-4 mr-1 text-right">
-                            <p>I should never change</p>
+                    <div class="row my-2">
+                        <div class="col-sm text-center text-sm-right mr-sm-1">
+                            <span>I should never change</span>
                         </div>
-                        <div class="col-sm-7 text-left ml-1">
+                        <div class="col-sm text-center text-sm-left ml-sm-1">
                             <span th:text="${applicationValue}" class="font-weight-bold"/>
                         </div>
                     </div>
-                </article>
+
+                    <hr class="mt-3 mb-3"/>
+                </section>
             </div>
         </div>
     </div>
-</section>
+</article>
 <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>

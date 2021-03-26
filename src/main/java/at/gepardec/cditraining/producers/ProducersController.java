@@ -1,5 +1,6 @@
 package at.gepardec.cditraining.producers;
 
+import at.gepardec.cditraining.Util;
 import at.gepardec.cditraining.qualifiers.Circle;
 import at.gepardec.cditraining.qualifiers.Rectangle;
 import org.slf4j.Logger;
@@ -32,16 +33,12 @@ public class ProducersController {
     @GET
     @Path("/")
     public String get() {
-        logger.info("The logger got produced");
-        logger.info("ProducedBean value: " + producedBean.getValue() + " ProducedBean: " + producedBean);
-
         // Here you put your produced lists in
-        model.put("circleList", List.of(new Circle(), new Circle()));
-        model.put("rectangleList", List.of(new Rectangle(), new Rectangle()));
+        model.put("circleList", Util.namesWithInstanceId(List.of(new Circle(), new Circle())));
+        model.put("rectangleList", Util.namesWithInstanceId(List.of(new Rectangle(), new Rectangle())));
 
         model.put("producedString", producedString);
-        model.put("producedBeanValue", producedBean.getValue());
-        model.put("producedBeanClass", producedBean);
+        model.put("producedBean", Util.nameWithInstanceId(producedBean));
 
         return "producers/producers.html";
     }

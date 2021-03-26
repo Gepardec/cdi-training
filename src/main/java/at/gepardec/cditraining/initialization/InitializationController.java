@@ -1,6 +1,8 @@
 package at.gepardec.cditraining.initialization;
 
 
+import at.gepardec.cditraining.Util;
+
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
@@ -26,9 +28,9 @@ public class InitializationController {
     @GET
     @Path("/")
     public String get() {
-        model.put("requestValue", requestBean);
-        model.put("sessionValue", sessionBean);
-        model.put("applicationValue", applicationBean);
+        model.put("requestValue", Util.nameWithInstanceId(requestBean));
+        model.put("sessionValue", Util.nameWithInstanceId(sessionBean));
+        model.put("applicationValue", Util.nameWithInstanceId(applicationBean));
 
         return "initialization/initialization.html";
     }
