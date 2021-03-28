@@ -6,14 +6,14 @@
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='CDI Training Concepts', href=@{/api/welcome})"/>
 
 <article>
-    <div class="container-md text-center">
+    <div class="container-md">
         <div id="index-example-injection" class="row m-1">
             <div class="col mb-2">
                 <section class="card">
                     <div class="card-body">
-                        <h2 class="card-title">Injection</h2>
+                        <h2 class="card-title text-center">Injection</h2>
 
-                        <div class="card-text text-left">
+                        <div class="card-text">
                             <p>
                                 In the first two examples you learn the basic of the basic when it comes to CDI and
                                 injection.
@@ -44,9 +44,9 @@
             <div class="col mb-2">
                 <section class="card">
                     <div class="card-body">
-                        <h2 class="card-title">Scopes</h2>
+                        <h2 class="card-title text-center">Scopes</h2>
 
-                        <div class="card-text text-left">
+                        <div class="card-text">
                             <p>
                                 In this example you will learn about CDI scopes, their impacts and proper usage
                             </p>
@@ -77,9 +77,9 @@
             <div class="col mb-2">
                 <section class="card">
                     <div class="card-body">
-                        <h2 class="card-title">Initialization</h2>
+                        <h2 class="card-title text-center">Initialization</h2>
 
-                        <div class="card-text text-left">
+                        <div class="card-text">
                             <p>
                                 CDI beans have a lifecycle and we can observe events when beans get created and
                                 destroyed.
@@ -105,9 +105,9 @@
             <div class="col mb-2">
                 <section class="card">
                     <div class="card-body">
-                        <h2 class="card-title">Qualifiers</h2>
+                        <h2 class="card-title text-center">Qualifiers</h2>
 
-                        <div class="card-text text-left">
+                        <div class="card-text">
                             <p>
                                 When we have multiple implementations for an CDI bean (interface), then we need to
                                 qualify
@@ -135,9 +135,9 @@
             <div class="col mb-2">
                 <section class="card">
                     <div class="card-body">
-                        <h2 class="card-title">Producers</h2>
+                        <h2 class="card-title text-center">Producers</h2>
 
-                        <div class="card-text text-left">
+                        <div class="card-text">
                             <p>
                                 Usually the CDI container creates the CDI bean instance via the empty constructor, but
                                 what if the instantiation of the instance is not that simple?
@@ -168,9 +168,9 @@
             <div class="col mb-2">
                 <section class="card">
                     <div class="card-body">
-                        <h2 class="card-title">Interceptors</h2>
+                        <h2 class="card-title text-center">Interceptors</h2>
 
-                        <div class="card-text text-left">
+                        <div class="card-text">
                             <p>
                                 Aspects in CDI are implemented via interceptors and applied via interceptor binding
                                 annotations, for instance <code>@Transactional</code>.
@@ -197,9 +197,9 @@
             <div class="col mb-2">
                 <section class="card">
                     <div class="card-body">
-                        <h2 class="card-title">Decorators</h2>
+                        <h2 class="card-title text-center">Decorators</h2>
 
-                        <div class="card-text text-left">
+                        <div class="card-text">
                             <p>
                                 CDI interceptors are generic and are applied via annotations, but CDI decorators
                                 implement
@@ -226,9 +226,9 @@
             <div class="col mb-2">
                 <section class="card">
                     <div class="card-body">
-                        <h2 class="card-title">Events</h2>
+                        <h2 class="card-title text-center">Events</h2>
 
-                        <div class="card-text text-left">
+                        <div class="card-text">
                             <p>
                                 CDI provides an event system which can be used to couple parts of the application
                                 in a de-coupled fashion.

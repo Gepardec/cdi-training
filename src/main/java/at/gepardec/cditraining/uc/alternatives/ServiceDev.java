@@ -1,5 +1,7 @@
 package at.gepardec.cditraining.uc.alternatives;
 
+import at.gepardec.cditraining.Util;
+
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
 
@@ -12,6 +14,6 @@ public class ServiceDev implements Service {
 
     @Override
     public String execute() {
-        return toString();
+        return Util.nameWithInstanceId(this);
     }
 }

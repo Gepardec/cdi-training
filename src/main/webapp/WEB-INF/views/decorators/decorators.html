@@ -8,22 +8,12 @@
 <body>
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Decorators', href=@{/api/index#index-example-decorators})"/>
 
-<main role="main">
-    <section>
-        <article>
-            <div class="container">
-                <div class="row m-2">
-                    <div class="col text-center">
-                        <h4>
-                            Click <kbd>F5</kbd> to refresh
-                        </h4>
-
-                        <hr class="mt-3 mb-3"/>
-                    </div>
-                </div>
-
-                <div class="row m-2">
-                    <div class="col">
+<main>
+    <article>
+        <div class="container-lg">
+            <div class="row m-2">
+                <div class="col">
+                    <section>
                         <p>
                             The specification for CDI
                             <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#decorators" target="_blank">
@@ -31,45 +21,36 @@
                             </a>
                         </p>
                         <p>
+                            A Decorator is similar to an Interceptor, but is aware of the contract which is decorated,
+                            an Interceptor doesn't. As Interceptors, Decorators are ordered either by the definition
+                            in the <code>beans.xml</code> or via the <code>@Priority</code> annotation. Interceptors
+                            can share information with other Interceptors within the interceptor chain, but Decorators
+                            can't. Interceptors usually apply an aspect, but Decorators decorate contracts with
+                            business logic. Decorators implement the decorated contract, and therefore are enabled in
+                            a decoupled fashion.
+                        </p>
+                        <p>
+                            A decorator implements the beans interface and is usually implemented with an abstract
+                            class, so that one only needs to implement methods one wants to decorate.
+                        </p>
+                        <p>
                             See the package <code>at.gepardec.cditraining.decorators.*</code> for the relevant classes
-                        </p>
-
-                        <p>
-                            An decorator is either registered via the a <code>beans.xml</code> or
-                            via the <code>@Priority</code> annotation
-                        </p>
-                        <p>
-                            A decorator implements the beans interface and is usually an abstract class <span
-                                class="font-italic">(You only need to implement methods you want to decorate)</span>
-                        </p>
-                        <p>
-                            A decorator depends on the bean type, but the decorated bean itself doesn't need to know
-                            anything about a decorator, therefore a decorator can be enabled in an decoupled fashion
-                        </p>
-                        <p>
-                            Decorators cannot and should not share state with each other, there is no
-                            <code>InvocationContext</code>
-                            which can hold a parameter map
                         </p>
                         <p>
                             You need to check the logs to see if the interceptors are working
                         </p>
                         <hr class="mt-3 mb-3"/>
-                    </div>
-                </div>
+                    </section>
 
-                <div class="row m-2 ">
-                    <div class="col">
+                    <section>
                         <h4>
                             1. Decorator enabled via <code>@Priority</code>
                         </h4>
 
                         <p>
-                            Decorators enabled with <code>@Priority</code> are enabled
-                            globally in all CDI modules
-                            <br/>
-                            If all decorators define the
-                            same priority then the order they are executed is not deterministic
+                            Decorators enabled with <code>@Priority</code> are enabled globally in all CDI modules.
+                            If all Decorators define the same priority then the order they are executed is not
+                            deterministic.
                         </p>
 
                         <h5>
@@ -83,24 +64,23 @@
                         </p>
 
                         <div class="alert alert-info mt-2 mb-2" role="alert">
-                            <h5 class="alert-heading">Important!!</h5>
+                            <h5 class="alert-heading font-weight-bold">Important!!</h5>
                             Ensure that the decorator is not enabled in the <code>beans.xml</code> and maybe <b>something
-                            other has happen't :)</b>
+                            other has happen't :)</b>. Also ensure that you restart the server after applying the
+                            <code>@Priority</code> annotation.
                         </div>
 
                         <hr class="mt-3 mb-3"/>
-                    </div>
-                </div>
+                    </section>
 
-                <div class="row m-2 ">
-                    <div class="col">
+                    <section>
                         <h4>
                             2. Decorator enabled via <code>beans.xml</code>
                         </h4>
 
                         <p>
                             Decorators enabled with <code>beans.xml</code> are enabled
-                            only in the declaring CDI module. With this approach you have no problems with ordering
+                            only in the declaring CDI module. With this approach you have no problems with ordering.
                         </p>
 
                         <h5>
@@ -113,16 +93,14 @@
                         </p>
 
                         <div class="alert alert-info mt-2 mb-2" role="alert">
-                            <h5 class="alert-heading">Important!!</h5>
+                            <h5 class="alert-heading font-weight-bold">Important!!</h5>
                             Ensure that the decorator is not enabled via the <code>@Priority</code> annotation
                         </div>
 
                         <hr class="mt-3 mb-3"/>
-                    </div>
-                </div>
+                    </section>
 
-                <div class="row m-2 ">
-                    <div class="col">
+                    <section>
                         <h4>
                             3. Your own Decorator
                         </h4>
@@ -154,28 +132,29 @@
                         </p>
 
                         <div class="alert alert-info mt-2 mb-2" role="alert">
-                            <h5 class="alert-heading">Important!!</h5>
+                            <h5 class="alert-heading font-weight-bold">Important!!</h5>
                             A decorator is CDI bean and can inject other CDI beans!!!
                         </div>
 
                         <p>
                             <b>e)</b>
-                            Annotate the method <code>at.gepardec.cditraining.decorators.ServiceImpl.doSomething()</code>
+                            Annotate the method
+                            <code>at.gepardec.cditraining.decorators.ServiceImpl.doSomething()</code>
                             with an interceptor annotation and take a look at your logs
                         </p>
 
                         <div class="alert alert-info mt-2 mb-2" role="alert">
-                            <h5 class="alert-heading">Important!!</h5>
+                            <h5 class="alert-heading font-weight-bold">Important!!</h5>
                             Decorators are always executed after interceptors, so a decorator is invoked within an
                             aspect!!!
                         </div>
 
                         <hr class="mt-3 mb-3"/>
-                    </div>
+                    </section>
                 </div>
             </div>
-        </article>
-    </section>
+        </div>
+    </article>
 </main>
 <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>

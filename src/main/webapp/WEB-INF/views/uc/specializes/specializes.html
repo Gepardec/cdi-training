@@ -7,89 +7,94 @@
 <body>
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='UC Specializes', href=@{/api/uc/index#uc-example-specialized})"/>
 
-<section>
+<main>
     <article>
-        <div class="container">
-            <div class="row m-2 text-center">
-                <div class="col mr-1">
-                    <h4>
-                        Click <kbd>F5</kbd> to refresh
-                    </h4>
-
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
-
-            <div class="row m-1">
-                <div class="col text-right mr-1">
-                    <p>I'm the <code>@Inject Service</code>: </p>
-                </div>
-                <div class="col text-left ml-1">
-                    <span th:text="${result}" class="font-weight-bold"/>
-                </div>
-            </div>
-
-            <div class="row m-1">
-                <div class="col text-right mr-1">
-                    <p>I'm the <code>@Inject ServiceOriginal</code>: </p>
-                </div>
-                <div class="col text-left ml-1">
-                    <span th:text="${resultOriginal}" class="font-weight-bold"/>
-                </div>
-            </div>
-
+        <div class="container-lg">
             <div class="row m-2">
                 <div class="col">
-                    <hr class="mt-3 mb-3"/>
+                    <section>
+                        <p>
+                            The specification for CDI <a
+                                href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#specialize_managed_bean">
+                            Specializes
+                        </a>.
+                        </p>
+                        <p>
+                            Sometimes it is necessary to completely override a CDI Bean, so that nothing can access the
+                            original implementation at all. This is the main difference between
+                            <code>@Alternative</code> and <code>@Specialized</code>. Specialized
+                            implementations are enabled either via <code>@Priority</code> or via the
+                            <code>beans.xml</code>.
+                            Specialized implementations inherit from the type they specialize and therefore the original
+                            implementation type cannot be used anymore, because the common type is now the original
+                            implementation type and not just the contract.
+                        </p>
+                        <p>
+                            A use-case is to completely override a Producer Class which provides a configuration for a
+                            third party library, where the original type must not be available anymore.
+                            Take a look at the class <code>at.gepardec.cditraining.TemplateEngineProducer</code> which
+                            specializes the class
+                            <code>org.eclipse.krazo.ext.thymeleaf.DefaultTemplateEngineProducer</code>, which ensures
+                            that our produced template engine is used.
 
-                    <p>
-                        See the package <code>at.gepardec.cditraining.uc.specializes.*</code> for the relevant
-                        classes. Especially take a look at the comments
-                    </p>
+                        </p>
 
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
+                        <hr class="mt-3 mb-3"/>
 
-            <div class="row m-2">
-                <div class="col">
-                    <p>
-                        Specialized beans can be defined in two ways:
-                    </p>
-                    <ol>
-                        <li>
-                            Via the <code>@Specialized</code> annotation on the specialized implementation class
-                        </li>
-                        <li>
-                            Via the <code>@Alternative</code> annotation on the specialized implementation class
-                            along with an <code>beans.xml</code> entry or an <code>@Priority</code> annotation
-                        </li>
-                    </ol>
+                        <div class="row m-1">
+                            <div class="col-sm text-center text-sm-right mr-sm-1">
+                                Injected <code>Service</code>
+                            </div>
+                            <div class="col-sm text-center text-sm-left ml-sm-1">
+                                <span th:text="${result}" class="font-weight-bold"/>
+                            </div>
+                        </div>
 
-                    <p>
-                        Compared to alternative beans, specialized beans replace the original bean, no matter with what
-                        approach a specialized bean has been defined
-                    </p>
+                        <div class="row m-1">
+                            <div class="col-sm text-center text-sm-right mr-sm-1">
+                                Injected <code>ServiceOriginal</code>
+                            </div>
+                            <div class="col-sm text-center text-sm-left ml-sm-1">
+                                <span th:text="${resultOriginal}" class="font-weight-bold"/>
+                            </div>
+                        </div>
 
-                    <p>
-                        When using the <code>@Alternative</code> approach to specialize, then the same rule for
-                        enablement apply as when providing alternative implementations
-                    </p>
+                        <hr class="mt-3 mb-3"/>
 
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col text-center">
-                    <h5>
-                        The specialized implementation is annotated with <code>@Specialized</code> and thee specialized
-                        bean inherits from the bean it specializes
-                    </h5>
+                        <p>
+                            See the package <code>at.gepardec.cditraining.uc.specializes.*</code> for the relevant
+                            classes. Especially take a look at the comments
+                        </p>
+
+                        <hr class="mt-3 mb-3"/>
+
+                        <p>
+                            Specialized beans can be defined in two ways:
+                        </p>
+                        <ol>
+                            <li>
+                                Via the <code>@Specialized</code> annotation on the specialized implementation class
+                            </li>
+                            <li>
+                                Via the <code>@Alternative</code> annotation on the specialized implementation class
+                                along with an <code>beans.xml</code> entry or an <code>@Priority</code> annotation
+                            </li>
+                        </ol>
+
+                        <hr class="mt-3 mb-3"/>
+                    </section>
+
+                    <section class="text-center font-weight-bold">
+                        <p>
+                            Specialized implementations are used to completely override a type, where it is ensured that
+                            the original type is not accessible at all anymore.
+                        </p>
+                    </section>
                 </div>
             </div>
         </div>
     </article>
-</section>
+</main>
 <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>
 </html>

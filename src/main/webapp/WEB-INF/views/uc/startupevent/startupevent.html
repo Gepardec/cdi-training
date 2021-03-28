@@ -7,72 +7,64 @@
 <body>
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='UC Startup-Event', href=@{/api/uc/index#uc-example-startupevent})"/>
 
-<section>
+<main>
     <article>
-        <div class="container">
+        <div class="container-lg">
+            <div class="row m-2">
+                <div class="col">
+                    <section>
+                        <p>
+                            The specification for CDI
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#events" target="_blank">
+                                Events
+                            </a>
+                        </p>
+                        <p>
+                            CDI Events are used couple parts of an application in decoupled manner, where all
+                            application parts are only coupled via the event type and nothing more. Events are
+                            used to notify observers about that something has happened.
+                        </p>
+                        <p>
+                            A use-case for using CDI Events would be to notify modules of an application
+                            about the startup of the application, that the application is ready, or that the
+                            application is being shutdown, so that the application modules can act on those
+                            events.
+                        </p>
+                        <hr class="mt-3 mb-3"/>
+                    </section>
 
-            <div class="row m-2 text-center">
-                <div class="col mr-1">
-                    <h4>
-                        For this example you need to check the logs
-                    </h4>
+                    <section>
+                        <div class="text-left">
+                            <p class="font-weight-bold">Search the startup logs for the following logs:</p>
 
-                    <hr class="mt-3 mb-3"/>
-
-                    <div class="text-left">
-                        <p>Search the startup logs for the following logs:</p>
-
-                        <pre>
+                            <pre>
 2021-02-08 07:58:32 INFO  StartupWebListener - Notifying Observers about startup
 2021-02-08 07:58:32 INFO  StartupObserver - Startup observed by StartupObserver
 2021-02-08 07:58:32 INFO  StartupWebListener - Notified Observers: StartupObserver
                         </pre>
-                    </div>
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
+                        </div>
+                        <hr class="mt-3 mb-3"/>
 
-            <div class="row m-2">
-                <div class="col">
-                    <p>
-                        See the package <code>at.gepardec.cditraining.uc.startupevent.*</code> for the relevant
-                        classes.
-                        Especially take a look at the comments
-                    </p>
+                        <p>
+                            See the package <code>at.gepardec.cditraining.uc.startupevent.*</code> for the relevant
+                            classes.
+                            Especially take a look at the comments
+                        </p>
 
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
+                        <hr class="mt-3 mb-3"/>
+                    </section>
 
-            <div class="row m-2">
-                <div class="col">
-                    <p>
-                        CDI has no native support for a <code>StartupEvent</code> which gets fired when the container is
-                        up and running. But this is not hard to implement at all
-                    </p>
-
-                    <p>
-                        In this example we have created our own <code>StartupEvent</code> type (just an ordinary java
-                        class)
-                        and a <code>ServletContextListener</code> implementation to register for a servlet container
-                        initialized event. When the servlet container is up and running then the CDI container is as
-                        well
-                    </p>
-
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col text-center">
-                    <h5>
-                        The <code>ServletContextListener</code> implementation is used to fire our event when the
-                        servlet container is up and running to notify the registered observers
-                    </h5>
+                    <section class="text-center font-weight-bold">
+                        <p>
+                            The <code>ServletContextListener</code> implementation is used to fire an custom event type
+                            when the servlet container is initialized, which means the container is up and running.
+                        </p>
+                    </section>
                 </div>
             </div>
         </div>
     </article>
-</section>
+</main>
 <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>
 </html>

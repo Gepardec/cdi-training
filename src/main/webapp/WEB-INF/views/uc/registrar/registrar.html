@@ -7,89 +7,83 @@
 <body>
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='UC Registrar', href=@{/api/uc/index#uc-example-registrar})"/>
 
-<section>
+<main>
     <article>
-        <div class="container">
-
-            <div class="row m-2 text-center">
+        <div class="container-lg">
+            <div class="row m-2">
                 <div class="col mr-1">
-                    <hr class="mt-3 mb-3"/>
+                    <section>
+                        <p>
+                            Sometime it is necessary to capture the result of asynchronous invocations which are not
+                            supposed to block the request and don't provide any useful information for the users but the
+                            application needs to know the result of the invocation.
+                        </p>
+                        <p>
+                            A use-case would be the asynchronous publishing of a page access or action invocation which
+                            don't concern the users, but the application is supposed to log the results for monitoring
+                            purposes.
+                        </p>
+                        <hr class="mt-3 mb-3"/>
 
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar}, text='Refresh')"/>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar/fire/successEvent}, text='Success Event')"/>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar/fire/failedEvent}, text='Fail Event')"/>
-                    <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar/clear}, text='Clear Registrar')"/>
+                        <div class="row m-2 text-center">
+                            <div class="col mr-1">
+                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar/fire/successEvent}, text='Success Event')"/>
+                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar/fire/failedEvent}, text='Fail Event')"/>
+                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/registrar/clear}, text='Clear Registrar')"/>
+                            </div>
+                        </div>
 
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
+                        <hr class="mt-3 mb-3"/>
 
-            <div class="row m-1">
-                <div class="col text-right mr-1">
-                    <p>Success Events: </p>
-                </div>
-                <div class="col text-left ml-1">
-                    <div th:each="event : ${successEvents}">
-                        <span th:text="${event}" class="font-weight-bold"/>
-                        <br/>
-                    </div>
-                </div>
-            </div>
+                        <div class="row m-1">
+                            <div class="col-sm text-center text-sm-right mr-sm-1">
+                                Success Events
+                            </div>
+                            <div class="col-sm text-center text-sm-left ml-sm-1">
+                                <div th:each="event : ${successEvents}">
+                                    <span th:text="${event}" class="font-weight-bold"/>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="row m-1">
-                <div class="col text-right mr-1">
-                    <p>Failed Events: </p>
-                </div>
-                <div class="col text-left ml-1">
+                        <div class="row m-1">
+                            <div class="col-sm text-center text-sm-right mr-sm-1">
+                                Failed Events
+                            </div>
+                            <div class="col-sm text-center text-sm-left ml-sm-1">
+                                <div th:each="event : ${failedEvents}">
+                                    <span th:text="${event}" class="font-weight-bold"/>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div th:each="event : ${failedEvents}">
-                        <span th:text="${event}" class="font-weight-bold"/>
-                        <br/>
-                    </div>
-                </div>
-            </div>
+                        <hr class="mt-3 mb-3"/>
+                    </section>
 
-            <div class="row m-2">
-                <div class="col">
-                    <hr class="mt-3 mb-3"/>
+                    <section>
+                        <p>
+                            See the package <code>at.gepardec.cditraining.uc.registrar.*</code> for the relevant
+                            classes.
+                            Especially take a look at the comments.
+                        </p>
 
-                    <p>
-                        See the package <code>at.gepardec.cditraining.uc.registrar.*</code> for the relevant
-                        classes.
-                        Especially take a look at the comments.
-                    </p>
+                        <hr class="mt-3 mb-3"/>
+                    </section>
 
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
-
-            <div class="row m-2">
-                <div class="col">
-                    <p>
-                        Just firing an asynchronous event or an asynchronous REST/SOAP call and forgetting it mostly not
-                        possible. What if we need to report the success/failed events/requests periodically to a metric
-                        backend?
-                    </p>
-
-                    <p>
-                        In this example we use an registrar which holds the success/failed events for further usage.
-                        This bean abstracts the producer of the data (event observer) from the consumer or the data
-                        (maybe a metrics reporter)
-                    </p>
-
-                    <hr class="mt-3 mb-3"/>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col text-center">
-                    <h5>
-                        The registrar collects the data and makes it available to other CDI beans.
-                    </h5>
+                    <section class="text-center font-weight-bold">
+                        <p>
+                            This problem can solved by providing a registrar CDI Bean in the application or session
+                            scope. The futures or asynchronous results are registered on the registrar which can be
+                            accessed by other parts of the application.
+                        </p>
+                    </section>
                 </div>
             </div>
         </div>
     </article>
-</section>
+</main>
 <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>
 </html>

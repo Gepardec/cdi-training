@@ -1,5 +1,7 @@
 package at.gepardec.cditraining.uc.specializes;
 
+import at.gepardec.cditraining.Util;
+
 import javax.enterprise.context.RequestScoped;
 
 /**
@@ -10,6 +12,6 @@ public class ServiceOriginal implements Service {
 
     @Override
     public String execute() {
-        return toString();
+        return Util.nameWithInstanceId(this);
     }
 }

@@ -6,26 +6,28 @@
 <body>
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Field Injection', href=@{/api/index#index-example-injection})"/>
 
-<article>
-    <section>
-        <div class="container-lg">
-            <div class="row m-2">
-                <div class="col">
-                    <h4 th:text="${name}"/>
+<main>
+    <article>
+        <section>
+            <div class="container-lg">
+                <div class="row m-2">
+                    <div class="col">
+                        <h4 th:text="${name}"/>
 
-                    <hr class="mt-3 mb-3"/>
+                        <hr class="mt-3 mb-3"/>
 
-                    <p>
-                        When an instance want's to use a CDI Bean, then it must be a CDI Bean itself.
-                        With CDI either everything is managed by CDI or nothing at all.
-                    </p>
+                        <p>
+                            When an instance want's to use a CDI Bean, then it must be a CDI Bean itself.
+                            With CDI either everything is managed by CDI or nothing at all.
+                        </p>
 
-                    <hr class="mt-3 mb-3"/>
+                        <hr class="mt-3 mb-3"/>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-</article>
+        </section>
+    </article>
+</main>
 <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>
 </html>

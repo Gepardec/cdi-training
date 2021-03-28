@@ -11,117 +11,122 @@
 <body>
 <header th:replace="/WEB-INF/fragments/general.html :: header-subpage(title='Producers', href=@{/api/index#index-example-producers})"/>
 
-<article>
-    <div class="container-lg">
-        <div class="row m-2">
-            <div class="col">
-                <section>
-                    <p>
-                        The specification for CDI
-                        <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_method" target="_blank">
-                            Producer Methods
-                        </a>
-                        and
-                        <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_field" target="_blank">
-                            Producer Fields
-                        </a>
-                    </p>
+<main>
+    <article>
+        <div class="container-lg">
+            <div class="row m-2">
+                <div class="col">
+                    <section>
+                        <p>
+                            The specification for CDI
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_method" target="_blank">
+                                Producer Methods
+                            </a>
+                            and
+                            <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#producer_field" target="_blank">
+                                Producer Fields
+                            </a>
+                        </p>
 
-                    <p>
-                        CDI knows three types of CDI Beans <span class="font-weight-bold">Annotated Classes</span>,
-                        <span class="font-weight-bold">Producer Methods</span> and <span class="font-weight-bold">Producer Fields</span>
-                        all of them define a CDI Bean.
-                        When CDI Beans are ordinary classes with annotations, then they are instantiated via their
-                        constructor. When the creation of a CDI Bean is more complicated, then CDI Producer Methods come
-                        into place, which are actually an ordinary method called on a CDI Bean which returns the created
-                        bean instance.
-                    </p>
+                        <p>
+                            CDI knows three types of CDI Beans <span class="font-weight-bold">Annotated Classes</span>,
+                            <span class="font-weight-bold">Producer Methods</span> and <span class="font-weight-bold">Producer Fields</span>
+                            all of them define a CDI Bean.
+                            When CDI Beans are ordinary classes with annotations, then they are instantiated via their
+                            constructor. When the creation of a CDI Bean is more complicated, then CDI Producer Methods
+                            come
+                            into place, which are actually an ordinary method called on a CDI Bean which returns the
+                            created
+                            bean instance.
+                        </p>
 
-                    <p>
-                        Let's take a look at the producer class
-                        <code>at.gepardec.cditraining.producers.ProducedBean</code>
-                    </p>
+                        <p>
+                            Let's take a look at the producer class
+                            <code>at.gepardec.cditraining.producers.ProducedBean</code>
+                        </p>
 
-                    <hr class="mt-3 mb-3"/>
+                        <hr class="mt-3 mb-3"/>
 
-                    <div class="row my-1">
-                        <div class="col-sm text-center text-sm-right mr-sm-1">
-                            String produced by a producer field
-                        </div>
-                        <div class="col-sm text-center text-sm-left ml-sm-1">
-                            <span th:text="${producedString}" class="font-weight-bold"/>
-                        </div>
-                    </div>
-
-                    <div class="row my-1">
-                        <div class="col-sm text-center text-sm-right mr-sm-1">
-                            Bean produced by a producer method
-                        </div>
-                        <div class="col-sm text-center text-sm-left ml-sm-1">
-                            <span th:text="${producedBean}" class="font-weight-bold"/>
-                        </div>
-                    </div>
-
-                    <hr class="mt-3 mb-3"/>
-                </section>
-            </div>
-        </div>
-
-        <div class="row m-2">
-            <div class="col">
-                <section>
-                    <h5>
-                        Your Task:
-                    </h5>
-
-                    <p>
-                        Implement two producer methods of the following signature in the class
-                        <code>at.gepardec.cditraining.producers.ProducedBean</code>.
-                    </p>
-                    <ul>
-                        <li><code>List&lt;Shape&gt; createCircles(){ ... }</code> producing a request scoped list of
-                            circles
-                        </li>
-                        <li><code>List&lt;Shape&gt; createRectangles(){ ... }</code> producing a application scoped list
-                            of rectangles
-                        </li>
-                    </ul>
-                    <p>
-                        The values should change as described.
-                    </p>
-
-                    <hr class="mt-3 mb-3"/>
-
-                    <div class="row my-1">
-                        <div class="col-sm text-center text-sm-right mr-sm-1">
-                            <code>Circle</code>(s) instances changing each time
-                        </div>
-                        <div class="col-sm text-center text-sm-left ml-sm-1">
-                            <div th:each="circle : ${circleList}">
-                                <span th:text="${circle}" class="font-weight-bold"/>
-                                <br/>
+                        <div class="row my-1">
+                            <div class="col-sm text-center text-sm-right mr-sm-1">
+                                String produced by a producer field
+                            </div>
+                            <div class="col-sm text-center text-sm-left ml-sm-1">
+                                <span th:text="${producedString}" class="font-weight-bold"/>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row my-1">
-                        <div class="col-sm text-center text-sm-right mr-sm-1">
-                            <code>Rectangle</code>(s) instances never changing
-                        </div>
-                        <div class="col-sm text-center text-sm-left ml-sm-1">
-                            <div th:each="rectangle : ${rectangleList}">
-                                <span th:text="${rectangle}" class="font-weight-bold"/>
-                                <br/>
+                        <div class="row my-1">
+                            <div class="col-sm text-center text-sm-right mr-sm-1">
+                                Bean produced by a producer method
+                            </div>
+                            <div class="col-sm text-center text-sm-left ml-sm-1">
+                                <span th:text="${producedBean}" class="font-weight-bold"/>
                             </div>
                         </div>
-                    </div>
 
-                    <hr/>
-                </section>
+                        <hr class="mt-3 mb-3"/>
+                    </section>
+                </div>
+            </div>
+
+            <div class="row m-2">
+                <div class="col">
+                    <section>
+                        <h5>
+                            Your Task:
+                        </h5>
+
+                        <p>
+                            Implement two producer methods of the following signature in the class
+                            <code>at.gepardec.cditraining.producers.ProducedBean</code>.
+                        </p>
+                        <ul>
+                            <li><code>List&lt;Shape&gt; createCircles(){ ... }</code> producing a request scoped list of
+                                circles
+                            </li>
+                            <li><code>List&lt;Shape&gt; createRectangles(){ ... }</code> producing a application scoped
+                                list
+                                of rectangles
+                            </li>
+                        </ul>
+                        <p>
+                            The values should change as described.
+                        </p>
+
+                        <hr class="mt-3 mb-3"/>
+
+                        <div class="row my-1">
+                            <div class="col-sm text-center text-sm-right mr-sm-1">
+                                <code>Circle</code>(s) instances changing each time
+                            </div>
+                            <div class="col-sm text-center text-sm-left ml-sm-1">
+                                <div th:each="circle : ${circleList}">
+                                    <span th:text="${circle}" class="font-weight-bold"/>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row my-1">
+                            <div class="col-sm text-center text-sm-right mr-sm-1">
+                                <code>Rectangle</code>(s) instances never changing
+                            </div>
+                            <div class="col-sm text-center text-sm-left ml-sm-1">
+                                <div th:each="rectangle : ${rectangleList}">
+                                    <span th:text="${rectangle}" class="font-weight-bold"/>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr/>
+                    </section>
+                </div>
             </div>
         </div>
-    </div>
-</article>
+    </article>
+</main>
 <div th:replace="/WEB-INF/fragments/general.html :: scripts"/>
 </body>
 </html>

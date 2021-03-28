@@ -1,5 +1,7 @@
 package at.gepardec.cditraining.uc.dynamicdefault;
 
+import at.gepardec.cditraining.Util;
+
 import javax.enterprise.context.RequestScoped;
 
 @RequestScoped
@@ -7,6 +9,6 @@ import javax.enterprise.context.RequestScoped;
 public class ServiceA implements Service {
     @Override
     public String execute() {
-        return toString();
+        return Util.nameWithInstanceId(this);
     }
 }

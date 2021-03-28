@@ -1,5 +1,7 @@
 package at.gepardec.cditraining.uc.alternatives;
 
+import at.gepardec.cditraining.Util;
+
 import javax.enterprise.context.RequestScoped;
 
 /**
@@ -11,6 +13,6 @@ public class ServiceProd implements Service {
 
     @Override
     public String execute() {
-        return toString();
+        return Util.nameWithInstanceId(this);
     }
 }
