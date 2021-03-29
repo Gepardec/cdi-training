@@ -4,15 +4,20 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 /**
- * This bean holds the state within the request scope, so that the here managed {@link ServiceConfig}
+ * This bean holds the state within the request scope, so that the here managed {@link Context}
  * bean doesn't need to be annotated with @RequestScoped
  */
 @RequestScoped
-public class ServiceConfigProducer {
+public class ContextProducer {
 
-    private ServiceConfig serviceConfig;
+    @Inject
+    private HttpServletRequest request;
+
+    private Context context;
 
     /**
      * When this method is called, then we are within an active request scope.
@@ -20,7 +25,7 @@ public class ServiceConfigProducer {
      */
     @PostConstruct
     void init() {
-        serviceConfig = new ServiceConfig(666);
+        context = new Context(request.getRequestURI());
     }
 
     /**
@@ -29,9 +34,9 @@ public class ServiceConfigProducer {
      */
     @Produces
     @Dependent
-    ServiceConfig createServiceConfig() {
+    Context createServiceConfig() {
         // We do nothing more but sharing the objects reference whereby the object is request scoped,
         // because it's a state of a request scoped CDI bean.
-        return serviceConfig;
+        return context;
     }
 }

@@ -39,7 +39,7 @@ public class ConcurrencyController {
     @GET
     public String get() throws Exception {
         model.put("concurrentResult", executorService.submit(() -> service.execute()).get());
-        model.put("controllerResult", "Executed on Thread: " + Thread.currentThread().getId());
+        model.put("controllerResult", Thread.currentThread().getId());
         return "uc/concurrency/concurrency.html";
     }
 }

@@ -8,19 +8,15 @@ import javax.enterprise.inject.Vetoed;
  */
 @Vetoed // When vetoed, then the actual CDI bean is the producer method
 //@RequestScoped // Uncomment to try what happens if this bean is pure request scoped, don't forget to remove the producer method!!
-public class ServiceConfig {
+public class Context {
 
-    private final int counter;
+    private final String requestUri;
 
-    public ServiceConfig() {
-        this(0);
+    public Context(String requestUri) {
+        this.requestUri = requestUri;
     }
 
-    public ServiceConfig(int counter) {
-        this.counter = counter;
-    }
-
-    public int getCounter() {
-        return counter;
+    public String getRequestUri() {
+        return requestUri;
     }
 }

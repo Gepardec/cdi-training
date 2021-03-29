@@ -1,7 +1,5 @@
 package at.gepardec.cditraining.uc.concurrency;
 
-import org.slf4j.Logger;
-
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
@@ -19,13 +17,10 @@ public class Service {
      * Nevertheless that this is actually request scoped, it's actually not, because there is no proxy causing problems
      */
     @Inject
-    private ServiceConfig config;
-
-    @Inject
-    private Logger log; // dependent scoped already
+    private Context config;
 
     public String execute() {
         // 'config.getCounter()' causes an Exception if executed on a request scoped proxy
-        return "Executed with counter: " + config.getCounter() + " on Thread: " + Thread.currentThread().getId();
+        return Thread.currentThread().getId() + " (" + config.getRequestUri() + ")";
     }
 }

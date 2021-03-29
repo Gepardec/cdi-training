@@ -13,22 +13,61 @@
             <div class="row m-2">
                 <div class="col">
                     <section>
+                        <h4>Use Case</h4>
                         <p>
-                            Concurrency in CDI is a little bit difficult, because only <code>@ApplicationScoped</code>
-                            and <code>@Dependent</code> scoped beans are available on other threads. The problem is,
-                            that in web application some data used by the concurrently executed workflow comes from
-                            a request, so how can we provide this data in a concurrent workflow which doesn't supports
-                            <code>@RequestScoped</code> CDI Beans?
-
-                        </p>
-                        <p>
-                            A use-case for concurrent execution would be a web application which has workflows which can
-                            be executed in parallel and will be joined within the active request within an action
+                            A web application executes a workflow within an action method of a request concurrently,
+                            whereby the concurrent execution relies on data provided by request scoped CDI
+                            Beans. The concurrent execution is started and the results are joined within the action
                             method.
                         </p>
 
                         <hr class="mt-3 mb-3"/>
+                    </section>
 
+                    <section>
+                        <h4>Problem</h4>
+                        <p>
+                            Concurrency in CDI is a little bit difficult, because only <code>@ApplicationScoped</code>
+                            and <code>@Dependent</code> scoped beans are available on other threads. But in our use case
+                            the <code>Service</code> beans accesses the request scoped <code>Context</code> bean which
+                            accesses the request scoped <code>HttpServletRequest</code> bean which will fail with a
+                            <code>ContextNotActiveException</code>.
+                            The exception is thrown due to the fact that the request scoped CDI Bean is wrapped by a CDI
+                            Proxy which wants to retrieve the actual instance from the request scope which is not
+                            related to the current thread.
+                        </p>
+
+                        <div class="text-center m-2">
+                            <img th:src="@{/assets/images/uc-concurrency-problem.svg}" height="200px"
+                                 width="100%" alt="Problem with Concurrency" title="Problem with Concurrency">
+                        </div>
+
+                        <hr class="mt-3 mb-3"/>
+                    </section>
+
+                    <section>
+                        <h4>Solution</h4>
+                        <p>
+                            Instead putting the <code>Context</code> in the request scope, we
+                            implement a CDI Producer Bean which is in the request scope and initializes the <code>Context</code>
+                            in its <code>@PostConstruct</code> init method and sets the instance on a member variable.
+                            This makes the state of the <code>Context</code> instance de facto request scoped.
+                            The CDI Producer additionally implements a producer method which produces the
+                            <code>Context</code> in the dependent scope, which means the instance is fully initialized
+                            in the <code>Service</code> without a wrapping proxy.
+                        </p>
+
+                        <p>
+                            See the package <code>at.gepardec.cditraining.uc.concurrency.*</code> for the relevant
+                            classes. Especially take a look at the comments.
+                        </p>
+
+                        <div class="text-center m-2">
+                            <img th:src="@{/assets/images/uc-concurrency-solution.svg}" height="200px"
+                                 width="100%" alt="Problem with Concurrency" title="Problem with Concurrency">
+                        </div>
+
+                        <hr class="mt-3 mb-3"/>
                         <div class="row m-1">
                             <div class="col-sm text-center text-sm-right mr-sm-1">
                                 Controller Thread
@@ -48,24 +87,6 @@
                         </div>
 
                         <hr class="mt-3 mb-3"/>
-                    </section>
-
-                    <section>
-                        <p>
-                            See the package <code>at.gepardec.cditraining.uc.concurrency.*</code> for the relevant
-                            classes.
-                            Especially take a look at the comments
-                        </p>
-
-
-                        <hr class="mt-3 mb-3"/>
-                    </section>
-
-                    <section class="text-center font-weight-bold">
-                        <p>
-                            The solution for this problem is that we manage the state indirectly via a request scoped
-                            producer bean instead of making the bean request scoped.
-                        </p>
                     </section>
                 </div>
             </div>
