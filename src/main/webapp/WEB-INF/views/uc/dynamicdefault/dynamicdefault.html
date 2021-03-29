@@ -18,36 +18,81 @@
                             Default Qualifier
                         </a>.
                         </p>
+
+                        <hr class="mt-3 mb-3"/>
+                    </section>
+
+                    <section>
+                        <h4>Use Case</h4>
                         <p>
-                            Sometimes it is necessary to switch an default implementation during runtime which cannot be
-                            defined via injection points. Injections are always defined during compile
-                            time and don't allow a dynamic behavior.
+                            An application wants to switch the default implementation of a bean type depending on a
+                            discriminator value.
                         </p>
+
+                        <hr class="mt-3 mb-3"/>
+                    </section>
+
+                    <section>
+                        <h4>
+                            Problem
+                        </h4>
                         <p>
-                            A use-case would be a system which provides an own database for a group of users, where
-                            users of a group are only allowed to access the database related to them. So, the system
-                            needs to be able to switch the default implementation of the database accessor depending on
-                            the currently logged user.
+                            CDI doesn't provide a declarative way to express a switch behavior for a implementation of
+                            an injection point.
+                            Everything is defined during compile time and is resolved during startup and cannot be
+                            changed anymore.
+                            So, we can choose one implementation and make it the default, but this one is the default
+                            forever.
                         </p>
+
+                        <div class="text-center m-2">
+                            <img th:src="@{/assets/images/uc-dynamic-default-problem.svg}" height="300px"
+                                 width="100%" alt="Problem with Defaults" title="Problem with Defaults">
+                        </div>
+
+                        <hr class="mt-3 mb-3"/>
+                    </section>
+
+                    <section id="solution">
+                        <h4>
+                            Solution
+                        </h4>
+
+                        <p>
+                            Instead of declaring an implementation of the interface <code>Service</code> as the default
+                            by annotating it with the <code>@Default</code> qualifier, we qualify each implementation
+                            with their own qualifier. Additionally we define the default implementation via a CDI
+                            Producer method, which handles the switching depending on a discriminator.
+                            The CDI Producer Bean injects all possible implementations (or uses <code>Instance&lt;Service&gt;</code>)
+                            and returns the proper reference in the producer method depending on the discriminator.
+                        </p>
+
                         <p>
                             See the package <code>at.gepardec.cditraining.uc.dynamicdefault.*</code> for the relevant
                             classes.
                             Especially take a look at the comments
                         </p>
 
-                        <hr class="mt-3 mb-3"/>
+                        <div class="text-center m-2">
+                            <img th:src="@{/assets/images/uc-dynamic-default-solution.svg}" height="300px"
+                                 width="100%" alt="Solution for dynamic defaults" title="Solution for dynamic defaults">
+                        </div>
 
+                        <hr class="mt-3 mb-3"/>
+                    </section>
+
+                    <section>
                         <div class="row m-2 text-center">
                             <div class="col mr-1">
-                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/dynamicdefault/ServiceA}, text='Select ServiceA')"/>
-                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/dynamicdefault/ServiceB}, text='Select ServiceB')"/>
+                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/dynamicdefault/ServiceOne#solution}, text='Select ServiceOne')"/>
+                                <a th:replace="/WEB-INF/fragments/general.html :: button(href=@{/api/uc/dynamicdefault/ServiceTwo#solution}, text='Select ServiceTwo')"/>
                             </div>
                         </div>
                         <hr class="mt-3 mb-3"/>
 
                         <div class="row m-1">
                             <div class="col-sm text-center text-sm-right mr-sm-1">
-                                Current selected implementation
+                                Current default
                             </div>
                             <div class="col-sm text-center text-sm-left ml-sm-1">
                                 <span th:text="${result}" class="font-weight-bold"/>
@@ -55,13 +100,6 @@
                         </div>
 
                         <hr class="mt-3 mb-3"/>
-                    </section>
-
-                    <section class="text-center font-weight-bold">
-                        <p>
-                            The solution for this problem is a CDI Producer method for the <code>@Default</code>
-                            qualifier which selects the implementation depending on a discriminator value.
-                        </p>
                     </section>
                 </div>
             </div>

@@ -18,15 +18,15 @@ public class ServiceProducer {
      * Here we get the A implementation
      */
     @Inject
-    @ServiceAQualifier
-    private Service serviceA;
+    @ServiceOneQualifier
+    private Service serviceOne;
 
     /**
      * Here we get the B implementation
      */
     @Inject
-    @ServiceBQualifier
-    private Service serviceB;
+    @ServiceTwoQualifier
+    private Service serviceTwo;
 
     @Inject
     private Logger log;
@@ -34,7 +34,7 @@ public class ServiceProducer {
     /**
      * Just for demonstration, the actual parameter should come from a configuration
      */
-    private String implementationType = "ServiceB";
+    private String implementationType = "ServiceTwo";
 
     /**
      * This is the @Default qualified Service bean implementation.
@@ -44,12 +44,12 @@ public class ServiceProducer {
     @Default
     Service createService() {
         switch (implementationType) {
-            case "ServiceA":
-                log.info("ServiceA is now default");
-                return serviceA;
-            case "ServiceB":
-                log.info("ServiceB is now default");
-                return serviceB;
+            case "ServiceOne":
+                log.info("ServiceOne is now default");
+                return serviceOne;
+            case "ServiceTwo":
+                log.info("ServiceTwo is now default");
+                return serviceTwo;
             default:
                 throw new IllegalArgumentException("implementationType unknown. type: " + implementationType);
         }

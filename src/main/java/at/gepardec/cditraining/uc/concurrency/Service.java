@@ -20,7 +20,6 @@ public class Service {
     private Context config;
 
     public String execute() {
-        // 'config.getCounter()' causes an Exception if executed on a request scoped proxy
         return Thread.currentThread().getId() + " (" + config.getRequestUri() + ")";
     }
 }

@@ -5,8 +5,8 @@ import at.gepardec.cditraining.Util;
 import javax.enterprise.context.RequestScoped;
 
 @RequestScoped
-@ServiceAQualifier
-public class ServiceA implements Service {
+@ServiceOneQualifier
+public class ServiceOne implements Service {
     @Override
     public String execute() {
         return Util.nameWithInstanceId(this);
