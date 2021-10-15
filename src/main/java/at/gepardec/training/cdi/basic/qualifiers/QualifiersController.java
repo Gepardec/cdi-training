@@ -29,6 +29,6 @@ public class QualifiersController {
         model.put("circle", Util.nameWithoutProxy(circle));
         model.put("rectangle", Util.nameWithoutProxy(rectangle));
 
-        return "basic/qualifiers.html";
+        return "basic/qualifiers.xhtml";
     }
 }

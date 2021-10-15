@@ -1,0 +1,95 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+>
+    <!--@elvariable id="circle" type="java.util.List"-->
+    <!--@elvariable id="rectangle" type="java.util.List"-->
+
+    <ui:define name="title">
+        Qualifiers
+    </ui:define>
+
+    <ui:define name="body">
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Qualifiers</h1>
+                    </div>
+                </div>
+
+                <hr class="my-3" />
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <p>
+                        The specification for CDI
+                        <a href="#{cdiUri.specUri}#qualifiers"
+                            target="_blank">
+                            Qualifiers
+                        </a>
+                    </p>
+
+                    <p>
+                        Usually in CDI we inject the interface type of a CDI Bean and not the implementation type,
+                        so we need to tell CDI what implementation instance we want to have injected if there are
+                        multiple implementations available.
+                        CDI uses type safe qualifiers which are implemented as annotations for the selection of the
+                        implementation.
+                        EJBs for instance use string names for the implementation selection which is error prone and
+                        not
+                        type safe.
+                    </p>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h5>
+                        Your Task:
+                    </h5>
+
+                    <p>
+                        Fix the injection of the <code>rectangle</code> field in the
+                        <code>at.gepardec.training.cdi.basic.qualifiers.QualifiersController</code>
+                        without changing the type of the injected field.
+                    </p>
+
+                    <p>
+                        When your qualifiers are used properly, then you should see the values changing as
+                        described.
+                    </p>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <div class="row my-1">
+                        <div class="col-6">
+                            I should still be a <code>Circle</code>
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{circle}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <div class="row my-1">
+                        <div class="col-6">
+                            I should now be a <code>Rectangle</code>
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{rectangle}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
