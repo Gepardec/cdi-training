@@ -4,6 +4,6 @@
        bean-discovery-mode="all" version="2.0">
 
     <alternatives>
-        <class>at.gepardec.cditraining.uc.alternatives.ServiceDev</class>
+        <class>at.gepardec.training.cdi.advanced.alternatives.ServiceDev</class>
     </alternatives>
 </beans>

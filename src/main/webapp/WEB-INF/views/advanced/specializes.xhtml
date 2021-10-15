@@ -1,0 +1,128 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+>
+
+    <!--@elvariable id="result" type="java.lang.String"-->
+    <!--@elvariable id="resultOriginal" type="java.lang.String"-->
+
+    <ui:define name="title">
+        Specializes
+    </ui:define>
+
+    <ui:define name="body">
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Specializes</h1>
+                    </div>
+                </div>
+
+                <hr class="my-3" />
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <p>
+                        The specification for CDI
+                        <a
+                            href="#{cdiUri.specUri}#specialize_managed_bean">
+                            Specializes
+                        </a>
+                        .
+                    </p>
+                    <p>
+                        Sometimes it is necessary to completely override a CDI Bean, so that nothing can access the
+                        original implementation at all. This is the main difference between
+                        <code>@Alternative</code> and <code>@Specialized</code>. Specialized
+                        implementations are enabled either via <code>@Priority</code> or via the
+                        <code>beans.xml</code>.
+                        Specialized implementations inherit from the type they specialize and therefore the original
+                        implementation type cannot be used anymore, because the common type is now the original
+                        implementation type and not just the contract.
+                    </p>
+                    <p>
+                        A use-case is to completely override a Producer Class which provides a configuration for a
+                        third party library, where the original type must not be available anymore.
+                        Take a look at the class <code>at.gepardec.cditraining.TemplateEngineProducer</code> which
+                        specializes the class
+                        <code>org.eclipse.krazo.ext.thymeleaf.DefaultTemplateEngineProducer</code>, which ensures
+                        that our produced template engine is used.
+
+                    </p>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+
+
+                    <p>
+                        See the package <code>at.gepardec.cditraining.uc.specializes.*</code> for the relevant
+                        classes. Especially take a look at the comments
+                    </p>
+
+                    <hr class="my-3" />
+
+                    <p>
+                        Specialized beans can be defined in two ways:
+                    </p>
+                    <ol>
+                        <li>
+                            Via the <code>@Specialized</code> annotation on the specialized implementation class
+                        </li>
+                        <li>
+                            Via the <code>@Alternative</code> annotation on the specialized implementation class
+                            along with an <code>beans.xml</code> entry or an <code>@Priority</code> annotation
+                        </li>
+                    </ol>
+
+                    <hr class="my-3" />
+
+                    <section class="text-center  font-weight-bold">
+                        <p>
+                            Alternatives are used to provide alternative implementations which are enabled statically
+                            for the context (test, dev) where they are needed, and the original implementation needs to
+                            be available as well.
+                        </p>
+                    </section>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <div class="row m-1">
+                        <div class="col-6">
+                            Injected <code>Service</code>
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{result}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <div class="row m-1">
+                        <div class="col-6">
+                            Injected <code>ServiceOriginal</code>
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{resultOriginal}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <hr class="my-3" />
+
+                    <div class="text-center font-weight-bold">
+                        <p>
+                            Specialized implementations are used to completely override a type, where it is ensured that
+                            the original type is not accessible at all anymore.
+                        </p>
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

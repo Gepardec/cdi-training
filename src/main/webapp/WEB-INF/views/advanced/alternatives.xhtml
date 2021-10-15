@@ -1,0 +1,122 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+>
+
+    <!--@elvariable id="result" type="java.lang.String"-->
+    <!--@elvariable id="resultOriginal" type="java.lang.String"-->
+
+    <ui:define name="title">
+        Alternatives
+    </ui:define>
+
+    <ui:define name="body">
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Alternatives</h1>
+                    </div>
+                </div>
+
+                <hr class="my-3" />
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <p>
+                        The specification for CDI
+                        <a href="#{cdiUri.specUri}#alternatives">
+                            Alternatives
+                        </a>
+                        and
+                        <a href="#{cdiUri.specUri}#stereotypes">
+                            Stereotypes
+                        </a>
+                        .
+                    </p>
+                    <p>
+                        Sometimes it is necessary to statically define an alternative implementation for CDI Beans,
+                        where both implementations are available for the CDI Container. Alternative implementations
+                        implement the contract of the original type one want's to provide an alternative implementation
+                        for. Alternative implementations are enabled either via <code>@Priority</code> or via the <code>beans.xml</code>.
+                        Compared to <code>Specialized</code> the original implementation can still be accessed via
+                        injecting the original implementation type.
+                        This behavior is due to the fact that the common type is the contract.
+                    </p>
+                    <p>
+                        A use case is to provide an alternative implementation for testing or during development,
+                        which gets statically enabled. Another use case is to provide an alternative implementation
+                        for a CDI Bean provided by a third party library.
+                    </p>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <p>
+                        See the package <code>at.gepardec.cditraining.uc.alternatives.*</code> for the relevant
+                        classes.
+                        Especially take a look at the comments.
+                    </p>
+
+                    <p>
+                        Alternatives beans can be defined in two ways:
+                    </p>
+                    <ol>
+                        <li>
+                            Via the <code>@Alternative</code> annotation on the alternative implementation class
+                            along
+                            with either an <code>beans.xml</code> entry or a <code>@priority</code> annotation.
+                        </li>
+                        <li>
+                            Via a custom stereotype annotation which contains the annotations
+                            <code>@Stereotype</code>
+                            <code>@Alternative</code> and an entry in the <code>beans.xml</code>. If activated
+                            all beans
+                            annotated with stereotype annotation are activated.
+                        </li>
+                    </ol>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <div class="row m-1">
+                        <div class="col-6">
+                            Alternative implementation
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{result}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <div class="row m-1">
+                        <div class="col-6">
+                            Original implementation (still here)
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{resultOriginal}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <hr class="my-3" />
+
+                    <div class="text-center  font-weight-bold">
+                        <p>
+                            Alternatives are used to provide alternative implementations which are enabled statically
+                            for the context (test, dev) where they are needed, and the original implementation needs to
+                            be available as well.
+                        </p>
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

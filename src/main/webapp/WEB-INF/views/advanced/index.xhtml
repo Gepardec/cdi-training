@@ -1,0 +1,131 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:tag="http://tags.cdi.training.gepardec.com">
+
+    <ui:define name="title">
+        Advanced
+    </ui:define>
+
+    <ui:define name="body">
+        <section>
+            <tag:card id="concurrency" title="Concurrency">
+                <ui:define name="body">
+                    <p>
+                        When using Concurrency in CDI you will faces problems with scopes others than
+                        <code>@Dependent</code> and <code>@ApplicationScoped</code>
+                    </p>
+
+                    <div class="text-center m-2">
+                        <h:graphicImage name="img/advanced/concurrency/intro.svg" height="200px"
+                            width="100%" alt="Concurrency" />
+                    </div>
+                </ui:define>
+
+                <ui:define name="buttons">
+                    <tag:button id="toConcurrency" text="Example" path="/advanced/concurrency" />
+                </ui:define>
+            </tag:card>
+        </section>
+
+        <section>
+            <tag:card id="dynamicDefault" title="Dynamic Default">
+                <ui:define name="body">
+                    <p>
+                        How to realize to be able to define a dynamic default implementation in CDI?
+                    </p>
+
+                    <div class="text-center m-2">
+                        <h:graphicImage name="img/advanced/dynamic-default/intro.svg" height="120px"
+                            width="100%" alt="Dynamic Default" />
+                    </div>
+                </ui:define>
+
+                <ui:define name="buttons">
+                    <tag:button id="toDynamicDefault" text="Example" path="/advanced/dynamic-default" />
+                </ui:define>
+            </tag:card>
+        </section>
+
+        <section>
+            <tag:card id="alternative" title="Alternatives">
+                <ui:define name="body">
+                    <p>
+                        Sometimes we need to provide an alternative implementation for a CDI bean, maybe for
+                        development and/or tests
+                    </p>
+                </ui:define>
+
+                <ui:define name="buttons">
+                    <tag:button id="toAlternatives" text="Example" path="/advanced/alternatives" />
+                </ui:define>
+            </tag:card>
+        </section>
+
+        <section>
+            <tag:card id="specializes" title="Specializes">
+                <ui:define name="body">
+                    <p>
+                        Sometimes we need to completely overwrite a CDI bean, maybe a configuration producer
+                        bean
+                        of a framework where we need to specialize the configuration
+                    </p>
+                </ui:define>
+
+                <ui:define name="buttons">
+                    <tag:button id="toSpecializes" text="Example" path="/advanced/specializes" />
+                </ui:define>
+            </tag:card>
+        </section>
+
+        <section>
+            <tag:card id="registrar" title="Registrar">
+                <ui:define name="body">
+                    <p>
+                        Registrars are CDI beans used to couple parts of an application, e.g for
+                        asynchronous
+                        executions where we need to capture the results and provide it to other CDI beans
+                        when available
+                    </p>
+                </ui:define>
+
+                <ui:define name="buttons">
+                    <tag:button id="toRegistrar" text="Example" path="/advanced/registrar" />
+                </ui:define>
+            </tag:card>
+        </section>
+
+        <section>
+            <tag:card id="startupEvent" title="Startup Event">
+                <ui:define name="body">
+                    <p>
+                        CDI events are used to couple parts of an application in a de-coupled manner and to
+                        notify
+                        observers about events.
+                    </p>
+                </ui:define>
+
+                <ui:define name="buttons">
+                    <tag:button id="toStartEvent" text="Example" path="/advanced/startup-event" />
+                </ui:define>
+            </tag:card>
+        </section>
+
+        <section>
+            <tag:card id="lookupFactory" title="Lookup Factory">
+                <ui:define name="body">
+                    <p>
+                        When CDI beans have to be selected dynamically during runtime, then we can implement
+                        a
+                        factory
+                        which encapsulates the interaction with the CDI container.
+                    </p>
+                </ui:define>
+
+                <ui:define name="buttons">
+                    <tag:button id="toLookupFactory" text="Example" path="/advanced/lookup-factory/A" />
+                </ui:define>
+            </tag:card>
+        </section>
+    </ui:define>
+</ui:composition>

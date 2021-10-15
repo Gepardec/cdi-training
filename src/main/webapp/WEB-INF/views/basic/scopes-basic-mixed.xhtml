@@ -1,0 +1,104 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+>
+    <!--@elvariable id="requestValue" type="java.lang.String"-->
+    <!--@elvariable id="sessionValue" type="java.lang.String"-->
+    <!--@elvariable id="applicationValue" type="java.lang.String"-->
+
+    <ui:define name="title">
+        Scopes basic
+    </ui:define>
+
+    <ui:define name="body">
+
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Scopes basic</h1>
+                    </div>
+                </div>
+
+                <hr class="my-3" />
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <p>
+                        The specification for CDI
+                        <a href="#{cdiUri.specUri}#contexts"
+                            target="_blank">
+                            Scopes and Contexts
+                        </a>
+                    </p>
+
+                    <p>
+                        A main concept in CDI are contexts and scopes which define the lifetime and handle the
+                        lifecycle
+                        of CDI Beans. All CDI Beans are lazily instantiated on the first access within a scope and
+                        get
+                        automatically destroyed when the context ends. CDI Beans can inject each other no mather
+                        what
+                        scope the CDI Beans have. But there are consequences when CDI Beans of different scopes are
+                        mixed together.
+                    </p>
+
+                    <hr class="mt-3 mb-3" />
+
+                    <h5>
+                        Your Task:
+                    </h5>
+
+                    <p>
+                        Fix the scopes of the beans in the package
+                        <code>src/main/java/at/gepardec/cditraining/scopes/*</code>
+                        and check the table below if it works
+                    </p>
+                    <p>
+                        When your scopes are set properly, then you should see the values changing as described.
+                    </p>
+
+                    <div class="alert alert-info mt-2 mb-2" role="alert">
+                        <h5 class="alert-heading font-weight-bold">Important!!</h5>
+                        Ensure that you open a different browser to ensure different http sessions
+                    </div>
+
+                    <hr class="mt-3 mb-3" />
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col">
+                    <div class="row my-1">
+                        <div class="col-6">
+                            <span>I should never change</span>
+                        </div>
+                        <div class="col-6  text-center">
+                            <h:outputText value="#{requestValue}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <div class="row my-1">
+                        <div class="col-6">
+                            <span>I start new in a window</span>
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{sessionValue}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <div class="row my-1">
+                        <div class="col-6">
+                            <span>I should always change</span>
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{applicationValue}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

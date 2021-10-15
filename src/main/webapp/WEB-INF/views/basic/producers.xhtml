@@ -1,0 +1,142 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+>
+    <!--@elvariable id="circleList" type="java.util.List"-->
+    <!--@elvariable id="rectangleList" type="java.util.List"-->
+    <!--@elvariable id="producedString" type="java.util.String"-->
+    <!--@elvariable id="producedBean" type="java.lang.Object"-->
+
+    <ui:define name="title">
+        Producers
+    </ui:define>
+
+    <ui:define name="body">
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Producers</h1>
+                    </div>
+                </div>
+
+                <hr class="my-3" />
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <p>
+                        The specification for CDI
+                        <a href="#{cdiUri.specUri}#producer_method" target="_blank">
+                            Producer Methods
+                        </a>
+                        and
+                        <a href="#{cdiUri.specUri}#producer_field" target="_blank">
+                            Producer Fields
+                        </a>
+                    </p>
+
+                    <p>
+                        CDI knows three types of CDI Beans
+                        <span class="font-weight-bold">Annotated Classes</span>
+                        ,
+                        <span class="font-weight-bold">Producer Methods</span>
+                        and
+                        <span class="font-weight-bold">Producer Fields</span>
+                        all of them define a CDI Bean.
+                        When CDI Beans are ordinary classes with annotations, then they are instantiated via their
+                        constructor. When the creation of a CDI Bean is more complicated, then CDI Producer Methods
+                        come
+                        into place, which are actually an ordinary method called on a CDI Bean which returns the
+                        created
+                        bean instance.
+                    </p>
+
+                    <p>
+                        Let's take a look at the producer class
+                        <code>at.gepardec.training.cdi.basic.producers.ProducedBean</code>
+                    </p>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h5>
+                        Your Task:
+                    </h5>
+
+                    <p>
+                        Implement two producer methods of the following signature in the class
+                        <code>at.gepardec.training.cdi.basic.producers.ProducedBean</code>.
+                    </p>
+                    <ul>
+                        <li><code>List&lt;Shape&gt; createCircles(){ ... }</code> producing a request scoped list of
+                            circles
+                        </li>
+                        <li><code>List&lt;Shape&gt; createRectangles(){ ... }</code> producing a application scoped
+                            list
+                            of rectangles
+                        </li>
+                    </ul>
+                    <p>
+                        The values should change as described.
+                    </p>
+
+                    <hr class="my-3" />
+
+                    <div class="row my-1">
+                        <div class="col-6">
+                            <code>Circle</code>(s) instances changing each time
+                        </div>
+                        <div class="col-6 text-center">
+                            <ui:repeat value="#{circleList}" var="circle">
+                                <h:outputText value="#{circle}" styleClass="font-weight-bold" />
+                                <br />
+                            </ui:repeat>
+                        </div>
+                    </div>
+
+                    <div class="row my-1">
+                        <div class="col-6">
+                            <code>Rectangle</code>(s) instances never changing
+                        </div>
+                        <div class="col-6 text-center">
+                            <ui:repeat value="#{rectangleList}" var="rectangle">
+                                <h:outputText value="#{rectangle}" styleClass="font-weight-bold" />
+                                <br />
+                            </ui:repeat>
+                        </div>
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <div class="row my-1">
+                        <div class="col-6">
+                            String produced by a producer field
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{producedString}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <div class="row my-1">
+                        <div class="col-6">
+                            Bean produced by a producer method
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{producedBean}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,69 @@
+html {
+    height: 100%;
+}
+
+body > nav {
+    height: 70px;
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    height: 100%;
+    font-size: 1.25rem;
+}
+
+footer {
+    bottom: 0;
+    height: 70px;
+    text-align: center;
+    padding: 5px;
+    background: #1f6c04;
+    width: 100%;
+    position: relative;
+}
+
+main {
+    background: url(#{resource[ 'img/cheeta-grey.png' ]}) no-repeat center center fixed;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+article {
+    height: 100%;
+}
+
+section {
+    height: 100%;
+}
+
+.shadow-inverted {
+    box-shadow: 0 -.5rem 1rem rgba(0,0,0,.15);
+}
+
+.main-article {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    overflow: auto;
+    background-attachment: local;
+}
+
+.main-container {
+    width: 1024px;
+}
+
+/* Modified MDB classes */
+.card {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+main.bg-image {
+    overflow: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .main-container {
+        width: 100%;
+    }
+}

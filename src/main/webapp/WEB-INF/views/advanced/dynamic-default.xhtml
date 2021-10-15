@@ -1,0 +1,130 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:tag="http://tags.cdi.training.gepardec.com"
+>
+
+    <!--@elvariable id="result" type="java.lang.String"-->
+
+    <ui:param name="verticallyCentered" value="false" />
+
+    <ui:define name="title">
+        Dynamic Default
+    </ui:define>
+
+    <ui:define name="body">
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Dynamic Default</h1>
+                    </div>
+
+                    <hr class="my-3" />
+
+                    <p>
+                        The specification for the CDI
+                        <a
+                            href="#{cdiUri.specUri}#injection_point_default_qualifier">
+                            Default Qualifier
+                        </a>
+                        .
+                    </p>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>Situation</h4>
+                    <p>
+                        An application wants to switch the default implementation of a bean type depending on a
+                        discriminator value.
+                    </p>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>
+                        Problem
+                    </h4>
+                    <p>
+                        CDI doesn't provide a declarative way to express a switch behavior for a implementation of
+                        an injection point.
+                        Everything is defined during compile time and is resolved during startup and cannot be
+                        changed anymore.
+                        So, we can choose one implementation and make it the default, but this one is the default
+                        forever.
+                    </p>
+
+                    <div class="text-center m-2">
+                        <h:graphicImage name="img/advanced/dynamic-default/problem.svg" height="300px"
+                            width="100%" alt="Dynamic Default Problem" />
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div id="solution" class="row my-2">
+                <div class="col">
+                    <h4>
+                        Solution
+                    </h4>
+
+                    <p>
+                        Instead of declaring an implementation of the interface <code>Service</code> as the default
+                        by annotating it with the <code>@Default</code> qualifier, we qualify each implementation
+                        with their own qualifier. Additionally we define the default implementation via a CDI
+                        Producer method, which handles the switching depending on a discriminator.
+                        The CDI Producer Bean injects all possible implementations (or uses <code>Instance&lt;Service&gt;</code>)
+                        and returns the proper reference in the producer method depending on the discriminator.
+                    </p>
+
+                    <p>
+                        See the package <code>at.gepardec.cditraining.uc.dynamicdefault.*</code> for the relevant
+                        classes.
+                        Especially take a look at the comments
+                    </p>
+
+                    <div class="text-center m-2">
+                        <h:graphicImage name="img/advanced/dynamic-default/solution.svg" height="300px"
+                            width="100%" alt="Dynamic Default Solution" />
+                    </div>
+
+                    <hr class="my-3" />
+
+                    <div class="d-flex justify-content-center flex-row my-2">
+                        <div class="ms-2 d-flex align-items-center">
+                            <tag:button id="switchToServiceOne" path="/advanced/dynamic-default/ServiceOne#solution" text="Select ServiceOne" />
+                        </div>
+                        <div class="ms-2 d-flex align-items-center">
+                            <tag:button id="switchToServiceTwo" path="/advanced/dynamic-default/ServiceTwo#solution" text="Select ServiceTwo" />
+                        </div>
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <div class="row m-1">
+                        <div class="col-6">
+                            Current default
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{result}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

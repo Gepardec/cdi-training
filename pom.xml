@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>at.gepardec.training.cdi</groupId>
     <artifactId>cdi-training</artifactId>
@@ -16,16 +16,12 @@
         <wildfly-plugin.version>2.1.0.Beta1</wildfly-plugin.version>
 
         <!-- Dependency Versions -->
-        <wildfly.version>22.0.0.Final</wildfly.version>
+        <wildfly.version>23.0.2.Final</wildfly.version>
         <krazo.version>1.1.0</krazo.version>
-        <krazo-ext-thymeleaf.version>1.1.0</krazo-ext-thymeleaf.version>
-        <commons-lang3.version>3.11</commons-lang3.version>
-
-        <!-- Test Dependency Versions -->
-        <version.weld-junit5>2.0.2.Final</version.weld-junit5>
-        <version.weld-se>3.1.5.Final</version.weld-se> <!-- Wildfly 22 runs on this version -->
-        <version.mockito-junit-jupiter>3.6.0</version.mockito-junit-jupiter>
-        <version.mockito-core>2.24.0</version.mockito-core>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <version.omnifaces>3.11</version.omnifaces>
+        <version.webjar.font-awesome>5.15.2</version.webjar.font-awesome>
+        <version.webjar.mdb-ui-kit>3.9.0</version.webjar.mdb-ui-kit>
 
         <!-- Plugin Properties -->
         <maven.compiler.parameters>true</maven.compiler.parameters>
@@ -54,6 +50,12 @@
         <dependency>
             <groupId>jakarta.enterprise</groupId>
             <artifactId>jakarta.enterprise.cdi-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.spec.javax.faces</groupId>
+            <artifactId>jboss-jsf-api_2.3_spec</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -110,65 +112,31 @@
         </dependency>
 
         <dependency>
-            <groupId>org.eclipse.krazo.ext</groupId>
-            <artifactId>krazo-thymeleaf</artifactId>
-            <version>${krazo-ext-thymeleaf.version}</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${commons-lang3.version}</version>
-        </dependency>
-
-        <!-- Test Dependencies -->
-        <dependency>
-            <groupId>org.jboss.weld</groupId>
-            <artifactId>weld-junit5</artifactId>
-            <version>${version.weld-junit5}</version>
-            <scope>test</scope>
-            <exclusions>
-                <!-- Newer as Wildfly uses, and we want to be consistent -->
-                <exclusion>
-                    <groupId>org.jboss.weld.se</groupId>
-                    <artifactId>weld-se-core</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <!-- This is the version of CDI Wildfly 22 uses -->
-        <dependency>
-            <groupId>org.jboss.weld.se</groupId>
-            <artifactId>weld-se-core</artifactId>
-            <version>${version.weld-se}</version>
-            <scope>test</scope>
+            <groupId>org.omnifaces</groupId>
+            <artifactId>omnifaces</artifactId>
+            <version>${version.omnifaces}</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-junit-jupiter</artifactId>
-            <version>${version.mockito-junit-jupiter}</version>
-            <scope>test</scope>
-            <exclusions>
-                <!-- The extension is broken with used mockito-core:2.21.0 -->
-                <exclusion>
-                    <groupId>org.mockito</groupId>
-                    <artifactId>mockito-core</artifactId>
-                </exclusion>
-                <!-- Uses newer junit-jupiter-api:5.4.2 but weld-junit provides 5.4.1 -->
-                <exclusion>
-                    <groupId>org.junit.jupiter</groupId>
-                    <artifactId>junit-jupiter-api</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.webjars</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>${version.webjar.font-awesome}</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>${version.mockito-core}</version>
-            <scope>test</scope>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>mdb-ui-kit</artifactId>
+            <version>${version.webjar.mdb-ui-kit}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -209,16 +177,6 @@
                         </command>
                     </commands>
                     <timeout>120</timeout>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire-plugin.version}</version>
-                <configuration>
-                    <!-- No need to test during the maven build yet  -->
-                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,0 +1,47 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="title">
+        Welcome
+    </ui:define>
+
+    <ui:define name="body">
+        <section>
+            <div class="text-center">
+                <h1>CDI Training</h1>
+            </div>
+            <hr class="solid mb-4"/>
+
+            <p>
+                Welcome to the CDI-Training where you will learn the the basic concepts of CDI
+                and how to use them properly in your real time applications.
+            </p>
+            <p>
+                Your are encouraged to work together and you use any internet resource to help you
+                to work through the exercises.
+            </p>
+            <p>
+                The goal of this training is that you understand
+            </p>
+            <ul>
+                <li>the CDI concepts,</li>
+                <li>their impacts,</li>
+                <li>and their advantages and drawbacks.</li>
+            </ul>
+            <p>
+                See the following resources which will help you to work through the examples
+            </p>
+            <ul>
+                <li>
+                    <a href="#{cdiUri.cdiOrgUri}" target="_blank">#{cdiUri.cdiOrgUri}</a>
+                </li>
+                <li>
+                    <a href="#{cdiUri.specUri}"
+                       target="_blank">CDI 2.0 Spec</a>
+                </li>
+            </ul>
+
+            <hr class="my-3"/>
+        </section>
+    </ui:define>
+</ui:composition>

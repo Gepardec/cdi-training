@@ -1,0 +1,155 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+    <!--@elvariable id="circleList" type="java.util.List"-->
+    <!--@elvariable id="rectangleList" type="java.util.List"-->
+    <!--@elvariable id="producedString" type="java.util.String"-->
+    <!--@elvariable id="producedBean" type="java.lang.Object"-->
+
+    <ui:param name="verticallyCentered" value="false" />
+
+    <ui:define name="title">
+        Events
+    </ui:define>
+
+    <ui:define name="body">
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Events</h1>
+                    </div>
+                </div>
+
+                <hr class="my-3" />
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <p>
+                        The specification for CDI
+                        <a href="#{cdiUri.specUri}#events" target="_blank">
+                            Events
+                        </a>
+                    </p>
+                    <p>
+                        In CDI we get an event notification system, which supports synchronous and asynchronous
+                        events. Observers have to explicitly define if they observe a synchronous or asynchronous
+                        event. Asynchronous events have also be fired as asynchronous events. Events are ordinary
+                        interfaces or classes nothing more. Events allow application parts to be coupled together in
+                        a decoupled fashion.
+                    </p>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>1. Synchronous Events</h4>
+
+                    <p>
+                        Synchronous Events are used to couple logic which is supposed to be executed in sequence,
+                        in a decoupled manner. We know the event type and the CDI Event System, not the observers.
+                    </p>
+
+                    <h5>
+                        Your Task:
+                    </h5>
+                    <p>
+                        Fire a synchronous event in the <code>get</code> method in
+                        <code>at.gepardec.training.cdi.basic.events.EventsController</code>.
+                    </p>
+
+                    <p>
+                        The event is observed in <code>at.gepardec.training.cdi.basic.events.EventObserver</code>.
+                        If the observer is not called, then maybe there is something wrong with the definition.
+                    </p>
+
+                    <p>
+                        When finished debug in the <code>get</code> method after the event was fired
+                        and you should see the following log message right away.
+                    </p>
+                    <pre>Synchronous Message received. Message: '&lt;YOUR_MESSAGE&gt;'</pre>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>2. Asynchronous Events</h4>
+
+                    <p>
+                        Asynchronous Events are used to couple logic which is supposed to be executed in parallel
+                    </p>
+
+                    <h5>
+                        Your Task:
+                    </h5>
+                    <p>
+                        Fire an asynchronous event in the <code>get</code> method in
+                        <code>at.gepardec.training.cdi.basic.events.EventsController</code>
+                    </p>
+
+                    <p>The event is observed in <code>at.gepardec.training.cdi.basic.events.EventObserver</code></p>
+
+                    <p>
+                        When finished refresh the page and you should'nt experience any delay in the page load,
+                        which means the event is observed asynchronously. The following log message appears now
+                        long after the page has been loaded
+                    </p>
+                    <pre>Asynchronous Message received. Message: '&lt;YOUR_MESSAGE&gt;'</pre>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>3. Event Types</h4>
+
+                    <p>
+                        Event observers are invoked for event types which are ordinary Java <code>interfaces</code>
+                        and/or <code>classes</code>. By playing with the generics on the observer methods
+                        it is possible to observe multiple event types
+                    </p>
+
+                    <h5>
+                        Your Task:
+                    </h5>
+
+                    <p>
+                        <b>a)</b>
+                        Implement a class called <code>EventDataOne</code> which implements the interface
+                        <code>at.gepardec.training.cdi.basic.events.EventData</code>
+                    </p>
+
+                    <p>
+                        <b>b)</b>
+                        Implement a class called <code>EventDataTwo</code> which implements the interface
+                        <code>at.gepardec.training.cdi.basic.events.EventData</code>
+                    </p>
+
+                    <p>
+                        <b>c)</b>
+                        Implement a class named <code>EventDataObserver</code> which implements a observer method
+                        which is invoked for both of your implement event types and logs a simple message.
+                    </p>
+
+                    <p>
+                        <b>d)</b>
+                        Fire one event for each of your implemented event types in the <code>get</code> method in
+                        <code>at.gepardec.training.cdi.basic.events.EventsController</code>
+                    </p>
+
+                    <p>
+                        When finished refresh the page and you should see your log message in the logs
+                    </p>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

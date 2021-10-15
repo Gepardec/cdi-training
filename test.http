@@ -1,6 +1,0 @@
-GET http://localhost:8080/cditraining/inject
-
-###
-GET http://localhost:8080/cditraining/uc/lookupfactory/A
-
-###

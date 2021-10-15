@@ -1,0 +1,22 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+
+    <ui:define name="title">
+        Error
+    </ui:define>
+
+    <ui:define name="body">
+        <div class="d-flex flex-column justify-content-center h-100">
+            <div>
+                <div class="text-center my-3">
+                    <i class="fas fa-exclamation-triangle fa-10x" style="color: red;" />
+                </div>
+                <div class="fs-5 my-2"><b>URI:</b> #{uri} </div>
+                <div class="fs-5 my-2"><b>Exception:</b> #{exceptionType}</div>
+                <div class="fs-5 my-2"><b>Message:</b> #{exceptionMessage}</div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+

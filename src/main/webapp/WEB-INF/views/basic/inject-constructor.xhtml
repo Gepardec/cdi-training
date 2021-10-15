@@ -1,0 +1,57 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+    <!--@elvariable id="name" type="java.lang.String"-->
+
+    <ui:define name="title">
+        Inject constructor
+    </ui:define>
+
+    <ui:define name="body">
+
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Inject constructor</h1>
+                    </div>
+                </div>
+
+                <hr class="my-3" />
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>#{name}</h4>
+
+                    <hr class="my-3" />
+
+                    <p>
+                        If a constructor is used for injection, then you need to mark it.
+                        Depending on the CDI implementation you use, it could be necessary to provide an empty
+                        constructor, otherwise your beans would cause exceptions.
+                    </p>
+                    <p>
+                        In your case it was a JAX-RS implementation related problem, actually caused by Resteasy,
+                        which
+                        requires an empty constructor on a rest resource implementation. See this
+                        <a href="https://issues.redhat.com/browse/RESTEASY-1538?workflowName=classic+default+workflow&amp;stepId=4"
+                            target="_blank">RedHat Issue
+                        </a>
+                        for further information
+                    </p>
+                    <p>
+                        See this
+                        <a href="https://stackoverflow.com/questions/19381846/why-use-constructor-over-setter-injection-in-cdi"
+                            target="_blank">
+                            stackoverflow article
+                        </a>
+                        why and when constructor injection can be useful
+                    </p>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

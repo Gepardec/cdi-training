@@ -1,0 +1,26 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+>
+
+    <!--@elvariable id="id" type="java.lang.String"-->
+    <!--@elvariable id="title" type="java.lang.String"-->
+    <!--@elvariable id="rendered" type="java.lang.Boolean"-->
+
+    <section>
+        <h:panelGroup id="${id}" rendered="#{empty rendered ? true : rendered}" styleClass="card bg-light m-2" layout="block">
+            <div class="card-header text-center d-flex justify-content-center">
+                <div class="fs-3">#{title}</div>
+            </div>
+            <div class="card-body">
+                <div class="card-text text-start">
+                    <ui:insert name="body" />
+
+                    <div class="text-center">
+                        <ui:insert name="buttons" />
+                    </div>
+                </div>
+            </div>
+        </h:panelGroup>
+    </section>
+</ui:component>

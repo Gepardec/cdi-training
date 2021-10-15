@@ -1,0 +1,109 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+>
+    <!--@elvariable id="requestValue" type="java.lang.String"-->
+    <!--@elvariable id="sessionValue" type="java.lang.String"-->
+    <!--@elvariable id="applicationValue" type="java.lang.String"-->
+
+    <ui:define name="title">
+        Initialization
+    </ui:define>
+
+    <ui:define name="body">
+
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Initialization</h1>
+                    </div>
+                </div>
+
+                <hr class="my-3" />
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <p>
+                        How to use <code>@PostConstruct</code> and <code>@PreDestroy</code> in CDI
+                        <a href="https://javaee.github.io/tutorial/cdi-basic014.html"
+                            target="_blank">
+                            https://javaee.github.io/tutorial/cdi-basic014.html
+                        </a>
+                    </p>
+                    <p>
+                        In CDI you cannot use injected CDI Beans in the constructor because they haven't been
+                        injected
+                        yet.
+                        So, you need to use <code>@PostConstruct</code>, which get's called after the CDI Bean has
+                        been
+                        instantiated and after all injections have been provided.
+                    </p>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h5>
+                        Your Task:
+                    </h5>
+
+                    <p>
+                        Fix the scopes of the involved beans in the package
+                        <code>at.gepardec.cditraining.initialization</code> and check the table below if it works
+                    </p>
+                    <p>
+                        Check your logs to see when the beans get created and destroyed
+                    </p>
+                    <p>
+                        When your scopes are properly, then you should see the values changing as described.
+                    </p>
+
+                    <div class="alert alert-info mt-2 mb-2" role="alert">
+                        <h5 class="alert-heading font-weight-bold">Important!!</h5>
+                        Ensure that you open a different browser to ensure different http sessions
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+
+
+            <div class="row my-2">
+                <div class="col">
+                    <div class="row my-2">
+                        <div class="col-6">
+                            <span>I should always change</span>
+                        </div>
+                        <div class="col-6 text-center">
+                           <h:outputText value="#{requestValue}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <div class="row my-2">
+                        <div class="col-6">
+                            <span>I start new in a window</span>
+                        </div>
+                        <div class="col-6 text-center">
+                           <h:outputText value="#{sessionValue}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <div class="row my-2">
+                        <div class="col-6">
+                            <span>I should never change</span>
+                        </div>
+                        <div class="col-6 text-center">
+                           <h:outputText value="#{applicationValue}" styleClass="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

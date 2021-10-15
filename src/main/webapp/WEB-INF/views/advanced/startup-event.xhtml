@@ -1,0 +1,43 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+
+    <ui:define name="title">
+        Startup Event
+    </ui:define>
+
+    <ui:define name="body">
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Startup Event</h1>
+                    </div>
+                </div>
+
+                <hr class="my-3" />
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <p class="font-weight-bold">Search the startup logs for the following logs:</p>
+
+                    <pre>
+2021-02-08 07:58:32 INFO  StartupWebListener - Notifying Observers about startup
+2021-02-08 07:58:32 INFO  StartupObserver - Startup observed by StartupObserver
+2021-02-08 07:58:32 INFO  StartupWebListener - Notified Observers: StartupObserver
+                        </pre>
+
+                    <hr class="my-3" />
+
+                    <p>
+                        The <code>ServletContextListener</code> implementation is used to fire an custom event type
+                        when the servlet container is initialized, which means the container is up and running.
+                    </p>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

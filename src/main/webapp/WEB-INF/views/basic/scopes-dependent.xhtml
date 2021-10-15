@@ -1,0 +1,95 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+>
+    <!--@elvariable id="dependentBeanRequestScopedValue" type="java.lang.String"-->
+    <!--@elvariable id="dependentBeanSessionScopedValue" type="java.lang.String"-->
+    <!--@elvariable id="dependentBeanApplicationScopedValue" type="java.lang.String"-->
+
+    <ui:define name="title">
+        Scopes basic
+    </ui:define>
+
+    <ui:define name="body">
+
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Scopes basic</h1>
+                    </div>
+                </div>
+
+                <hr class="my-3" />
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <p>
+                        The specification for CDI Scopes and Contexts
+                        <a href="#{cdiUri.specUri}#contexts"
+                            target="_blank">
+                            Scopes and Contexts
+                        </a>
+                    </p>
+                    <p>
+                        The <code>@Dependent</code> scope is a so called pseudo-scope which is always active, which
+                        means there is no lazy instantiation.
+                        A dependent CDI Bean is always owned by the CDI Bean which injected it, therefore, the
+                        dependent
+                        CDI Bean lives as long as the owning CDI Bean. But this is a little
+                        tricky when dependent CDI Beans are created programmatically via
+                        <code>javax.enterprise.inject.Instance&lt;T&gt;</code>, which we will see when we come to
+                        the
+                        use-cases.
+                    </p>
+                    <p>
+                        When your scopes of the <b>Basic Scopes</b> and <b>Mixed Scopes</b> examples are set
+                        properly,
+                        then you should see the values changing as described.
+                    </p>
+
+                    <div class="alert alert-info mt-2 mb-2" role="alert">
+                        <h5 class="alert-heading font-weight-bold">Important!!</h5>
+                        Ensure that you open an private/incognito Tab or a different browser to ensure different
+                        http sessions
+                    </div>
+
+                    <hr class="mt-3 mb-3" />
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col">
+                    <div class="row my-1">
+                        <div class="col-6">
+                            <span class="font-weight-bold">request.dependent.value</span> never changes
+                        </div>
+                        <div class="col-6  text-center">
+                            <h:outputText value="#{dependentBeanRequestScopedValue}" class="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <div class="row my-1">
+                        <div class="col-6">
+                            <span class="font-weight-bold">session.dependent.value</span> starts new in a window
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{dependentBeanSessionScopedValue}" class="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <div class="row my-1">
+                        <div class="col-6">
+                            <span class="font-weight-bold">application.dependent.value</span> always changes
+                        </div>
+                        <div class="col-6 text-center">
+                            <h:outputText value="#{dependentBeanApplicationScopedValue}" class="font-weight-bold" />
+                        </div>
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<facelet-taglib
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd"
+    version="2.2">
+
+    <namespace>http://tags.cdi.training.gepardec.com</namespace>
+    <short-name>tags</short-name>
+
+    <tag>
+        <tag-name>card</tag-name>
+        <source>tags/card.xhtml</source>
+        <attribute>
+            <description>The card id</description>
+            <name>id</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>The card title</description>
+            <name>title</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>If true tag is rendered, otherwise not</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+    </tag>
+
+    <tag>
+        <tag-name>button</tag-name>
+        <source>tags/button.xhtml</source>
+        <attribute>
+            <description>The page unique id</description>
+            <name>id</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>The relative path after the rest application path, or a in page reference '#id'. If not defined then '#' is used</description>
+            <name>path</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>The button text</description>
+            <name>text</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>If true tag is rendered, otherwise not</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+    </tag>
+
+    <tag>
+        <tag-name>link</tag-name>
+        <source>tags/link.xhtml</source>
+        <attribute>
+            <description>The page unique id</description>
+            <name>id</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>The relative path after the rest application path, or a in page reference '#id'. If not defined then '#' is used</description>
+            <name>path</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>The link text</description>
+            <name>text</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>The link target</description>
+            <name>target</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>If true tag is rendered, otherwise not</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+    </tag>
+
+    <tag>
+        <tag-name>navLink</tag-name>
+        <source>tags/navLink.xhtml</source>
+        <attribute>
+            <description>The page unique id</description>
+            <name>id</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>The relative path after the rest application path, or a in page reference '#id'. If not defined then '#' is used</description>
+            <name>path</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>The link text</description>
+            <name>text</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>If true the link is marked active</description>
+            <name>active</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>If true tag is rendered, otherwise not</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+    </tag>
+</facelet-taglib>
