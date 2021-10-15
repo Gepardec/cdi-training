@@ -22,7 +22,6 @@ public class InjectConstructorController {
     public InjectConstructorController() {
     }
 
-    @Inject
     public InjectConstructorController(InjectModel model) {
         this.model = model;
     }
