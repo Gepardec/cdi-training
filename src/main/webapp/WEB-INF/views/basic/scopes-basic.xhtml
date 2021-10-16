@@ -2,12 +2,12 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html"
 >
-    <!--@elvariable id="dependentBeanRequestScopedValue" type="java.lang.String"-->
-    <!--@elvariable id="dependentBeanSessionScopedValue" type="java.lang.String"-->
-    <!--@elvariable id="dependentBeanApplicationScopedValue" type="java.lang.String"-->
+    <!--@elvariable id="requestValue" type="java.lang.String"-->
+    <!--@elvariable id="sessionValue" type="java.lang.String"-->
+    <!--@elvariable id="applicationValue" type="java.lang.String"-->
 
     <ui:define name="title">
-        Scopes basic
+        Scopes Basic
     </ui:define>
 
     <ui:define name="body">
@@ -16,7 +16,7 @@
             <div class="row my-2">
                 <div class="col">
                     <div class="text-center">
-                        <h1>Scopes basic</h1>
+                        <h1>Scopes Basic</h1>
                     </div>
                 </div>
 
@@ -26,27 +26,34 @@
             <div class="row my-2">
                 <div class="col">
                     <p>
-                        The specification for CDI Scopes and Contexts
+                        The specification for CDI
                         <a href="#{cdiUri.specUri}#contexts"
                             target="_blank">
                             Scopes and Contexts
                         </a>
                     </p>
+
                     <p>
-                        The <code>@Dependent</code> scope is a so called pseudo-scope which is always active, which
-                        means there is no lazy instantiation.
-                        A dependent CDI Bean is always owned by the CDI Bean which injected it, therefore, the
-                        dependent
-                        CDI Bean lives as long as the owning CDI Bean. But this is a little
-                        tricky when dependent CDI Beans are created programmatically via
-                        <code>javax.enterprise.inject.Instance&lt;T&gt;</code>, which we will see when we come to
-                        the
-                        use-cases.
+                        A main concept in CDI are contexts and scopes which define the lifetime of the CDI bean.
+                        All normal scoped CDI Beans are lazily instantiated on the first access within a scope and
+                        get automatically destroyed when the scope ends.
+                        CDI Beans can inject other CDI beans, no mather what scope the CDI Beans have.
+                        But there are consequences when CDI Beans of different scopes are mixed together.
+                    </p>
+
+                    <hr class="mt-3 mb-3" />
+
+                    <h5>
+                        Your Task:
+                    </h5>
+
+                    <p>
+                        Fix the scopes of the beans in the package
+                        <code>at.gepardec.training.cdi.basic.scopes</code>
+                        and check the table below if it works
                     </p>
                     <p>
-                        When your scopes of the <b>Basic Scopes</b> and <b>Mixed Scopes</b> examples are set
-                        properly,
-                        then you should see the values changing as described.
+                        When your scopes are set properly, then you should see the values changing as described.
                     </p>
 
                     <div class="alert alert-info mt-2 mb-2" role="alert">
@@ -61,28 +68,28 @@
                 <div class="col">
                     <div class="row my-1">
                         <div class="col-6 mr-2 text-end">
-                            <span class="font-weight-bold">request.dependent.value</span> never changes
+                            <span>I should never change</span>
                         </div>
                         <div class="col-6 ml-2 text-start">
-                            <h:outputText value="#{dependentBeanRequestScopedValue}" class="font-weight-bold" />
+                            <h:outputText value="#{requestValue}" styleClass="font-weight-bold" />
                         </div>
                     </div>
 
                     <div class="row my-1">
                         <div class="col-6 mr-2 text-end">
-                            <span class="font-weight-bold">session.dependent.value</span> starts new in a window
+                            <span>I start new in a window</span>
                         </div>
                         <div class="col-6 ml-2 text-start">
-                            <h:outputText value="#{dependentBeanSessionScopedValue}" class="font-weight-bold" />
+                            <h:outputText value="#{sessionValue}" styleClass="font-weight-bold" />
                         </div>
                     </div>
 
                     <div class="row my-1">
                         <div class="col-6 mr-2 text-end">
-                            <span class="font-weight-bold">application.dependent.value</span> always changes
+                            <span>I should always change</span>
                         </div>
                         <div class="col-6 ml-2 text-start">
-                            <h:outputText value="#{dependentBeanApplicationScopedValue}" class="font-weight-bold" />
+                            <h:outputText value="#{applicationValue}" styleClass="font-weight-bold" />
                         </div>
                     </div>
 

@@ -9,6 +9,10 @@ import javax.mvc.Models;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
+/**
+ * Implement a CDI qualifier ensure tha the injected field 'rectangle' is a RectangleShape instance.
+ * Don't change the type of the fields.
+ */
 @Path("/basic/qualifiers")
 @RequestScoped
 @Controller

@@ -23,7 +23,7 @@ public class PathHelper {
     }
 
     public String basePath() {
-        return servletRequest.getServletContext().getContextPath() + CdiTrainingApplication.REST_APPLICATION_PATH;
+        return servletRequest.getServletContext().getContextPath() + MvcApplication.REST_APPLICATION_PATH;
     }
 
     public String resourcePath() {

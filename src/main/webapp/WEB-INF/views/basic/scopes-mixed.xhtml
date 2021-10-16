@@ -7,7 +7,7 @@
     <!--@elvariable id="applicationValue" type="java.lang.String"-->
 
     <ui:define name="title">
-        Scopes basic
+        Scopes Mixed
     </ui:define>
 
     <ui:define name="body">
@@ -16,7 +16,7 @@
             <div class="row my-2">
                 <div class="col">
                     <div class="text-center">
-                        <h1>Scopes basic</h1>
+                        <h1>Scopes Mixed</h1>
                     </div>
                 </div>
 
@@ -34,14 +34,11 @@
                     </p>
 
                     <p>
-                        A main concept in CDI are contexts and scopes which define the lifetime and handle the
-                        lifecycle
-                        of CDI Beans. All CDI Beans are lazily instantiated on the first access within a scope and
-                        get
-                        automatically destroyed when the context ends. CDI Beans can inject each other no mather
-                        what
-                        scope the CDI Beans have. But there are consequences when CDI Beans of different scopes are
-                        mixed together.
+                        A main concept in CDI are contexts and scopes which define the lifetime of the CDI bean.
+                        All normal scoped CDI Beans are lazily instantiated on the first access within a scope and
+                        get automatically destroyed when the scope ends.
+                        CDI Beans can inject other CDI beans, no mather what scope the CDI Beans have.
+                        But there are consequences when CDI Beans of different scopes are mixed together.
                     </p>
 
                     <hr class="mt-3 mb-3" />
@@ -70,28 +67,28 @@
             <div class="row my-2">
                 <div class="col">
                     <div class="row my-1">
-                        <div class="col-6">
+                        <div class="col-6 mr-2 text-end">
                             <span>I should never change</span>
                         </div>
-                        <div class="col-6  text-center">
+                        <div class="col-6 ml-2 text-start">
                             <h:outputText value="#{requestValue}" styleClass="font-weight-bold" />
                         </div>
                     </div>
 
                     <div class="row my-1">
-                        <div class="col-6">
+                        <div class="col-6 mr-2 text-end">
                             <span>I start new in a window</span>
                         </div>
-                        <div class="col-6 text-center">
+                        <div class="col-6 ml-2 text-start">
                             <h:outputText value="#{sessionValue}" styleClass="font-weight-bold" />
                         </div>
                     </div>
 
                     <div class="row my-1">
-                        <div class="col-6">
+                        <div class="col-6 mr-2 text-end">
                             <span>I should always change</span>
                         </div>
-                        <div class="col-6 text-center">
+                        <div class="col-6 ml-2 text-start">
                             <h:outputText value="#{applicationValue}" styleClass="font-weight-bold" />
                         </div>
                     </div>

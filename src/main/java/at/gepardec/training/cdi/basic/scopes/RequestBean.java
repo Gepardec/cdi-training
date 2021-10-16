@@ -1,10 +1,11 @@
 package at.gepardec.training.cdi.basic.scopes;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+@ApplicationScoped
 public class RequestBean {
 
-    // For a later example
     @Inject
     private DependentBean dependentBean;
 

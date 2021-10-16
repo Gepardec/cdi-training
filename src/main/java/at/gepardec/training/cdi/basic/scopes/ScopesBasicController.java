@@ -1,6 +1,5 @@
 package at.gepardec.training.cdi.basic.scopes;
 
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.mvc.Controller;
@@ -8,6 +7,9 @@ import javax.mvc.Models;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
+/**
+ * Fix the scopes of the injected beans
+ */
 @Path("/basic/scopes/basic")
 @RequestScoped
 @Controller
@@ -33,7 +35,7 @@ public class ScopesBasicController {
         model.put("sessionValue", sessionBean.incrementAndGet());
         model.put("applicationValue", applicationBean.incrementAndGet());
 
-        return "basic/scopes-basic-mixed.xhtml";
+        return "basic/scopes-basic.xhtml";
     }
 
 }

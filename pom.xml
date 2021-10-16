@@ -12,7 +12,6 @@
         <!-- Plugin Versions -->
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <war-plugin.version>3.3.1</war-plugin.version>
-        <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
         <wildfly-plugin.version>2.1.0.Beta1</wildfly-plugin.version>
 
         <!-- Dependency Versions -->

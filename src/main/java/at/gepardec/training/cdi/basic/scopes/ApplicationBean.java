@@ -14,7 +14,6 @@ public class ApplicationBean {
         return ++value;
     }
 
-
     public DependentBean dependentBean() {
         return dependentBean;
     }

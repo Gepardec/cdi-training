@@ -5,6 +5,9 @@ import org.slf4j.Logger;
 import javax.inject.Inject;
 import java.io.Serializable;
 
+/**
+ * Don't do anything here!
+ */
 public abstract class BaseBean implements Serializable {
 
     @Inject

@@ -1,6 +1,5 @@
 <ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:h="http://java.sun.com/jsf/html"
 >
     <!--@elvariable id="requestValue" type="java.lang.String"-->
     <!--@elvariable id="sessionValue" type="java.lang.String"-->
@@ -52,53 +51,19 @@
                     </h5>
 
                     <p>
-                        Fix the scopes of the involved beans in the package
-                        <code>at.gepardec.training.cdi.basic.initialization</code> and check the table below if it works
+                        Implement the initialization methods in the controller injected beans in the package
+                        <code>at.gepardec.training.cdi.basic.initialization</code> and check your logs to see if and when the callback methods are invoked.
                     </p>
                     <p>
-                        Check your logs to see when the beans get created and destroyed
+                        Additionally change the scope of the <code>NormalScopedBean</code> to another normal scope and see what happens.
                     </p>
                     <p>
-                        When your scopes are properly, then you should see the values changing as described.
+                        Refresh the page to trigger the initialization and destruction of the beans.
                     </p>
 
                     <div class="alert alert-info mt-2 mb-2" role="alert">
                         <h5 class="alert-heading font-weight-bold">Important!!</h5>
                         Ensure that you open a different browser to ensure different http sessions
-                    </div>
-
-                    <hr class="my-3" />
-                </div>
-            </div>
-
-
-            <div class="row my-2">
-                <div class="col">
-                    <div class="row my-2">
-                        <div class="col-6">
-                            <span>I should always change</span>
-                        </div>
-                        <div class="col-6 text-center">
-                           <h:outputText value="#{requestValue}" styleClass="font-weight-bold" />
-                        </div>
-                    </div>
-
-                    <div class="row my-2">
-                        <div class="col-6">
-                            <span>I start new in a window</span>
-                        </div>
-                        <div class="col-6 text-center">
-                           <h:outputText value="#{sessionValue}" styleClass="font-weight-bold" />
-                        </div>
-                    </div>
-
-                    <div class="row my-2">
-                        <div class="col-6">
-                            <span>I should never change</span>
-                        </div>
-                        <div class="col-6 text-center">
-                           <h:outputText value="#{applicationValue}" styleClass="font-weight-bold" />
-                        </div>
                     </div>
 
                     <hr class="my-3" />

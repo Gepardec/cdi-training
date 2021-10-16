@@ -45,7 +45,7 @@ To get the application running you need the following software installed:
 
 . link:https://jdk.java.net/java-se-ri/11[OpenJDK 11]
 . link:https://www.wildfly.org/downloads/[Wildfly 23.0.2.FINAL (Jakarta EE 8 Full & Web Distribution)]
-. link:https://maven.apache.org/download.cgi?Preferred=ftp://ftp.osuosl.org/pub/apache/[Maven 3.x.x]
+. link:https://maven.apache.org/download.cgi?Preferred=ftp://ftp.osuosl.org/pub/apache/[Maven 3.6+]
 
 == Accessing the application
 
@@ -59,3 +59,6 @@ IMPORTANT: When running in an IDE the actual port will depend on your configurat
 
 Refer to the documentation of the IDE of your choice, which must provide integration for Wildfly/JBoss servers, for how to set up the project.
 
+== WIKI
+
+See the link:https://gepardec.github.io/cdi-training/[WIKI] for the development guidelines and the documentation about the components the application is based on.

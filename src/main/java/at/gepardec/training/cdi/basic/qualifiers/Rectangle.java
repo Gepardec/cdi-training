@@ -1,9 +1,10 @@
 package at.gepardec.training.cdi.basic.qualifiers;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Alternative;
 
-@RequestScoped
-@Alternative // Maybe this is not suitable here, you decide :)
+@Dependent
+@Alternative //Why do you think this is necessary?
 public class Rectangle extends Shape {
+
 }
