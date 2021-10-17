@@ -15,7 +15,6 @@ public class InterceptorsController {
     @GET
     @Path("/")
     @SecondIntercept
-    @BindingInterceptor
     public String basic() {
         return "basic/interceptors.xhtml";
     }

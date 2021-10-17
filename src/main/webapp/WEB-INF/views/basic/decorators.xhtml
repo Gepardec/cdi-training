@@ -29,7 +29,7 @@
                         </a>
                     </p>
                     <p>
-                        A Decorator is similar to an Interceptor, but is aware of the contract which is decorated,
+                        A Decorator is similar to an Interceptor, but is aware of the contract it decorates,
                         an Interceptor doesn't. As Interceptors, Decorators are ordered either by the definition
                         in the <code>beans.xml</code> or via the <code>@Priority</code> annotation. Interceptors
                         can share information with other Interceptors within the interceptor chain, but Decorators
@@ -42,7 +42,7 @@
                         class, so that one only needs to implement methods one wants to decorate.
                     </p>
                     <p>
-                        See the package <code>at.gepardec.cditraining.decorators.*</code> for the relevant classes
+                        See the package <code>at.gepardec.training.cdi.decorators.*</code> for the relevant classes
                     </p>
                     <p>
                         You need to check the logs to see if the interceptors are working
@@ -55,7 +55,7 @@
             <div class="row my-2">
                 <div class="col">
                     <h4>
-                        1. Decorator enabled via <code>@Priority</code>
+                        1. Enable Decorator via <code>@Priority</code>
                     </h4>
 
                     <p>
@@ -85,11 +85,10 @@
                 </div>
             </div>
 
-
             <div class="row my-2">
                 <div class="col">
                     <h4>
-                        2. Decorator enabled via <code>beans.xml</code>
+                        2. Enable the Decorator via <code>beans.xml</code>
                     </h4>
 
                     <p>
@@ -115,11 +114,10 @@
                 </div>
             </div>
 
-
             <div class="row my-2">
                 <div class="col">
                     <h4>
-                        3. Your own Decorator
+                        3. Implement Your own Decorator
                     </h4>
 
                     <p>
@@ -133,7 +131,7 @@
                     <p>
                         <b>a)</b>
                         Implement a decorator which decorates the method
-                        <code>at.gepardec.training.cdi.basic.decorators.ServiceApi.doSomething()</code> and logs a message
+                        <code>at.gepardec.training.cdi.basic.decorators.ServiceApi.decorated()</code> and logs a message
                         before and after invoking the delegate
                     </p>
 
@@ -145,7 +143,7 @@
                     <p>
                         <b>c)</b>
                         To skip the decorator chain a decorator just needs to skip to call the decorated method on
-                        the delegate. Give it a try an debug into it
+                        the delegate. Give it a try and debug into it
                     </p>
 
                     <div class="alert alert-info mt-2 mb-2" role="alert">
@@ -156,8 +154,8 @@
                     <p>
                         <b>e)</b>
                         Annotate the method
-                        <code>at.gepardec.training.cdi.basic.decorators.ServiceImpl.doSomething()</code>
-                        with an interceptor annotation and take a look at your logs
+                        <code>at.gepardec.training.cdi.basic.decorators.ServiceImpl.decorated()</code>
+                        with your interceptor annotation and see the logs.
                     </p>
 
                     <div class="alert alert-info mt-2 mb-2" role="alert">

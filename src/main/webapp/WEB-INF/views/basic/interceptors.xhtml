@@ -36,13 +36,12 @@
                         definition on the intercepted classes. Interceptors are generic and don't know the
                         signature or contract of the intercepted method and should not rely on that at all.
                         Interceptors can share information via the <code>InvocationContext</code> and therefore can
-                        ca coupled that way, which should be avoided if possible, or at least the coupling should be
-                        as little as possible. Interceptors are enabled on a method or class via an annotation, and
-                        therefore a coupled to the intercepted method or class.
+                        be coupled that way, which should be avoided if possible, or at least the coupling should be
+                        as little as possible. Interceptors are enabled on a method or class via an annotation.
                     </p>
 
                     <p>
-                        See the package <code> at.gepardec.cditraining.interceptors.*</code>
+                        See the package <code> at.gepardec.training.cdi.interceptors.*</code>
                         for the provided interceptor implementations
                     </p>
 
@@ -146,11 +145,10 @@
                     </h5>
 
                     <p>
-                        Implement two interceptors, which log simple message to the console, for the interceptor
-                        binding
-                        <code>at.gepardec.training.cdi.basic.interceptors.BindingInterceptor</code> and enhance the
-                        interceptor binding so that you can select one of your implementations on the annotated
-                        method <code>at.gepardec.training.cdi.basic.interceptors.InterceptorsController.get()</code>
+                        Implement an interceptor binding annotation with a string attribute and two interceptors for this interceptor binding, where the interceptors
+                        are bound to a different string values.
+                        Let the interceptor log a simple message to the console.
+                        Use your interceptors on the method <code>at.gepardec.training.cdi.basic.interceptors.InterceptorsController.get()</code>
                     </p>
 
                     <hr class="my-3" />

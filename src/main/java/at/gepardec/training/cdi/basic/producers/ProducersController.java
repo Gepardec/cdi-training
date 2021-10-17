@@ -34,8 +34,8 @@ public class ProducersController {
     @Path("/")
     public String get() {
         // Here you put your produced lists in
-        model.put("circleList", Util.namesWithInstanceId(List.of(new Circle(), new Circle())));
-        model.put("rectangleList", Util.namesWithInstanceId(List.of(new Rectangle(), new Rectangle())));
+        model.put("circleList", Util.namesWithInstanceId(List.of()));
+        model.put("rectangleList", Util.namesWithInstanceId(List.of()));
 
         model.put("producedString", producedString);
         model.put("producedBean", Util.nameWithInstanceId(producedBean));

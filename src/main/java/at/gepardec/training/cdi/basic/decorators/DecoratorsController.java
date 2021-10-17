@@ -17,8 +17,8 @@ public class DecoratorsController {
     @Path("/")
     @GET
     public String get() {
-        service.doSomething();
-        service.doSomethingElse();
+        service.decorated();
+        service.nonDecorated();
         return "basic/decorators.xhtml";
     }
 }

@@ -15,9 +15,9 @@ public abstract class ServiceDecorator implements ServiceApi {
     private ServiceApi delegate;
 
     @Override
-    public void doSomething() {
+    public void decorated() {
         log.info("decorated before. id=" + this.hashCode());
-        delegate.doSomething();
+        delegate.decorated();
         log.info("decorated after. id=" + this.hashCode());
     }
 }

@@ -12,12 +12,12 @@ public class ServiceImpl implements ServiceApi {
     private Logger log;
 
     @Override
-    public void doSomething() {
-        log.info("doing something. id=" + this.hashCode());
+    public void decorated() {
+        log.info("decorated. id=" + this.hashCode());
     }
 
     @Override
-    public void doSomethingElse() {
-        log.info("doing something else. id=" + this.hashCode());
+    public void nonDecorated() {
+        log.info("nonDecorated. id=" + this.hashCode());
     }
 }
