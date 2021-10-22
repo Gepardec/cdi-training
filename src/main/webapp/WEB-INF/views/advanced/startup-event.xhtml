@@ -1,5 +1,6 @@
 <ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
 >
 
     <ui:define name="title">
@@ -8,14 +9,35 @@
 
     <ui:define name="body">
         <div class="container-lg">
-            <div class="row my-2">
+            <div class="row mt-2">
                 <div class="col">
                     <div class="text-center">
                         <h1>Startup Event</h1>
                     </div>
-                </div>
 
-                <hr class="my-3" />
+                    <hr />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col text-center my-3">
+                            <div>
+                                <h:graphicImage name="img/advanced/startup-event/use-case-main-initiated.svg" height="100%"
+                                    width="400px" alt="Startup Event initiated by main module" />
+                            </div>
+                        </div>
+                        <div class="col text-center my-3">
+                            <div>
+                                <h:graphicImage name="img/advanced/startup-event/use-case-module-initiated.svg" height="100%"
+                                    width="400px" alt="Startup Event initiated by modules" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-3" />
+                </div>
             </div>
 
             <div class="row my-2">
