@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * This bean holds the state within the request scope, so that the here managed {@link Context}
- * bean doesn't need to be annotated with @RequestScoped
+ * bean doesn't need to be annotated with @RequestScoped, but is de-facto request scoped.
  */
 @RequestScoped
 public class ContextProducer {
@@ -30,7 +30,7 @@ public class ContextProducer {
 
     /**
      * This producer method is called for any bean which needs an injection within this active request.
-     * This producer is the actual CDI bean, therefore we had to put @Vetoed on actual bean class
+     * This producer is the actual CDI bean, therefore we had to put @Vetoed on actual bean class.
      */
     @Produces
     @Dependent

@@ -23,8 +23,9 @@ public class ConcurrencyController {
     private Logger log;
 
     /**
-     * When a GET request arrives here then the service bean and its dependencies are already injected and fully initialized.
+     * When a GET request arrives here, then the service bean and its dependencies are already injected and fully initialized.
      * Therefore, we have no problems executing it on a different Thread.
+     * But all injected CDI beans must be dependent or application scoped.
      */
     @Inject
     private Service service;
