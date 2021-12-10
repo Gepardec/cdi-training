@@ -5,8 +5,6 @@ After working through the tasks one should be able to understand the main concep
 
 The application is based on the link:https://jakarta.ee/release/8/[Jakarta-EE 8.0] link:https://jakarta.ee/specifications/cdi/2.0/[(CDI 2.0)] specification and the link:https://www.wildfly.org/[Wildfly 23.0.2.Final] application server.
 
-Take a look at these link:presentation-v1.1.pdf[slides] for an introduction to CDI.
-
 == Covered CDI Basics
 
 The following CDI concepts are covered by this example
@@ -38,6 +36,20 @@ How to use a registrar to capture asynchronous executions results, which are nee
 How to notify the application about that the application has started?
 . Lookup-Factory +
 How to implement a factory to encapsulate the CDI programmatic bean lookup and how to manage `@Dependent` scoped beans properly?
+
+== Resources
+
+This repository provides the following pdf slides:
+
+* link:cdi-introduction-v1.1.pdf[CDI Introduction] +
+An introduction to CDI.
+* link:cdi-specifications-v1.0.pdf[CDI Specs] +
+A theoretical insight into the CDI specs scopes, interceptors, decorators and events.
+
+The following resources are useful when implementing CDI backed applications:
+
+* link:https://jakarta.ee/specifications/cdi/2.0/[CDI 2.0 Specification] +
+The official CDI 2.0 specification of Jakarta EE
 
 == Used Tools
 
