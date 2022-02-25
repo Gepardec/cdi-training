@@ -57,7 +57,7 @@ public class ServiceFactory {
         final Set<Bean<?>> beans = beanManager.getBeans(Service.class, literal);
         if (beans.size() == 1) {
             return Dependent.class.isAssignableFrom(beans.iterator().next().getScope());
-        } else if (beans.isEmpty()) {
+        } else if (!beans.isEmpty()) {
             throw new IllegalStateException("Found multiple beans for service class and annotation literal: " + literal.toString());
         } else {
             throw new IllegalArgumentException("No beans found for Service interface and annotation literal: " + literal.toString());
