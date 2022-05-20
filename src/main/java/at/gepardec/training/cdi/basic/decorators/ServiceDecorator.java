@@ -2,8 +2,8 @@ package at.gepardec.training.cdi.basic.decorators;
 
 import org.slf4j.Logger;
 
-import javax.decorator.Delegate;
-import javax.inject.Inject;
+import jakarta.decorator.Delegate;
+import jakarta.inject.Inject;
 
 public abstract class ServiceDecorator implements ServiceApi {
 

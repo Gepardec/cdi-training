@@ -1,9 +1,9 @@
 package at.gepardec.training.cdi.basic.initialization;
 
-import javax.inject.Inject;
-import javax.mvc.Controller;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.inject.Inject;
+import jakarta.mvc.Controller;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 
 /**
  * Implement a lifecycle callback methods in the injected beans.

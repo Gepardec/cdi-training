@@ -1,7 +1,7 @@
 package at.gepardec.training.cdi.advanced.concurrency;
 
-import javax.enterprise.context.Dependent;
-import javax.inject.Inject;
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Inject;
 
 /**
  * This is bean is executed on another Thread and cannot have any dependency to beans outside the following scopes:

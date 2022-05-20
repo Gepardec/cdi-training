@@ -2,14 +2,14 @@ package at.gepardec.training.cdi.advanced.concurrency;
 
 import org.slf4j.Logger;
 
-import javax.annotation.Resource;
-import javax.enterprise.concurrent.ManagedExecutorService;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.mvc.Controller;
-import javax.mvc.Models;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.annotation.Resource;
+import jakarta.enterprise.concurrent.ManagedExecutorService;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import jakarta.mvc.Controller;
+import jakarta.mvc.Models;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 
 /**
  * This controller triggers the concurrent execution of the Service bean by a GET request.

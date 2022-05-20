@@ -1,6 +1,6 @@
 package at.gepardec.training.cdi.advanced.registrar;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;

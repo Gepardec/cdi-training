@@ -1,6 +1,6 @@
 package at.gepardec.training.cdi.basic.initialization;
 
-import javax.enterprise.context.RequestScoped;
+import jakarta.enterprise.context.RequestScoped;
 
 /**
  * Any scope but @Dependent is a normal scope.

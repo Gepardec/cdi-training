@@ -2,8 +2,8 @@ package at.gepardec.training.cdi.basic.interceptors;
 
 import org.slf4j.Logger;
 
-import javax.inject.Inject;
-import javax.interceptor.InvocationContext;
+import jakarta.inject.Inject;
+import jakarta.interceptor.InvocationContext;
 
 public abstract class BaseInterceptor {
 

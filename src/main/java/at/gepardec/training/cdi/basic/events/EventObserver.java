@@ -2,10 +2,10 @@ package at.gepardec.training.cdi.basic.events;
 
 import org.slf4j.Logger;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.ObservesAsync;
-import javax.enterprise.event.Reception;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.event.ObservesAsync;
+import jakarta.enterprise.event.Reception;
+import jakarta.inject.Inject;
 
 @ApplicationScoped
 public class EventObserver {

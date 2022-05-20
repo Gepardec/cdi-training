@@ -2,7 +2,7 @@ package at.gepardec.training.cdi.basic.initialization;
 
 import org.slf4j.Logger;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 import java.io.Serializable;
 
 /**

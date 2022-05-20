@@ -1,8 +1,8 @@
 package at.gepardec.training.cdi.basic.inject;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.mvc.Models;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import jakarta.mvc.Models;
 
 @RequestScoped
 public class InjectModel {

@@ -4,20 +4,20 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.eclipse.krazo.engine.Viewable;
 import org.slf4j.Logger;
 
-import javax.enterprise.context.Dependent;
-import javax.inject.Inject;
-import javax.mvc.Models;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.ext.Provider;
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Inject;
+import jakarta.mvc.Models;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriInfo;
+import jakarta.ws.rs.ext.Provider;
 
 /**
  * This class handles the errors by extracting the error information and returning the error page
  */
 @Dependent
 @Provider
-public class ExceptionMapper implements javax.ws.rs.ext.ExceptionMapper<Throwable> {
+public class ExceptionMapper implements jakarta.ws.rs.ext.ExceptionMapper<Throwable> {
 
     @Context
     private UriInfo uriInfo;

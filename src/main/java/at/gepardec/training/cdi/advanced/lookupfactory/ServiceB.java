@@ -3,7 +3,7 @@ package at.gepardec.training.cdi.advanced.lookupfactory;
 
 import at.gepardec.training.cdi.Util;
 
-import javax.enterprise.context.Dependent;
+import jakarta.enterprise.context.Dependent;
 
 @Dependent
 @TypedService("B")

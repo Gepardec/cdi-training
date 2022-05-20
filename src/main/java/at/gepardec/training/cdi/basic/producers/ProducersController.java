@@ -5,12 +5,12 @@ import at.gepardec.training.cdi.basic.qualifiers.Circle;
 import at.gepardec.training.cdi.basic.qualifiers.Rectangle;
 import org.slf4j.Logger;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.mvc.Controller;
-import javax.mvc.Models;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import jakarta.mvc.Controller;
+import jakarta.mvc.Models;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 import java.util.List;
 
 @Path("/basic/producers")

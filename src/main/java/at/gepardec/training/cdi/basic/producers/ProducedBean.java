@@ -1,6 +1,6 @@
 package at.gepardec.training.cdi.basic.producers;
 
-import javax.enterprise.inject.Vetoed;
+import jakarta.enterprise.inject.Vetoed;
 import java.io.Serializable;
 
 /**

@@ -1,7 +1,7 @@
 package at.gepardec.training.cdi.basic.scopes;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.SessionScoped;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.SessionScoped;
 import java.io.Serializable;
 
 @ApplicationScoped

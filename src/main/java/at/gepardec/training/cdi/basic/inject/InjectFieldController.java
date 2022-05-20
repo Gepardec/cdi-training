@@ -1,9 +1,9 @@
 package at.gepardec.training.cdi.basic.inject;
 
-import javax.enterprise.context.RequestScoped;
-import javax.mvc.Controller;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.mvc.Controller;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 
 /**
  * What's going on wrong in this endpoint, so that it fails?

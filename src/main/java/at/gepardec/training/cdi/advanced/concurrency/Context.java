@@ -1,6 +1,6 @@
 package at.gepardec.training.cdi.advanced.concurrency;
 
-import javax.enterprise.inject.Vetoed;
+import jakarta.enterprise.inject.Vetoed;
 
 /**
  * When handling concurrency then keep things immutable wherever you can.

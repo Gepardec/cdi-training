@@ -2,7 +2,7 @@ package at.gepardec.training.cdi.advanced.specializes;
 
 import at.gepardec.training.cdi.Util;
 
-import javax.enterprise.context.RequestScoped;
+import jakarta.enterprise.context.RequestScoped;
 
 /**
  * That is the implementation we specialize

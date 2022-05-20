@@ -2,11 +2,11 @@ package at.gepardec.training.cdi.advanced.startupevent;
 
 import org.slf4j.Logger;
 
-import javax.enterprise.event.Event;
-import javax.inject.Inject;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+import jakarta.enterprise.event.Event;
+import jakarta.inject.Inject;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
 
 /**
  * When the servlet container is up then the CDI container is up as well

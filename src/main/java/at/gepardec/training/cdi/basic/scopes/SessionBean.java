@@ -1,6 +1,6 @@
 package at.gepardec.training.cdi.basic.scopes;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 import java.io.Serializable;
 
 public class SessionBean implements Serializable {

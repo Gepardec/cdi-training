@@ -2,7 +2,7 @@ package at.gepardec.training.cdi.advanced.dynamicdefault;
 
 import at.gepardec.training.cdi.Util;
 
-import javax.enterprise.context.RequestScoped;
+import jakarta.enterprise.context.RequestScoped;
 
 @RequestScoped
 @ServiceTwoQualifier

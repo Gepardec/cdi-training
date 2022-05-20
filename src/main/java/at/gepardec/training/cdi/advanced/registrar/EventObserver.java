@@ -1,8 +1,8 @@
 package at.gepardec.training.cdi.advanced.registrar;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.ObservesAsync;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.event.ObservesAsync;
+import jakarta.inject.Inject;
 
 /**
  * Just firing an event and forgetting it mostly not possible.

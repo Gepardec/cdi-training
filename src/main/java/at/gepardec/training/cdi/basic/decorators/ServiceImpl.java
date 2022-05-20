@@ -2,8 +2,8 @@ package at.gepardec.training.cdi.basic.decorators;
 
 import org.slf4j.Logger;
 
-import javax.enterprise.context.Dependent;
-import javax.inject.Inject;
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Inject;
 
 @Dependent
 public class ServiceImpl implements ServiceApi {

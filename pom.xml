@@ -10,33 +10,34 @@
 
     <properties>
         <!-- Plugin Versions -->
-        <compiler-plugin.version>3.8.1</compiler-plugin.version>
-        <war-plugin.version>3.3.1</war-plugin.version>
-        <wildfly-plugin.version>2.1.0.Beta1</wildfly-plugin.version>
+        <compiler-plugin.version>3.10.1</compiler-plugin.version>
+        <war-plugin.version>3.3.2</war-plugin.version>
+        <wildfly-plugin.version>3.0.0.Final</wildfly-plugin.version>
 
         <!-- Dependency Versions -->
-        <wildfly.version>23.0.2.Final</wildfly.version>
-        <krazo.version>1.1.0</krazo.version>
+        <jakartaee-api.version>9.1.0</jakartaee-api.version>
+        <wildfly.version>26.1.0.Final</wildfly.version>
+        <krazo.version>2.0.0</krazo.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
-        <version.omnifaces>3.11</version.omnifaces>
+        <version.omnifaces>4.0-M15</version.omnifaces>
         <version.webjar.font-awesome>5.15.2</version.webjar.font-awesome>
         <version.webjar.mdb-ui-kit>3.9.0</version.webjar.mdb-ui-kit>
 
         <!-- Plugin Properties -->
         <maven.compiler.parameters>true</maven.compiler.parameters>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <revision>1.0.0-SNAPSHOT</revision>
+        <revision>2.0.0-SNAPSHOT</revision>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.wildfly.bom</groupId>
-                <artifactId>wildfly-jakartaee8-with-tools</artifactId>
+                <artifactId>wildfly-jakartaee8</artifactId>
                 <version>${wildfly.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -45,46 +46,12 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Wildfly Spec Dependencies -->
-        <dependency>
-            <groupId>jakarta.enterprise</groupId>
-            <artifactId>jakarta.enterprise.cdi-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
 
+        <!-- Jakarta EE 9 spec, no wildfly BOM found that -->
         <dependency>
-            <groupId>org.jboss.spec.javax.faces</groupId>
-            <artifactId>jboss-jsf-api_2.3_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jboss.spec.javax.ws.rs</groupId>
-            <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jboss.spec.javax.interceptor</groupId>
-            <artifactId>jboss-interceptors-api_1.2_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jboss.spec.javax.annotation</groupId>
-            <artifactId>jboss-annotations-api_1.3_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jboss.spec.javax.servlet</groupId>
-            <artifactId>jboss-servlet-api_4.0_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jboss.spec.javax.enterprise.concurrent</groupId>
-            <artifactId>jboss-concurrency-api_1.0_spec</artifactId>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>${jakartaee-api.version}</version>
             <scope>provided</scope>
         </dependency>
 
