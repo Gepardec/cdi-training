@@ -1,7 +1,7 @@
 <ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:tag="http://tags.cdi.training.gepardec.com">
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:tag="http://tags.cdi.training.gepardec.com">
 
     <ui:define name="title">
         Advanced
@@ -18,12 +18,12 @@
 
                     <div class="text-center">
                         <h:graphicImage name="img/advanced/concurrency/intro.svg" height="200px"
-                            width="100%" alt="Concurrency" />
+                                        width="100%" alt="Concurrency"/>
                     </div>
                 </ui:define>
 
                 <ui:define name="buttons">
-                    <tag:button id="toConcurrency" text="Example" path="/advanced/concurrency" />
+                    <tag:button id="toConcurrency" text="Example" path="/advanced/concurrency"/>
                 </ui:define>
             </tag:card>
         </section>
@@ -37,12 +37,12 @@
 
                     <div class="text-center">
                         <h:graphicImage name="img/advanced/dynamic-default/intro.svg" height="120px"
-                            width="100%" alt="Dynamic Default" />
+                                        width="100%" alt="Dynamic Default"/>
                     </div>
                 </ui:define>
 
                 <ui:define name="buttons">
-                    <tag:button id="toDynamicDefault" text="Example" path="/advanced/dynamic-default" />
+                    <tag:button id="toDynamicDefault" text="Example" path="/advanced/dynamic-default"/>
                 </ui:define>
             </tag:card>
         </section>
@@ -57,12 +57,12 @@
 
                     <div class="text-center">
                         <h:graphicImage name="img/advanced/alternative/intro.svg" height="120px"
-                            width="100%" alt="Alternative" />
+                                        width="100%" alt="Alternative"/>
                     </div>
                 </ui:define>
 
                 <ui:define name="buttons">
-                    <tag:button id="toAlternatives" text="Example" path="/advanced/alternatives" />
+                    <tag:button id="toAlternatives" text="Example" path="/advanced/alternatives"/>
                 </ui:define>
             </tag:card>
         </section>
@@ -78,12 +78,12 @@
 
                     <div class="text-center">
                         <h:graphicImage name="img/advanced/specializes/intro.svg" height="120px"
-                            width="100%" alt="Specializes" />
+                                        width="100%" alt="Specializes"/>
                     </div>
                 </ui:define>
 
                 <ui:define name="buttons">
-                    <tag:button id="toSpecializes" text="Example" path="/advanced/specializes" />
+                    <tag:button id="toSpecializes" text="Example" path="/advanced/specializes"/>
                 </ui:define>
             </tag:card>
         </section>
@@ -100,12 +100,12 @@
 
                     <div class="text-center">
                         <h:graphicImage name="img/advanced/registrar/intro.svg" height="200px"
-                            width="100%" alt="Registrar" />
+                                        width="100%" alt="Registrar"/>
                     </div>
                 </ui:define>
 
                 <ui:define name="buttons">
-                    <tag:button id="toRegistrar" text="Example" path="/advanced/registrar" />
+                    <tag:button id="toRegistrar" text="Example" path="/advanced/registrar"/>
                 </ui:define>
             </tag:card>
         </section>
@@ -121,12 +121,31 @@
 
                     <div class="text-center">
                         <h:graphicImage name="img/advanced/startup-event/intro.svg" height="250px"
-                            width="100%" alt="Startup Event" />
+                                        width="100%" alt="Startup Event"/>
                     </div>
                 </ui:define>
 
                 <ui:define name="buttons">
-                    <tag:button id="toStartEvent" text="Example" path="/advanced/startup-event" />
+                    <tag:button id="toStartEvent" text="Example" path="/advanced/startup-event"/>
+                </ui:define>
+            </tag:card>
+        </section>
+
+        <section>
+            <tag:card id="instance" title="Instance&lt;T&gt;">
+                <ui:define name="body">
+                    <p>
+                        Instance&lt;T&gt; is the CDI API which is used to programmatically lookup CDI Beans.
+                    </p>
+
+                    <div class="text-center">
+                        <h:graphicImage name="img/advanced/instance/solution.svg" height="250px"
+                                        width="100%" alt="Startup Event"/>
+                    </div>
+                </ui:define>
+
+                <ui:define name="buttons">
+                    <tag:button id="toInstance" text="Example" path="/advanced/instance"/>
                 </ui:define>
             </tag:card>
         </section>
@@ -143,7 +162,7 @@
                 </ui:define>
 
                 <ui:define name="buttons">
-                    <tag:button id="toLookupFactory" text="Example" path="/advanced/lookup-factory/A" />
+                    <tag:button id="toLookupFactory" text="Example" path="/advanced/lookup-factory/A"/>
                 </ui:define>
             </tag:card>
         </section>

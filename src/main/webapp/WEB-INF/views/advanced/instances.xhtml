@@ -1,0 +1,123 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+>
+    <!--@elvariable id="result" type="java.lang.String"-->
+
+    <ui:define name="title">
+        Instance&lt;T&gt;
+    </ui:define>
+
+    <ui:define name="body">
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Instance&lt;T&gt;</h1>
+                    </div>
+                </div>
+
+                <hr class="my-3"/>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <p>
+                        The specification for the
+                        <a
+                                href="#{cdiUri.specUri}#programmatic_lookup" target="_blank">
+                            programmatic lookup
+                        </a>
+                        in CDI.
+                    </p>
+
+                    <hr class="mt-3 mb-1"/>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>Situation</h4>
+                    <p>
+                        An application needs o be able to dynamically lookup a CDI Bean, depending on a dynamic runtime state.
+                    </p>
+
+                    <div class="text-center">
+                        <h:graphicImage name="img/advanced/instance/problem.svg" height="200px"
+                                        width="100%" alt="Startup Event"/>
+                    </div>
+
+                    <hr class="my-3"/>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>Problem</h4>
+                    <p>
+                        CDI injections are static and defined during compile-time and cannot be changed during runtime. Dynamic injections are not supported in CDI.
+                    </p>
+
+                    <hr class="my-3"/>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>Solution</h4>
+                    <p>
+                        <code>Instance&lt;T&gt;</code> is a generic typeable CDI Bean which can be typed with the bean type it shall provide dynamic access to.
+                        The generic type variable can be used to filter bean-types which are in the same type-hierarchy.
+                    </p>
+
+                    <div class="text-center">
+                        <h:graphicImage name="img/advanced/instance/solution.svg" height="350px"
+                                        width="100%" alt="Startup Event"/>
+                    </div>
+
+                    <div class="alert alert-danger mt-2 mb-2" role="alert">
+                        <code>@Dependent</code> scoped CDI Beans are owned by the CDI Bean which injects it.
+                        When looked up via
+                        <code>Instance&lt;T&gt;</code> then the owner is not the CDI Bean instrumenting
+                        <code>Instance&lt;T&gt;</code> but <code>Instance&lt;T&gt;</code> itself.
+                        <code>@Dependent</code> scoped CDI Beans looked up by
+                        <code>Instance&lt;T&gt;</code> must be destroyed after usage, otherwise memory leaks occur.
+                    </div>
+
+                    <hr class="my-3"/>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="row">
+                    <div class="col text-center">
+                        <span class="h4">Resolved Beans via Instance&lt;T&gt;</span>
+                    </div>
+                </div>
+                <hr class="my-3"/>
+                <div class="col">
+                    <ui:repeat value="#{data}" var="entry">
+                        <div class="row">
+                            <div class="col-5">
+                                <code>#{entry.key}</code>
+                            </div>
+                            <div class="col">
+                                &#8594;
+                            </div>
+                            <div class="col-5">
+                                <ui:repeat value="#{entry.value}" var="name">
+                                    <div class="row">
+                                        <code>#{name}</code>
+                                    </div>
+                                </ui:repeat>
+                            </div>
+                        </div>
+
+                        <hr class="my-3"/>
+                    </ui:repeat>
+                </div>
+            </div>
+
+        </div>
+    </ui:define>
+</ui:composition>
