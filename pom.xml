@@ -68,6 +68,13 @@
             <artifactId>krazo-core</artifactId>
             <version>${krazo.version}</version>
             <scope>compile</scope>
+            <exclusions>
+                <!-- Pollutes classpath with javax.* classes -->
+                <exclusion>
+                    <groupId>jakarta.enterprise</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>

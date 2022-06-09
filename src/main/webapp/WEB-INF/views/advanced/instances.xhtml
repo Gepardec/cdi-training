@@ -66,7 +66,8 @@
                 <div class="col">
                     <h4>Solution</h4>
                     <p>
-                        <code>Instance&lt;T&gt;</code> is a generic typeable CDI Bean which can be typed with the bean type it shall provide dynamic access to.
+                        <code>Instance&lt;T&gt;instance;</code><br/>
+                        is a generic typeable CDI Bean which can be typed with the bean type it shall provide dynamic access to.
                         The generic type variable can be used to filter bean-types which are in the same type-hierarchy.
                     </p>
 
@@ -75,14 +76,24 @@
                                         width="100%" alt="Startup Event"/>
                     </div>
 
-                    <div class="alert alert-danger mt-2 mb-2" role="alert">
+                    <hr class="my-3"/>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>Pitfalls/Effects</h4>
+                    In this section we discuss some of the pitfalls/effects when it comes to programmatic lookup of CDI Beans.<br/><br/>
+
+                    <h5>Dependent Scoped CDI Beans</h5>
+                    <p>
                         <code>@Dependent</code> scoped CDI Beans are owned by the CDI Bean which injects it.
                         When looked up via
                         <code>Instance&lt;T&gt;</code> then the owner is not the CDI Bean instrumenting
-                        <code>Instance&lt;T&gt;</code> but <code>Instance&lt;T&gt;</code> itself.
+                        <code>Instance&lt;T&gt;</code>, but <code>Instance&lt;T&gt;</code> itself.
                         <code>@Dependent</code> scoped CDI Beans looked up by
                         <code>Instance&lt;T&gt;</code> must be destroyed after usage, otherwise memory leaks occur.
-                    </div>
+                    </p>
 
                     <hr class="my-3"/>
                 </div>
@@ -98,13 +109,13 @@
                 <div class="col">
                     <ui:repeat value="#{data}" var="entry">
                         <div class="row">
-                            <div class="col-5">
+                            <div class="col-4">
                                 <code>#{entry.key}</code>
                             </div>
                             <div class="col">
                                 &#8594;
                             </div>
-                            <div class="col-5">
+                            <div class="col-6">
                                 <ui:repeat value="#{entry.value}" var="name">
                                     <div class="row">
                                         <code>#{name}</code>

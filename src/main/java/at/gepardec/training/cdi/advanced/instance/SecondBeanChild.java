@@ -1,9 +1,8 @@
 package at.gepardec.training.cdi.advanced.instance;
 
 import jakarta.enterprise.context.RequestScoped;
-import jakarta.enterprise.inject.Default;
 
-@Default
+@Second
 @RequestScoped
-public class BeanChild implements BeanInterfaceChild {
+public class SecondBeanChild implements BeanInterfaceChild {
 }
