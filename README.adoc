@@ -48,8 +48,8 @@ A theoretical insight into the CDI specs scopes, interceptors, decorators and ev
 
 The following resources are useful when implementing CDI backed applications:
 
-* link:https://jakarta.ee/specifications/cdi/2.0/[CDI 2.0 Specification] +
-The official CDI 2.0 specification of Jakarta EE
+* link:https://jakarta.ee/specifications/cdi/3.0/[CDI 3.0 Specification] +
+The official CDI 3.0 specification of Jakarta EE
 
 == Used Tools
 
