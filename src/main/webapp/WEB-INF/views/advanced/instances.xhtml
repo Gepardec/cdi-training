@@ -66,8 +66,7 @@
                 <div class="col">
                     <h4>Solution</h4>
                     <p>
-                        <code>Instance&lt;T&gt;instance;</code><br/>
-                        is a generic typeable CDI Bean which can be typed with the bean type it shall provide dynamic access to.
+                        <code>Instance&lt;T&gt;</code> is a generic typeable CDI Bean which is typed with the bean type it provides dynamic access to.
                         The generic type variable can be used to filter bean-types which are in the same type-hierarchy.
                     </p>
 
@@ -75,25 +74,6 @@
                         <h:graphicImage name="img/advanced/instance/solution.svg" height="350px"
                                         width="100%" alt="Startup Event"/>
                     </div>
-
-                    <hr class="my-3"/>
-                </div>
-            </div>
-
-            <div class="row my-2">
-                <div class="col">
-                    <h4>Pitfalls/Effects</h4>
-                    In this section we discuss some of the pitfalls/effects when it comes to programmatic lookup of CDI Beans.<br/><br/>
-
-                    <h5>Dependent Scoped CDI Beans</h5>
-                    <p>
-                        <code>@Dependent</code> scoped CDI Beans are owned by the CDI Bean which injects it.
-                        When looked up via
-                        <code>Instance&lt;T&gt;</code> then the owner is not the CDI Bean instrumenting
-                        <code>Instance&lt;T&gt;</code>, but <code>Instance&lt;T&gt;</code> itself.
-                        <code>@Dependent</code> scoped CDI Beans looked up by
-                        <code>Instance&lt;T&gt;</code> must be destroyed after usage, otherwise memory leaks occur.
-                    </p>
 
                     <hr class="my-3"/>
                 </div>
@@ -128,7 +108,6 @@
                     </ui:repeat>
                 </div>
             </div>
-
         </div>
     </ui:define>
 </ui:composition>

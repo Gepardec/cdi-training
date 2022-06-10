@@ -43,15 +43,9 @@ public class InstanceController {
     @Any
     private Instance<BeanParent> beanParentInstance;
 
-    @Inject
-    private Instance<DependentScopedBean> dependentScopedBeanInstance;
-
     @Controller
     @GET
     public String get() {
-        IntStream.range(0, 10000).forEach(i -> {
-            dependentScopedBeanInstance.get();
-        });
         final Map<String, List<String>> data = new LinkedHashMap<>();
         fillInForTypeAndInstance(data, "@Inject @Any", BeanInterfaceRoot.class, beanInterfaceRootInstance);
         fillInForTypeAndInstance(data, "@Inject @Any", BeanParent.class, beanParentInstance);
