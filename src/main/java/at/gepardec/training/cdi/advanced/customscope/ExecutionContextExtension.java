@@ -24,7 +24,7 @@ public class ExecutionContextExtension implements Extension {
                 .addQualifier(Default.Literal.INSTANCE)
                 .addType(ExecutionContextController.class)
                 .beanClass(ExecutionContextExtension.class)
-                .createWith(ctx -> new ExecutionContextControllerDelegate(CONTEXT_SINGLETON));
+                .createWith(ctx -> new ExecutionContextControllerImpl(CONTEXT_SINGLETON));
     }
 
 }

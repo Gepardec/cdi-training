@@ -166,5 +166,24 @@
                 </ui:define>
             </tag:card>
         </section>
+
+        <section>
+            <tag:card id="customScope" title="Custom Scope">
+                <ui:define name="body">
+                    <p>
+                        CDI proivdes built-in scopes, but we can implement our own scope which lifecycle we can control.
+                    </p>
+
+                    <div class="text-center">
+                        <h:graphicImage name="img/advanced/customscope/class-diagram-scope-extension.svg" height="350px"
+                                        width="100%" alt="Class diagram CDI Scope/Context/Extension"/>
+                    </div>
+                </ui:define>
+
+                <ui:define name="buttons">
+                    <tag:button id="tocCustomScope" text="Example" path="/advanced/customscope"/>
+                </ui:define>
+            </tag:card>
+        </section>
     </ui:define>
 </ui:composition>

@@ -4,6 +4,10 @@
        xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/beans_3_0.xsd"
        bean-discovery-mode="all" version="3.0">
 
+    <interceptors>
+        <class>at.gepardec.training.cdi.advanced.customscope.WithExecutionScopeInterceptor</class>
+    </interceptors>
+
     <alternatives>
         <class>at.gepardec.training.cdi.advanced.alternatives.ServiceDev</class>
     </alternatives>

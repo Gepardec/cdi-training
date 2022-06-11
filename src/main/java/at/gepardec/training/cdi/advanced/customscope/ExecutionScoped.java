@@ -7,6 +7,9 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+/**
+ * The custom scope which is a normal scope (proxyable).
+ */
 @NormalScope
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited

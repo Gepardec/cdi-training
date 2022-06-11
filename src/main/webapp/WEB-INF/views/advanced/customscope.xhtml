@@ -1,0 +1,170 @@
+<ui:composition template="/WEB-INF/layout/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+>
+    <!--@elvariable id="data" type="java.lang.String"-->
+
+    <ui:define name="title">
+        Custom Scope
+    </ui:define>
+
+    <ui:define name="body">
+        <div class="container-lg">
+            <div class="row my-2">
+                <div class="col">
+                    <div class="text-center">
+                        <h1>Custom Scope</h1>
+                    </div>
+                </div>
+
+                <hr class="my-3"/>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <p>
+                        The specification for
+                        <a
+                                href="#{cdiUri.specUri}#defining_new_scope_type" target="_blank">
+                            scope
+                        </a>/
+
+                        <a
+                                href="#{cdiUri.specUri}#context" target="_blank">
+                            context
+                        </a>
+                        in CDI.
+                    </p>
+
+                    <hr class="mt-3 mb-1"/>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>Situation</h4>
+                    <p>
+                        An application needs o be able to control the lifecycle and lifetime of CDI beans to ensure that
+                        CDI beans are the same instance wihtin a single execution but different instances for different executions.
+                    </p>
+
+                    <hr class="my-3"/>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>Problem</h4>
+                    <p>
+                        CDI built-in scopes have a defined lifecycle and cannot be controlled by an application in an JEE environment,
+                        but the CDI RequestContext, which can be controlled by <code>RequestContextController</code>.
+                        But the application needs to control the lifecycle of a CDI bean within its own, non built-in CDI scope.
+                    </p>
+
+                    <hr class="my-3"/>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col">
+                    <h4>Solution</h4>
+                    <p>
+                        We implement a cusom CDI scope/context which lifetime we can control. CDI beans will be bound to
+                        the custom scope and live as long as the underlying CDI context is active and will be destroyed afterwards.
+                    </p>
+
+                    <p>
+                        The following class diagram illustrates the implemented CDI scope/context/extension which you
+                        can inspect in the package <code>at.gepardec.training.cdi.advanced.customscope</code>
+                    </p>
+
+                    <div class="text-center mb-3">
+                        <h:graphicImage name="img/advanced/customscope/class-diagram-scope-extension.svg" height="400px"
+                                        width="100%" alt="Class diagram CDI Scope/Context/Extension"/>
+                    </div>
+
+                    <p>
+                        <code>ExecutionScoped</code> is the CDI scope annotation which can be used on CDI beans, producer fields/methods and injection points,
+                        and marks a CDI bean to be a part of this scope.
+                    </p>
+
+                    <p>
+                        <code>ExecutionContextController</code> is the interface specifying the activate/deactivate operations
+                        for controlling the context lifecycle.
+                    </p>
+
+                    <p>
+                        <code>ExecutionContext</code> is the interface representing the custom context and extends the CDI interface
+                        <code>Context</code> and <code>ExecutionContextController</code>.
+                    </p>
+
+                    <p>
+                        <code>ExecutionContextInstance</code> is a model holding the actual instance, the related
+                        <code>CreationalContext</code> and <code>Contextual</code> instances, so the CDI bean can be properly
+                        destroyed when then CDI context gets deactivated.
+                    </p>
+
+                    <p>
+                        <code>ExecutionContextImpl</code> is the implementation of the custom context, which manages the
+                        CDI beans within an active CDI context in <code>ThreadLocal</code> instances. Therefore the lifecycle
+                        of the CDI context/beans is bound to the Thread they are accessed on. There is exactly one CDI context instance
+                        in the CDI container, which differantiates active contexts via the <code>ThreadLocal</code> instances.
+                    </p>
+
+                    <p>
+                        <code>ExecutionContextControllerImpl</code> is the implementation of <code>ExecutionContextController</code>
+                        and is registered as a CDI bean programmatically in <code>ExecutionContextExtension</code>.
+                        This CDI bean is used to control the CDI context lifecycle as needed.
+                    </p>
+
+                    <p>
+                        <code>ExecutionContextExtension</code> is the CDI extension which observers container lifecycle
+                        events during the CDI container bootstrap, and registers the custom context. The CDI extension instance holds
+                        the singleton CDI context instance.
+                    </p>
+
+                    <p>
+                        The CDI context is controlled via a CDI interceptor <code>WithExecutionScopeInterceptor</code>
+                        with the binding <code>WithExecutionScope</code>. The CDI bean <code>WithExecutionScopeService</code>
+                        uses the CDI interceptor on class level. Therefore, all CDI beans accessed within one of its methods
+                        are the same instance for a current method invocation and will be new instances for another method invocation.
+                    </p>
+
+                    <hr class="my-3"/>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="row">
+                    <div class="col text-center">
+                        <span class="h4">ExecutionScoped execution instances</span>
+                    </div>
+                </div>
+
+                <hr class="my-3"/>
+
+                <div class="col">
+                    <ui:repeat value="#{data}" var="entry">
+                        <div class="row">
+                            <div class="col-2">
+                                <code>#{entry.key}</code>
+                            </div>
+                            <div class="col">
+                                &#8594;
+                            </div>
+                            <div class="col-8">
+                                <ui:repeat value="#{entry.value}" var="name">
+                                    <div class="row">
+                                        <code>#{name}</code>
+                                    </div>
+                                </ui:repeat>
+                            </div>
+                        </div>
+
+                        <hr class="my-3"/>
+                    </ui:repeat>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

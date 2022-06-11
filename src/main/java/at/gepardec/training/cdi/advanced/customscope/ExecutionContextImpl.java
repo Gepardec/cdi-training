@@ -4,6 +4,8 @@ import jakarta.enterprise.context.ContextNotActiveException;
 import jakarta.enterprise.context.spi.Contextual;
 import jakarta.enterprise.context.spi.CreationalContext;
 import jakarta.enterprise.inject.Vetoed;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.annotation.Annotation;
 import java.util.Collections;
@@ -17,10 +19,12 @@ import java.util.Optional;
 @Vetoed
 public class ExecutionContextImpl implements ExecutionContext {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ExecutionContextImpl.class);
+
     /**
-     * A execution-context is bound to the current Thread whereby ThreadLocal manages the bean instances.
+     * An execution-context is bound to the current Thread whereby ThreadLocal manages the bean instances.
      */
-    private static ThreadLocal<Map<Contextual<?>, ExecutionScopedInstance>> INSTANCES = new ThreadLocal<>();
+    private static ThreadLocal<Map<Contextual<?>, ExecutionContextInstance>> INSTANCES = new ThreadLocal<>();
 
     @Override
     public Class<? extends Annotation> getScope() {
@@ -33,9 +37,9 @@ public class ExecutionContextImpl implements ExecutionContext {
         if (instancesOfThread == null) {
             throw new ContextNotActiveException("No active context for current Thread");
         }
-        ExecutionScopedInstance<T> instance = instancesOfThread.get(contextual);
-        if(instance == null && creationalContext != null) {
-            instance = new ExecutionScopedInstance(contextual.create(creationalContext), creationalContext, contextual);
+        ExecutionContextInstance<T> instance = instancesOfThread.get(contextual);
+        if (instance == null && creationalContext != null) {
+            instance = new ExecutionContextInstance(contextual.create(creationalContext), creationalContext, contextual);
             instancesOfThread.put(contextual, instance);
         }
 
@@ -55,10 +59,14 @@ public class ExecutionContextImpl implements ExecutionContext {
     @Override
     public void destroy(Contextual<?> contextual) {
         var instancesOfThread = INSTANCES.get();
-        if(instancesOfThread != null) {
-           var instance = instancesOfThread.get(contextual);
-            if(instance != null) {
-                instance.destroy();
+        if (instancesOfThread != null) {
+            var instance = instancesOfThread.get(contextual);
+            if (instance != null) {
+                try {
+                    instance.destroy();
+                } catch (Exception e) {
+                    LOG.warn("Could not destroy the contextual instance. Error: " + e.getMessage());
+                }
             }
         }
     }
