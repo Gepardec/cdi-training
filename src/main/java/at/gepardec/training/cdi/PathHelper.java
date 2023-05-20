@@ -39,6 +39,10 @@ public class PathHelper {
         return basePath() + path;
     }
 
+    public String buildContextRootedPath(String path) {
+        return servletRequest.getServletContext().getContextPath() + path;
+    }
+
     public String buildResourcePath(String path) {
         return resourcePath() + path;
     }

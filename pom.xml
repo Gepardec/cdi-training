@@ -12,14 +12,14 @@
         <!-- Plugin Versions -->
         <compiler-plugin.version>3.10.1</compiler-plugin.version>
         <war-plugin.version>3.3.2</war-plugin.version>
-        <wildfly-plugin.version>3.0.0.Final</wildfly-plugin.version>
+        <wildfly-plugin.version>4.1.0.Final</wildfly-plugin.version>
 
         <!-- Dependency Versions -->
-        <jakartaee-api.version>9.1.0</jakartaee-api.version>
-        <wildfly.version>26.1.0.Final</wildfly.version>
-        <krazo.version>2.0.0</krazo.version>
+        <jakartaee-api.version>10.0.0</jakartaee-api.version>
+        <wildfly.version>27.0.0.Final</wildfly.version>
+        <krazo.version>3.0.1</krazo.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
-        <version.omnifaces>4.0-M15</version.omnifaces>
+        <version.omnifaces>4.1</version.omnifaces>
         <version.webjar.font-awesome>5.15.2</version.webjar.font-awesome>
         <version.webjar.mdb-ui-kit>3.9.0</version.webjar.mdb-ui-kit>
 
@@ -30,14 +30,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <revision>2.0.0-SNAPSHOT</revision>
+        <revision>2.1.0-SNAPSHOT</revision>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.wildfly.bom</groupId>
-                <artifactId>wildfly-jakartaee8</artifactId>
+                <artifactId>wildfly-ee</artifactId>
                 <version>${wildfly.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -64,17 +64,17 @@
 
         <!-- Application Dependencies -->
         <dependency>
+            <groupId>jakarta.mvc</groupId>
+            <artifactId>jakarta.mvc-api</artifactId>
+            <version>2.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.eclipse.krazo</groupId>
             <artifactId>krazo-core</artifactId>
             <version>${krazo.version}</version>
             <scope>compile</scope>
-            <exclusions>
-                <!-- Pollutes classpath with javax.* classes -->
-                <exclusion>
-                    <groupId>jakarta.enterprise</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -154,4 +154,20 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
