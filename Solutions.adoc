@@ -1,0 +1,231 @@
+= CDI Training - Solutions
+
+== Injection
+
+=== Field Example
+
+Replace `private InjectModel model = new InjectModel();` by `@Inject private InjectModel model;`
+
+=== Constructor Excample
+
+Add missing `@Inject`-Annotation to constructor `public InjectConstructorController(InjectModel model)`
+
+== Scopes
+
+=== Basic
+
+* `RequestBean`: replace `ApplicationScoped` by `RequestScoped`
+* `SessionBean`: add missing scope `SessionScoped`
+* `ApplicationBean`: add missing scope `ApplicationScoped`
+
+=== Mixed
+
+* `MixedApplicationBean`: replace `Dependent` by `ApplicationScoped`
+* `MixedRequestBean`: replace `ApplicationScoped` by `RequestScoped`
+* `MixedSessionBean`: replace `RequestScoped` by `SessionScoped`
+
+=== Dependent
+
+Add `Dependent` to `DependentBean`
+
+== Initialization
+
+* Add `PostConstruct` to `BaseBean.logInit()`
+* Add `PreDestroy` to `BaseBean.logDestroy()`
+* `InitializationController`: as beans are lazily created on-demand we have to call at least one method during `get()`. E.g. `requestBean.toString();`
+
+== Qualifiers
+
+* Create new Annotation
+
+[source,java]
+----
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Qualifier
+public @interface QualifiedShape {
+
+    Variant value() default Variant.CIRCLE;
+
+    enum Variant {CIRCLE, RECTANGLE}
+}
+----
+
+* `Circle`: add `@QualifiedShape(QualifiedShape.Variant.CIRCLE)`
+* `Rectangle`
+** remove `@Alternative`
+** add `@QualifiedShape(QualifiedShape.Variant.RECTANGLE)`
+* `QualifiersController`
+** add `@QualifiedShape(QualifiedShape.Variant.CIRCLE)` to `circle`-field
+** add `@QualifiedShape(QualifiedShape.Variant.RECTANGLE)` to `rectangle`-field
+
+== Producers
+
+* `Producer`: add following methods
+
+[source,java]
+----
+@Produces
+@RequestScoped
+@QualifiedShape(QualifiedShape.Variant.CIRCLE)
+public List<Shape> createCircles() {
+    return List.of(new Circle(), new Circle());
+}
+
+@Produces
+@ApplicationScoped
+@QualifiedShape(QualifiedShape.Variant.RECTANGLE)
+public List<Shape> createRectangles() {
+    return List.of(new Rectangle(), new Rectangle(), new Rectangle());
+}
+----
+
+* `ProducersController`
+
+add following members
+
+[source,java]
+----
+@Inject
+@QualifiedShape(QualifiedShape.Variant.CIRCLE)
+private List<Shape> circles;
+@Inject
+@QualifiedShape(QualifiedShape.Variant.RECTANGLE)
+private List<Shape> rectangles;
+----
+
+put those members into the model
+
+[source,java]
+----
+model.put("circleList", Util.namesWithInstanceId(circles));
+model.put("rectangleList", Util.namesWithInstanceId(rectangles));
+----
+
+== Interceptors
+
+=== 1. Enable via `@Priority`
+
+* `FirstInterceptor`: add `@Priority(1)`
+* `SecondInterceptor`: add `@Priority(2)`
+
+=== 2. Enable via `beans.xml`
+
+Simply add the 2 interceptors:
+
+[source,xml]
+----
+<interceptors>
+    <class>at.gepardec.training.cdi.basic.interceptors.FirstInterceptor</class>
+    <class>at.gepardec.training.cdi.basic.interceptors.SecondInterceptor</class>
+</interceptors>
+----
+
+=== 3. Interceptors with bindings
+
+* Implement new annotation
+
+[source,java]
+----
+@Inherited
+@InterceptorBinding
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface BoundIntercept {
+    String value();
+}
+----
+
+* Implement 2 Interceptors having this annotation
+
+[source,java]
+----
+@Interceptor
+@BoundIntercept("this")
+@Priority(1)
+public class MyBindingInterceptor extends BaseInterceptor {
+
+    @AroundInvoke
+    public Object intercept(InvocationContext ic) throws Exception {
+        return logAndProceed(ic);
+    }
+}
+----
+
+[source,java]
+----
+@Interceptor
+@BoundIntercept("another")
+@Priority(1)
+public class MyOtherBindingInterceptor extends BaseInterceptor {
+
+    @AroundInvoke
+    public Object intercept(InvocationContext ic) throws Exception {
+        return logAndProceed(ic);
+    }
+}
+----
+
+* `InterceptorsController`: add `BoundIntercept("this")` or `BoundIntercept("another")` and watch the results
+
+== Decorators
+
+Simply add `@Decorator` and `@Priority(1)` to `ServiceDecorator`
+
+== Events
+
+=== 1. Synchronous Events
+
+* `EventObserver`: add a method consuming the event
+
+[source,java]
+----
+void observe(@Observes EventData data) {
+    logger.info("Message received. Message: '{}'", data.message());
+}
+----
+
+* `EventController`
+** Inject the event via `@Inject Event<String> textEvent;`
+** fire the event in `get()` via `textEvent.fire("Hello")`
+
+=== 2. Asynchronous Events
+
+* `EventObserver`: remove `(notifyObserver = Reception.IF_EXISTS)` from `@ObserversAsync`-annotation as this causes the event to only be delivered to already existing cdi-beans
+
+* `EventController`: fire the event in `get()` via `textEvent.fireAsync("Hello")`
+
+=== 2. Event Types
+
+* Implement the required Event-Types
+
+[source,java]
+----
+public class EventDataOne implements EventData{
+    @Override public String message() {
+        return "I'm " + getClass().getSimpleName();
+    }
+}
+----
+
+[source,java]
+----
+public class EventDataTwo implements EventData{
+    @Override public String message() {
+        return "I'm " + getClass().getSimpleName();
+    }
+}
+----
+
+* `EventObserver`: implement an observer-method
+
+[source,java]
+----
+void observe(@Observes EventData data) {
+    logger.info("Message received. Message: '{}'", data.message());
+}
+----
+
+* `EventsController`
+** Inject the event-field via `@Inject Event<EventData> dataEvent;`
+** inside the `get()`-method fire the desired events via `dataEvent.fire(new EventDataOne());` and `dataEvent.fire(new EventDataTwo());`

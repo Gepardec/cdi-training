@@ -10,7 +10,7 @@ public class Util {
     private Util() {
     }
 
-    public static List<String> namesWithInstanceId(Collection<Object> object) {
+    public static List<String> namesWithInstanceId(Collection<?> object) {
         return object.stream().map(Util::nameWithInstanceId).collect(Collectors.toList());
     }
 

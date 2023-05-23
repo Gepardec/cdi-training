@@ -21,6 +21,10 @@
 
             <div class="row">
                 <div class="col">
+                    <p>
+                        There are cases where we want to perform some actions after our main module has been started/initialized.
+                        For this reason it is a common pattern to implement a <code>ServletContextListener</code> which then fires synchronous or asynchronous events (depending on your needs) to internal observers.
+                    </p>
                     <div class="row">
                         <div class="col text-center my-3">
                             <div>
