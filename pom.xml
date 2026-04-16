@@ -19,7 +19,7 @@
         <wildfly.version>27.0.0.Final</wildfly.version>
         <krazo.version>3.0.1</krazo.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
-        <version.omnifaces>4.1</version.omnifaces>
+        <version.omnifaces>4.7.5</version.omnifaces>
         <version.webjar.font-awesome>5.15.2</version.webjar.font-awesome>
         <version.webjar.mdb-ui-kit>3.9.0</version.webjar.mdb-ui-kit>
 
