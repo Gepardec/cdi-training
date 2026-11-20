@@ -4,10 +4,10 @@ This page represents the guide which will help you to setup the project on your 
 
 The project is based on the following listed specifications.
 
-* `Jakarte-EE-9`
-* `Jakarta-MVC-2.0.0` (JSF as template engine)
+* `Jakarta-EE-10`
+* `Jakarta-MVC-2.1.0` (JSF as template engine)
 
-The project uses the following client side libraries in form os webjars.
+The project uses the following client side libraries in form of webjars.
 
 * `MDB-3.9.0` (Based on Bootstrap 5.Final)
 * `Fontawesome-5.15.2`
@@ -16,9 +16,9 @@ The project uses the following client side libraries in form os webjars.
 
 This project depends on the following software:
 
-1. [OpenJDK-17](https://jdk.java.net/17/)
-2. [Wildfly-26.1.0.Final](https://www.wildfly.org/downloads/)
-3. [Maven-3.x.x](https://maven.apache.org/download.cgi)
+1. [OpenJDK-21](https://jdk.java.net/archive/)
+2. [WildFly-38.0.1.Final](https://www.wildfly.org/downloads/)
+3. [Maven-3.9+](https://maven.apache.org/download.cgi)
 
 ## How to set up your environment
 
@@ -90,7 +90,7 @@ public class MyController {
 }
 ```
 
-For further learning about `Jakarta-MVC` controller see the [Jakarta MVC 1.1.0 specification](https://jakarta.ee/specifications/mvc/1.1/jakarta-mvc-spec-1.1.html).
+For further learning about `Jakarta-MVC` controller see the [Jakarta MVC 2.1.0 specification](https://jakarta.ee/specifications/mvc/2.1/jakarta-mvc-spec-2.1).
 
 ## How to implement (MVC) JSF views
 
