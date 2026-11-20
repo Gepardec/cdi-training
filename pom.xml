@@ -10,23 +10,24 @@
 
     <properties>
         <!-- Plugin Versions -->
-        <compiler-plugin.version>3.10.1</compiler-plugin.version>
-        <war-plugin.version>3.3.2</war-plugin.version>
-        <wildfly-plugin.version>4.1.0.Final</wildfly-plugin.version>
+        <compiler-plugin.version>3.16.0</compiler-plugin.version>
+        <war-plugin.version>3.5.1</war-plugin.version>
+        <wildfly-plugin.version>6.2.0.Final</wildfly-plugin.version>
 
         <!-- Dependency Versions -->
         <jakartaee-api.version>10.0.0</jakartaee-api.version>
-        <wildfly.version>27.0.0.Final</wildfly.version>
+        <wildfly.version>38.0.1.Final</wildfly.version>
         <krazo.version>3.0.1</krazo.version>
-        <commons-lang3.version>3.12.0</commons-lang3.version>
-        <version.omnifaces>4.1</version.omnifaces>
+        <commons-lang3.version>3.22.0</commons-lang3.version>
+        <version.omnifaces>4.7.18</version.omnifaces>
         <version.webjar.font-awesome>5.15.2</version.webjar.font-awesome>
         <version.webjar.mdb-ui-kit>3.9.0</version.webjar.mdb-ui-kit>
 
         <!-- Plugin Properties -->
         <maven.compiler.parameters>true</maven.compiler.parameters>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>21</maven.compiler.release>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -47,7 +48,6 @@
 
     <dependencies>
 
-        <!-- Jakarta EE 9 spec, no wildfly BOM found that -->
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
